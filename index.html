@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="医学人工智能研究与行业动态证据简报">
+<title>MedAI Brief · 2026年8月7日</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #07100e;
+    --surface: #0d1916;
+    --surface-raised: #13231f;
+    --surface-soft: #0a1412;
+    --line: #294039;
+    --line-strong: #416158;
+    --ink: #eef4ec;
+    --paper: #e4eadf;
+    --muted: #9eafa8;
+    --dim: #6e827a;
+    --mint: #78e6bd;
+    --mint-soft: #b9f3dd;
+    --amber: #ffc36b;
+    --coral: #ff8076;
+    --research: #78e6bd;
+    --industry: #70b9ff;
+    --shadow: 0 28px 80px rgba(0,0,0,.4);
+    --page: 1200px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh; color: var(--ink);
+    background:
+      linear-gradient(rgba(120,230,189,.022) 1px, transparent 1px),
+      radial-gradient(circle at 80% -8%, rgba(120,230,189,.12), transparent 32rem),
+      var(--bg);
+    background-size: 100% 38px, auto, auto;
+    font-family: "Microsoft YaHei UI", "PingFang SC", sans-serif;
+    line-height: 1.75; overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--mint); outline-offset: 5px; }
+  .skip-link { position: fixed; left: 18px; top: 14px; z-index: 999; padding: 9px 13px; color: #07100e; background: var(--mint); font-size: .78rem; font-weight: 800; transform: translateY(-160%); }
+  .skip-link:focus { transform: translateY(0); }
+  .reading-progress { position: fixed; inset: 0 auto auto 0; z-index: 300; width: 0; height: 3px; background: linear-gradient(90deg, var(--mint), var(--industry)); }
+  .shell { width: min(var(--page), calc(100% - 48px)); margin-inline: auto; }
+
+  /* Clinical editorial masthead */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line-strong); }
+  .hero::after { content: "+"; position: absolute; right: max(24px, calc((100vw - var(--page)) / 2)); top: 8rem; color: rgba(120,230,189,.045); font: 300 clamp(15rem, 31vw, 29rem)/.65 "Times New Roman", serif; pointer-events: none; }
+  .masthead { position: relative; z-index: 1; display: flex; align-items: center; gap: 18px; min-height: 68px; border-bottom: 1px solid var(--line); color: var(--muted); font: 800 .68rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+  .masthead-brand { color: var(--mint); }
+  .masthead-rule { width: 42px; height: 1px; background: var(--line-strong); }
+  .masthead-status { margin-left: auto; display: inline-flex; align-items: center; gap: 10px; }
+  .masthead-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 6px rgba(120,230,189,.1); animation: pulse 2.6s ease-in-out infinite; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 11px rgba(120,230,189,0); } }
+  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 76px; align-items: end; padding: 76px 0 48px; }
+  .hero-grid > * { min-width: 0; }
+  .eyebrow { color: var(--mint); font: 800 .7rem/1 "Bahnschrift", sans-serif; letter-spacing: .18em; text-transform: uppercase; }
+  .hero-title { max-width: 820px; margin-top: 22px; color: var(--paper); font: 600 clamp(3.4rem, 7.4vw, 7.2rem)/.9 "STZhongsong", "SimSun", serif; letter-spacing: -.055em; }
+  .hero-title em { color: var(--mint); font-style: normal; }
+  .hero-deck { max-width: 760px; margin-top: 28px; color: var(--muted); font-size: .9rem; line-height: 1.95; }
+  .issue-panel { padding: 22px 0 8px 25px; border-left: 1px solid var(--line-strong); }
+  .issue-label { color: var(--dim); font: 800 .65rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+  .issue-date { margin-top: 14px; color: var(--paper); font: 600 1.25rem/1.45 "STZhongsong", "SimSun", serif; }
+  .issue-total { display: flex; align-items: baseline; gap: 11px; margin-top: 32px; }
+  .issue-total strong { color: var(--mint); font: 800 4.7rem/.82 "Bahnschrift", sans-serif; letter-spacing: -.07em; }
+  .issue-total span { color: var(--muted); font-size: .76rem; line-height: 1.65; }
+  .source-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .source-cell { padding: 18px 20px; background: rgba(10,20,18,.93); }
+  .source-cell small { display: block; color: var(--dim); font: 800 .61rem/1 "Bahnschrift", sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+  .source-cell strong { display: block; margin-top: 8px; color: var(--paper); font-size: .79rem; }
+
+  /* Two-level contents */
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,16,14,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+  .nav-inner { display: flex; align-items: stretch; min-height: 58px; overflow-x: auto; scrollbar-width: none; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-brand { display: flex; align-items: center; margin-right: auto; color: var(--dim); font: 800 .65rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; }
+  .nav-link { --nav-accent: var(--mint); position: relative; display: inline-flex; align-items: center; gap: 9px; padding: 0 19px; border-left: 1px solid var(--line); color: var(--muted); font-size: .76rem; font-weight: 800; white-space: nowrap; }
+  .nav-link:last-child { border-right: 1px solid var(--line); }
+  .nav-link--industry { --nav-accent: var(--industry); }
+  .nav-link::after { content: ""; position: absolute; inset: auto 17px 0; height: 2px; background: var(--nav-accent); transform: scaleX(0); transition: transform .2s ease; }
+  .nav-link:hover, .nav-link.active { color: var(--ink); }
+  .nav-link.active::after { transform: scaleX(1); }
+  .nav-count { min-width: 24px; padding: 1px 7px; border-radius: 99px; background: rgba(120,230,189,.1); color: var(--nav-accent); text-align: center; font: 800 .64rem/1.55 "Bahnschrift", sans-serif; }
+
+  main { padding: 84px 0 108px; }
+  .section { margin-bottom: 108px; scroll-margin-top: 86px; }
+  .section-heading { display: grid; grid-template-columns: 130px 1fr auto; gap: 28px; align-items: end; padding-bottom: 21px; border-bottom: 1px solid var(--line-strong); }
+  .section-index { color: var(--mint); font: 800 .7rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; }
+  .section--industry .section-index { color: var(--industry); }
+  .section-title { color: var(--paper); font: 600 clamp(2.2rem, 4vw, 3.8rem)/.95 "STZhongsong", "SimSun", serif; letter-spacing: -.045em; }
+  .section-note { max-width: 300px; color: var(--dim); font-size: .72rem; line-height: 1.65; text-align: right; }
+  .evidence-note { display: grid; grid-template-columns: auto 1fr; gap: 18px; margin: 24px 0 38px; padding: 16px 19px; border: 1px solid #2c4d43; background: rgba(120,230,189,.035); color: var(--muted); font-size: .76rem; }
+  .evidence-note strong { color: var(--mint); font: 800 .66rem/1.7 "Bahnschrift", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+  .research-groups { display: grid; gap: 66px; }
+  .research-group { scroll-margin-top: 86px; }
+  .group-heading { display: grid; grid-template-columns: auto 1fr auto; gap: 17px; align-items: center; margin-bottom: 20px; }
+  .group-index { color: var(--dim); font: 800 .64rem/1 "Bahnschrift", sans-serif; letter-spacing: .13em; }
+  .group-title { color: var(--mint-soft); font-size: 1rem; font-weight: 800; }
+  .group-title::after { content: ""; display: inline-block; width: 42px; height: 1px; margin: 0 0 4px 14px; background: var(--line-strong); }
+  .group-count { color: var(--dim); font: 800 .65rem/1 "Bahnschrift", sans-serif; letter-spacing: .1em; }
+  .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .card { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 18px; min-height: 265px; padding: 25px; background: linear-gradient(145deg, var(--surface), var(--surface-soft)); border: 1px solid var(--line); overflow: hidden; transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease; }
+  .card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 2px; background: var(--mint); opacity: .55; }
+  .card::after { content: "↗"; position: absolute; right: 18px; top: 16px; color: var(--dim); font: 700 .9rem/1 "Bahnschrift", sans-serif; transition: transform .2s ease, color .2s ease; }
+  .card:hover { transform: translateY(-4px); border-color: #4d7167; background: var(--surface-raised); box-shadow: var(--shadow); }
+  .card:hover::after { color: var(--mint); transform: translate(3px,-3px); }
+  .card-num { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid #3c6257; border-radius: 50%; color: var(--mint); font: 800 .7rem/1 "Bahnschrift", sans-serif; }
+  .card-body { min-width: 0; display: flex; flex-direction: column; }
+  .card-title { padding-right: 25px; color: var(--ink); font-size: 1.02rem; line-height: 1.58; }
+  .card-summary { margin: 16px 0 22px; color: var(--muted); font-size: .83rem; line-height: 1.86; }
+  .card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 11px; margin-top: auto; }
+  .topic-chip, .source-chip, .evidence, .time { font-size: .67rem; line-height: 1.55; }
+  .topic-chip { padding: 2px 7px; border: 1px solid rgba(112,185,255,.32); color: var(--industry); background: rgba(112,185,255,.06); }
+  .source-chip { color: var(--mint-soft); font-weight: 800; }
+  .evidence { padding: 2px 7px; border: 1px solid rgba(255,195,107,.36); color: var(--amber); background: rgba(255,195,107,.06); }
+  .evidence.official { border-color: rgba(120,230,189,.35); color: var(--mint); background: rgba(120,230,189,.06); }
+  .time { margin-left: auto; color: var(--dim); }
+  .industry-grid { grid-template-columns: 1fr; }
+  .industry-grid .card { min-height: 0; }
+  .industry-grid .card::before { background: var(--industry); }
+  .industry-grid .card-num { border-color: rgba(112,185,255,.45); color: var(--industry); }
+  .industry-grid .card-summary { max-width: 920px; }
+  .empty-state { padding: 32px; border: 1px dashed var(--line); color: var(--dim); font-size: .8rem; text-align: center; }
+  .disclaimer { display: grid; grid-template-columns: 130px 1fr; gap: 28px; padding: 30px; border: 1px solid rgba(255,128,118,.3); background: rgba(255,128,118,.035); }
+  .disclaimer strong { color: var(--coral); font: 800 .68rem/1.5 "Bahnschrift", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+  .disclaimer p { color: var(--muted); font-size: .77rem; line-height: 1.95; }
+  footer { border-top: 1px solid var(--line); background: #050b09; }
+  .footer-inner { display: flex; justify-content: space-between; gap: 28px; padding: 44px 0; color: var(--dim); font-size: .72rem; line-height: 1.9; }
+  footer a, footer strong { color: var(--mint); }
+
+  @media (max-width: 940px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+    .issue-panel { border-left: 0; border-top: 1px solid var(--line-strong); padding: 22px 0 0; }
+    .source-strip { grid-template-columns: 1fr; }
+    .nav-brand { display: none; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    .shell { width: min(100% - 28px, var(--page)); }
+    .masthead { min-height: 58px; font-size: .6rem; }
+    .masthead-rule, .masthead-status span { display: none; }
+    .hero-grid { padding: 54px 0 36px; }
+    .hero-title { font-size: clamp(2.85rem, 13.8vw, 3.65rem); }
+    .nav-link { padding: 0 14px; }
+    main { padding: 60px 0 82px; }
+    .section { margin-bottom: 80px; }
+    .section-heading { grid-template-columns: 1fr auto; gap: 11px; }
+    .section-index { grid-column: 1 / -1; }
+    .section-note { grid-column: 1 / -1; text-align: left; }
+    .evidence-note { grid-template-columns: 1fr; }
+    .group-heading { grid-template-columns: auto 1fr; }
+    .group-count { grid-column: 2; }
+    .card { grid-template-columns: 1fr; min-height: 0; padding: 21px; }
+    .time { width: 100%; margin-left: 0; }
+    .disclaimer { grid-template-columns: 1fr; gap: 12px; padding: 22px; }
+    .footer-inner { flex-direction: column; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body data-template="clinical-dossier-v1">
+<a class="skip-link" href="#main-content">跳到正文</a>
+<div class="reading-progress" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="shell">
+    <div class="masthead">
+<span class="masthead-brand">MedAI Evidence Brief</span><span class="masthead-rule" aria-hidden="true"></span><span>Clinical intelligence / Beijing</span><span class="masthead-status"><span>Evidence-aware edition</span></span>
+</div>
+    <div class="hero-grid">
+      <div>
+<p class="eyebrow">Medical AI Daily · 2026年8月7日</p>
+<h1 class="hero-title">医学 AI<br><em>证据与行业简报</em>
+</h1>
+<p class="hero-deck">追踪可核验的医学人工智能进展。研究按检索主题分段，产业信息与学术证据分开呈现，并明确区分预印本、概念验证、临床试验、官方公告与媒体报道。</p>
+</div>
+      <aside class="issue-panel" aria-label="本期统计"><p class="issue-label">Latest issue</p>
+<p class="issue-date">2026年8月7日<br>星期五 · 北京时间</p>
+<div class="issue-total">
+<strong>25</strong><span>21 篇研究<br>4 条动态</span>
+</div></aside>
+    </div>
+    <div class="source-strip" aria-label="来源与质量标准">
+      <div class="source-cell">
+<small>Research source</small><strong>ArXiv 原始论文 · 机构已核验</strong>
+</div>
+      <div class="source-cell">
+<small>Industry source</small><strong>AI HOT 线索 · 一手来源优先</strong>
+</div>
+      <div class="source-cell">
+<small>Editorial rule</small><strong>90 天窗口 · 宁缺毋滥</strong>
+</div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="医学 AI 日报导航">
+  <div class="shell nav-inner">
+    <span class="nav-brand">Contents / Evidence map</span>
+    <a class="nav-link active" href="#research">论文研究 <span class="nav-count">21</span></a>
+    <a class="nav-link" href="#seg-segmentation">图像分割 <span class="nav-count">6</span></a>
+    <a class="nav-link" href="#seg-diagnosis">疾病诊断 <span class="nav-count">4</span></a>
+    <a class="nav-link" href="#seg-foundation">基础模型 <span class="nav-count">4</span></a>
+    <a class="nav-link" href="#seg-agent">医疗Agent <span class="nav-count">2</span></a>
+    <a class="nav-link" href="#seg-world-model">世界模型 <span class="nav-count">2</span></a>
+    <a class="nav-link" href="#seg-pet-ct">PET/CT <span class="nav-count">3</span></a>
+    <a class="nav-link nav-link--industry" href="#industry">行业动态 <span class="nav-count">4</span></a>
+  </div>
+</nav>
+
+<main id="main-content" class="shell">
+  <section id="research" class="section">
+    <header class="section-heading"><span class="section-index">01 / RESEARCH</span><h2 class="section-title">论文研究</h2>
+<p class="section-note">按研究点与关键词分段；卡片完整展示中文摘要，不截断。论文时间范围：6月14日–8月6日。</p></header>
+    <div class="evidence-note">
+<strong>Evidence note</strong><span>以下为研究信息摘要，不代表方法已经完成临床验证。预印本、动物实验、回顾性研究、前瞻性试验和概念验证应分别理解。</span>
+</div>
+    <div class="research-groups">
+
+      <div class="research-group" id="seg-segmentation">
+        <div class="group-heading"><span class="group-index">01</span><span class="group-title">医学图像分割</span><span class="group-count">6 篇</span></div>
+        <div class="card-grid">
+<a class="card" href="https://arxiv.org/abs/2608.05844" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">01</span><div class="card-body">
+<h3 class="card-title">Curia-MAE：30 万张 CT/MRI 预训练的放射学基础模型</h3>
+<p class="card-summary">在 30 万张 CT 和 MRI 图像上预训练多模态、多解剖区域 MAE 模型，引入鲁棒重建目标、特征正则化和局部-全局相似性目标。在 8 个分割基准上，冻结编码器表现优于强 MAE 基线；在标注数据稀缺的病灶任务上优于从头训练的 nnU-Net。该模型已被 ECCV 2026 Workshop AI4M3D 接收，预训练权重将公开发布。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · Raidium</span><span class="evidence">预印本</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.06264" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">02</span><div class="card-body">
+<h3 class="card-title">OTLesMix：基于最优传输的脑病灶合成数据增强</h3>
+<p class="card-summary">提出基于 Wasserstein 重心和最优传输计划的图像合成方法 OTLesMix，生成形状和位置多样、逼真的合成样本用于数据增强。在三个脑病灶分割任务上，相比不使用合成数据训练的模型，Dice 分数提升 2.9–6.6 个百分点，优于现有基于混合的数据增强方法，有效解决了已有混合策略生成病灶形状和位置变化有限的问题。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · CREATIS/里昂大学</span><span class="evidence">预印本</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.05683" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">03</span><div class="card-body">
+<h3 class="card-title">DistMedVL：概率视觉语言对齐的医学图像分割</h3>
+<p class="card-summary">提出概率视觉语言框架，在冻结编码器上引入轻量级概率跨模态适配器（PCM-Adapter），显式建模表示不确定性。通过马氏距离对齐模块和分布流模块实现渐进式概率对齐，在 8 个医学分割基准上仅用 630 万可训练参数即超越现有方法，展现出更优的数据效率、抗扰鲁棒性和跨数据集泛化能力。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 诺丁汉大学</span><span class="evidence">预印本</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.05333" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">04</span><div class="card-body">
+<h3 class="card-title">上下文医学分割：支持集选择与失败检测</h3>
+<p class="card-summary">研究上下文学习（ICL）中医学图像分割的支持集组成对性能的影响。比较随机采样与基于相似性的选择策略，并训练 Transformer 分类器预测分割是否会低于给定 IoU 阈值。在四个基准和三种成像模态上，相似性选择始终优于或持平随机采样，且分类器能在所有基准上高于随机水平预测分割失败，为更安全的临床部署提供了实用机制。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 莱斯大学</span><span class="evidence">预印本</span><time class="time">2天前</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.06311" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">05</span><div class="card-body">
+<h3 class="card-title">FLAIR 超分辨率会抹除还是虚构小白质病灶？</h3>
+<p class="card-summary">基于 ADNI 队列 29 名受试者的 1mm 各向同性高分辨率 FLAIR 扫描，研究超分辨率对白质高信号（WMH）分割的影响。主要发现：超分辨率的主要风险是抹除较小的真实病灶而非虚构假病灶，且随层厚增加而加剧。ECLARE 在恢复小病灶信号方面表现最佳，而多对比度隐式神经表示并不优于立方插值。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 宾夕法尼亚大学</span><span class="evidence">会议短论文</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.04906" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">06</span><div class="card-body">
+<h3 class="card-title">SpineSegDiff：扩散模型用于腰椎 MRI 分割</h3>
+<p class="card-summary">面向下背痛患者的腰椎 MRI 语义分割提出基于扩散模型的框架 SpineSegDiff，可在 T1 与 T2 加权序列上统一分割椎体、椎间盘与椎管。在 SPIDER 数据集上其性能与目前最优的非扩散模型 nnU-Net 相当，且在识别退化椎间盘方面表现更佳；模型生成的不确定性图可为临床复核提供参考，增强分割结果的稳健性与可靠性。研究提示扩散模型有望通过更精确的病理脊柱 MRI 分析改善下背痛的诊断与管理。该文发表于 MIDL 2025 会议论文集（PMLR 301）。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 苏黎世联邦理工学院</span><span class="evidence">会议论文</span><time class="time">2天前</time>
+</div>
+</div>
+</a>
+        </div>
+      </div>
+
+      <div class="research-group" id="seg-diagnosis">
+        <div class="group-heading"><span class="group-index">02</span><span class="group-title">疾病诊断</span><span class="group-count">4 篇</span></div>
+        <div class="card-grid">
+<a class="card" href="https://arxiv.org/abs/2608.05074" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">07</span><div class="card-body">
+<h3 class="card-title">视觉词袋模型用于肺腺癌生长模式空间映射</h3>
+<p class="card-summary">提出弱监督视觉词袋（BoVW）管道，从冻结基础模型嵌入中学习视觉词汇，构建模式原型并用于最近原型分类。在 87 例 CPTAC-LUAD 患者上评估，使用 H-Optimus-1 编码器在肿瘤/健康分类上达到 0.974 平衡准确率，接近监督 SVM 的 0.987。在二分类组织学分级上，BoVW 管道在所有编码器上均优于监督基线，表明 ROI 级模式分解保留了被全局均值池化抹除的分级相关异质性。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 日内瓦大学/HES-SO</span><span class="evidence">会议论文</span><time class="time">2天前</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.05471" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">08</span><div class="card-body">
+<h3 class="card-title">基于 EDM2 扩散架构的胎儿超声高分辨率合成模型</h3>
+<p class="card-summary">提出基于 EDM2 扩散架构的胎儿超声合成框架，在多个公开数据集上训练生成 512×512 分辨率、六类解剖类别的合成图像。合成数据实现了更低的 FID 分数，并在下游胎儿平面分类微调后达到 93.36% 集成准确率，超过仅用真实数据训练。有 10 年以上经验的超声专家对 100 张图像评估，平均真实感评分 2.67/5，合成图像仍低于真实图像。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 南安普顿大学等</span><span class="evidence">会议短论文</span><time class="time">2天前</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2607.28858" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">09</span><div class="card-body">
+<h3 class="card-title">统一基准：5 种深度学习架构在 3D 脑肿瘤分割中的公平比较</h3>
+<p class="card-summary">在统一实验条件下比较 3D U-Net、SegResNet、Swin UNETR、SegMamba 和 SegMambaV2 五种三维分割模型，在 BraTS 2023（脑膜瘤）和 BraTS 2024（治疗后胶质瘤）两个脑肿瘤分割数据集上评估。所有模型使用相同的预处理、数据增强、优化策略和评估协议，提供分割精度与计算效率（推理时间、模型大小）之间的权衡分析，为不同临床场景下的架构选择提供实践参考。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 拉斯帕尔马斯大学</span><span class="evidence">预印本</span><time class="time">7月30日</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2607.24814" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">10</span><div class="card-body">
+<h3 class="card-title">Aletheia：面向撒哈拉以南非洲的离线临床决策支持系统</h3>
+<p class="card-summary">基于 Qwen2.5-3B-Instruct 微调的离线临床决策支持系统，使用 27,000 条覆盖 50 种东非高发疾病的临床推理样本进行 QLoRA 微调。Top-1 诊断准确率 80.0%，Top-3 准确率 100.0%，BERTScore-F1 达 0.909。推理峰值内存约 3,630 MB，在消费级笔记本上即可运行，无需云端基础设施，适用于医师与患者比低于 1:25,000 的资源匮乏基层医疗场景。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 索罗提大学</span><span class="evidence">预印本</span><time class="time">7月14日</time>
+</div>
+</div>
+</a>
+        </div>
+      </div>
+
+      <div class="research-group" id="seg-foundation">
+        <div class="group-heading"><span class="group-index">03</span><span class="group-title">医学基础模型</span><span class="group-count">4 篇</span></div>
+        <div class="card-grid">
+<a class="card" href="https://arxiv.org/abs/2608.05960" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">11</span><div class="card-body">
+<h3 class="card-title">3D CT 基础模型冻结特征基准：大、亮还是不可见？</h3>
+<p class="card-summary">在三个胸部 CT 队列上评估 10 个冻结 CT 编码器，使用 k 近邻、零样本提示和线性探测。研究发现不存在通用最优模型，排名随评估上下文波动。关键发现：检测能力主要受物理瓶颈制约——病灶对比度和空间范围决定可检测性。弥漫性或高对比度异常（如装置和积液）可可靠恢复，而小而低对比度的局灶性病变在所有编码器中仍是持续挑战。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 慕尼黑工业大学等</span><span class="evidence">预印本</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.04472" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">12</span><div class="card-body">
+<h3 class="card-title">EndoVLM：解剖引导稀疏池化的内窥镜视觉语言基础模型</h3>
+<p class="card-summary">在超过 34.8 万例内窥镜检查（每例包含临床报告与对应图像集）上预训练的视觉语言基础模型。引入解剖引导稀疏池化机制，利用文本描述作为查询驱动稀疏注意力，高效聚合语义显著帧。渐进式语义感知对齐策略通过结构化软目标建模临床分类法。在多个下游任务上优于现有基础模型，并展现出鲁棒的零样本泛化能力。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 阿里达摩院/上海交大</span><span class="evidence">预印本</span><time class="time">2天前</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.03890" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">13</span><div class="card-body">
+<h3 class="card-title">CARE-X：统一判别与生成的胸部 X 射线视觉语言模型</h3>
+<p class="card-summary">胸部 X 射线 VLM 系统，在生成骨干上增加焦点损失分类和复合损失定位头，实现可调决策阈值的分类预测和精确空间定位。在四个报告生成基准上达到 SOTA，ReXVQA 准确率 94.0%（+6.0pp）。通过原生工具调用能力耦合 Qwen3-VL-4B 与确定性测量工具，在五种依赖测量的疾病上平均 F1 较纯感知基线提升 43.6pp。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · Microsoft Research India</span><span class="evidence">预印本</span><time class="time">3天前</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.06275" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">14</span><div class="card-body">
+<h3 class="card-title">TLNM：智能手机照片牙齿检测、编号与分割</h3>
+<p class="card-summary">基于 Mask R-CNN 的牙齿定位与编号模型，在 1,272 张智能手机照片上训练。引入灰度世界白平衡算法和解剖约束检测层，在内部测试集上 AP@50 达 0.818，外部数据集上达 0.901。推理管线以开源容器化 API 形式发布，证明消费级智能手机可支持自动化牙齿级解剖映射，为资源受限环境下的远程筛查和远程口腔医学提供低成本基础。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 奥卢大学</span><span class="evidence">预印本</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+        </div>
+      </div>
+
+      <div class="research-group" id="seg-agent">
+        <div class="group-heading"><span class="group-index">04</span><span class="group-title">医疗Agent与临床智能体</span><span class="group-count">2 篇</span></div>
+        <div class="card-grid">
+<a class="card" href="https://arxiv.org/abs/2608.06366" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">15</span><div class="card-body">
+<h3 class="card-title">nMAS：多智能体系统自动构建心衰电子病历特征</h3>
+<p class="card-summary">电子病历特征工程占数据科学家 39-45% 工作量。研究团队开发 Nimblemind 多智能体系统（nMAS），在 500 份患者记录上自动生成 132 个结构化特征和 70 个评分聚合特征，所有特征均经过结构完整性、评分合规性和来源验证。加入聚合特征后，HFrEF 表型分类 AUROC 从 0.895 提升至 0.963，HFpEF 从 0.870 提升至 0.910。评估限于单机构队列，外部验证仍需进行。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 罗格斯大学等</span><span class="evidence">预印本</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.05375" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">16</span><div class="card-body">
+<h3 class="card-title">DoctorAgents：面向临床小数据的迭代 AutoML 智能体</h3>
+<p class="card-summary">将临床小数据的 AutoML 从穷举搜索重新表述为推理驱动的迭代优化。提出 DoctorAgents 智能体框架，通过专门的 LLM 智能体自主构建和优化端到端 ML 管道，利用文本梯度下降将自然语言反馈反向传播以执行定向更新，无需穷举搜索。在多个临床任务上持续优于现有 AutoML 基线，同时生成更具可解释性的任务特定表示。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · McGill大学/Mila</span><span class="evidence">预印本</span><time class="time">2天前</time>
+</div>
+</div>
+</a>
+        </div>
+      </div>
+
+      <div class="research-group" id="seg-world-model">
+        <div class="group-heading"><span class="group-index">05</span><span class="group-title">世界模型（研究关键词）</span><span class="group-count">2 篇</span></div>
+        <div class="card-grid">
+<a class="card" href="https://arxiv.org/abs/2607.28487" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">17</span><div class="card-body">
+<h3 class="card-title">AuricularWorld：世界模型框架用于耳部 CT 精细分割</h3>
+<p class="card-summary">针对耳部软骨边界不规则、软骨与周围软组织界面模糊等挑战，提出基于世界模型的分割框架。在编码器-解码器架构中引入确定性循环状态空间模型，通过分层解剖动作更新循环状态并渐进式优化潜在表示。推理阶段执行三步潜在展开，无需真实标注引导。实验显示该框架持续提升分割精度，对小而不规则的耳部结构 HD95 降低超过 43%。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 中国医科院整形外科医院/港中文</span><span class="evidence">预印本</span><time class="time">7月30日</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2607.25242" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">18</span><div class="card-body">
+<h3 class="card-title">医学世界模型综述：基础、应用与临床转化挑战</h3>
+<p class="card-summary">通过结构化叙事综合和可重复证据映射，筛选 1,455 条记录并建立 98 篇文献语料库（其中 14 项研究符合医学世界模型严格经验定义）。围绕四大能力组织：患者状态表示、时间动态建模、干预条件模拟和临床医师监督规划。证据涵盖医学影像、纵向电子病历、治疗反应建模、超声与手术交互等。当前研究多为回顾性、任务特异性或临床前阶段，临床转化取决于精确干预表示、因果机制、不确定性校准和多中心前瞻性验证。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 大连大学/港理工等</span><span class="evidence">综述</span><time class="time">7月28日</time>
+</div>
+</div>
+</a>
+        </div>
+      </div>
+
+      <div class="research-group" id="seg-pet-ct">
+        <div class="group-heading"><span class="group-index">06</span><span class="group-title">PET/CT（研究关键词）</span><span class="group-count">3 篇</span></div>
+        <div class="card-grid">
+<a class="card" href="https://arxiv.org/abs/2607.26498" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">19</span><div class="card-body">
+<h3 class="card-title">HERMES：PET/CT 头颈肿瘤分割、TN 分期与生存预测集成</h3>
+<p class="card-summary">针对 HECKTOR 2026 挑战赛三项子任务（原发肿瘤与淋巴结分割、放射学 T/N 分期、无复发生存预测）提出的容器化算法。采用 10 折 STU-Net Small 集成生成分割，从预测掩膜中提取与 AJCC 分期对齐的几何特征，将 N 分期平衡准确率从 0.691 提升至 0.720。在验证排行榜上获得加权评分 0.6454（平均 Dice 0.641，C-index 0.679）。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 科罗拉多大学医学院</span><span class="evidence">会议论文</span><time class="time">7月29日</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2607.03931" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">20</span><div class="card-body">
+<h3 class="card-title">GLOW-FDG：全身 FDG PET/CT 癌症病灶分割开源模型</h3>
+<p class="card-summary">在 1,563 例多癌种 PET/CT 扫描上训练的开源全身癌症病灶分割模型，在 185 例独立机构外部扫描上评估。覆盖乳腺癌、肺癌、头颈癌和黑色素瘤，在病灶检测上持续优于公开基准模型，同时减少假阳性。总肿瘤负荷和总病灶糖酵解定量在多个队列间保持稳健，性能接近专家放射肿瘤科医师之间的变异范围。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 苏黎世大学医院/DKFZ</span><span class="evidence">预印本</span><time class="time">7月4日</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2606.15611" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">21</span><div class="card-body">
+<h3 class="card-title">MuDuo：双基础模型互蒸馏实现半监督 PET/CT 分割</h3>
+<p class="card-summary">针对 PET/CT 器官分割标注成本高的问题，提出 MuDuo 互蒸馏框架，将结构基础模型 SAM-Med3D（CT 模态）与功能基础模型 SegAnyPET（PET 模态）的知识协同蒸馏至轻量级学生网络，无需人工提示即可在标注数据极少的情况下完成自动分割。在 AutoPET 数据集上仅用 5 例标注数据即达到当前最优性能，为多模态 PET/CT 分割降低标注依赖提供了实用方案。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 中南大学等</span><span class="evidence">预印本</span><time class="time">6月14日</time>
+</div>
+</div>
+</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="industry" class="section section--industry">
+    <header class="section-heading"><span class="section-index">02 / INDUSTRY</span><h2 class="section-title">行业动态</h2>
+<p class="section-note">优先采用公司、机构和监管部门的原始公告；二手报道明确标识。数据日期：AI HOT 2026-08-07 日报。</p></header>
+    <div class="evidence-note">
+<strong>Source note</strong><span>产品能力、合作范围和安全数字按原始来源转述，不延伸为医疗效果判断。</span>
+</div>
+    <div class="card-grid industry-grid">
+<a class="card" href="https://nyti.ms/4bxx7Wy" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">22</span><div class="card-body">
+<h3 class="card-title">斯坦福与 Arc Institute 首次用 AI 设计并合成全新病毒</h3>
+<p class="card-summary">研究人员利用基因组语言模型 Evo 1 和 Evo 2，在约 1.5 万个噬菌体样本上训练后生成约 70 万种潜在病毒基因组，最终筛选 285 个候选者合成 DNA。实验显示 16 种 AI 设计的噬菌体具有生物活性，部分繁殖速度超过天然病毒。该研究发表于《科学》杂志，概念验证了生成式 AI 设计完整功能基因组的能力，在噬菌体疗法方面具有潜在应用价值，但也引发生物安全担忧。约翰斯·霍普金斯大学专家指出"现有治理框架不足以监管生成式基因组学"。</p>
+<div class="card-meta">
+<span class="source-chip">纽约时报</span><span class="evidence">媒体报道</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">23</span><div class="card-body">
+<h3 class="card-title">Anthropic 更新 Claude Fable 5 生物安全防护</h3>
+<p class="card-summary">Anthropic 更新了 Claude Fable 5 的生物安全防护机制，将生物相关查询的"回退"次数减少约 85%，用户在日常健康与教育问题上将更少遇到系统切换至较弱模型的情况。此次更新扩大了模型可协助的生物任务范围，但涉及双重用途的病毒学、毒理学和分子设计请求仍会回退至 Opus 5。Anthropic 表示正通过可信访问途径，致力于缩小专业生物研究与药物开发领域的差距。</p>
+<div class="card-meta">
+<span class="source-chip">Anthropic Newsroom</span><span class="evidence official">官方公告</span><time class="time">今天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://openai.com/index/openai-and-apa-partner-to-advance-responsible-ai" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">24</span><div class="card-body">
+<h3 class="card-title">OpenAI 与美国心理学会合作推进青少年心理健康 AI</h3>
+<p class="card-summary">OpenAI 与美国心理学会（APA）启动为期三年的合作，共同制定负责任 AI 使用的指导方针、资源与保障措施，以支持青少年心理健康场景中的 AI 应用。</p>
+<div class="card-meta">
+<span class="source-chip">OpenAI 官网</span><span class="evidence official">官方公告</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://www.theverge.com/tech/976108/google-ai-leadership-shakeup-jeff-dean-demis-hassabis-deepmind" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">25</span><div class="card-body">
+<h3 class="card-title">Google 大规模 AI 组织调整，Hassabis 专注 AGI 与 Isomorphic Labs</h3>
+<p class="card-summary">据 The Verge 报道，Google 宣布迄今最大规模 AI 组织调整：Demis Hassabis 卸任 DeepMind 日常管理以专注 AGI 研究，CTO Koray Kavukcuoglu 接任；27 年老将 Jeff Dean 与三位顶级研究员离职创办新公司。Hassabis 同时继续领导聚焦 AI 药物研发的 Isomorphic Labs。</p>
+<div class="card-meta">
+<span class="source-chip">The Verge</span><span class="evidence">媒体报道</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+    </div>
+  </section>
+
+  <aside class="disclaimer">
+    <strong>Medical disclaimer</strong>
+    <p>本页面仅用于医学人工智能领域的信息整理，不构成诊断、治疗、用药或投资建议。预印本未经同行评审，研究结果不等同于临床有效性；涉及具体健康问题，请咨询具备资质的医疗专业人员。</p>
+  </aside>
+</main>
+
+<footer>
+  <div class="shell footer-inner">
+    <span>共 25 条 · 数据源：<a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AI HOT</a> + <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">ArXiv</a></span>
+    <span>最后更新：2026年8月7日 20:40 · 北京时间</span>
+  </div>
+</footer>
+
+<script>
+  const progress = document.querySelector('.reading-progress');
+  const navLinks = [...document.querySelectorAll('.nav-link')];
+  const targets = navLinks.map(link => document.querySelector(link.hash)).filter(Boolean);
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
+  };
+  addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(link => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
+    });
+  }, { rootMargin: '-28% 0px -64% 0px' });
+  targets.forEach(target => observer.observe(target));
+</script>
+</body>
+</html>
