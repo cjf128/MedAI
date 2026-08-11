@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="医学人工智能研究与行业动态证据简报">
-<title>MedAI Brief · 2026年8月10日</title>
+<title>MedAI Brief · 2026年8月11日</title>
 <style>
   :root {
     color-scheme: dark;
@@ -174,15 +174,15 @@
 </div>
     <div class="hero-grid">
       <div>
-<p class="eyebrow">Medical AI Daily · 2026年8月10日</p>
+<p class="eyebrow">Medical AI Daily · 2026年8月11日</p>
 <h1 class="hero-title">医学 AI<br><em>证据与行业简报</em>
 </h1>
 <p class="hero-deck">追踪可核验的医学人工智能进展。研究按检索主题分段，产业信息与学术证据分开呈现，并明确区分预印本、概念验证、临床试验、官方公告与媒体报道。</p>
 </div>
       <aside class="issue-panel" aria-label="本期统计"><p class="issue-label">Latest issue</p>
-<p class="issue-date">2026年8月10日<br>星期一 · 北京时间</p>
+<p class="issue-date">2026年8月11日<br>星期二 · 北京时间</p>
 <div class="issue-total">
-<strong>25</strong><span>23 篇研究<br>2 条动态</span>
+<strong>22</strong><span>21 篇研究<br>1 条动态</span>
 </div></aside>
     </div>
     <div class="source-strip" aria-label="来源与质量标准">
@@ -202,80 +202,53 @@
 <nav class="nav" aria-label="医学 AI 日报导航">
   <div class="shell nav-inner">
     <span class="nav-brand">Contents / Evidence map</span>
-    <a class="nav-link active" href="#research">论文研究 <span class="nav-count">23</span></a>
-    <a class="nav-link" href="#seg-segmentation">图像分割 <span class="nav-count">6</span></a>
-    <a class="nav-link" href="#seg-diagnosis">疾病诊断 <span class="nav-count">4</span></a>
+    <a class="nav-link active" href="#research">论文研究 <span class="nav-count">21</span></a>
+    <a class="nav-link" href="#seg-segmentation">图像分割 <span class="nav-count">3</span></a>
+    <a class="nav-link" href="#seg-diagnosis">疾病诊断 <span class="nav-count">3</span></a>
     <a class="nav-link" href="#seg-foundation">基础模型 <span class="nav-count">4</span></a>
-    <a class="nav-link" href="#seg-agent">医疗Agent <span class="nav-count">3</span></a>
-    <a class="nav-link" href="#seg-world-model">世界模型 <span class="nav-count">2</span></a>
+    <a class="nav-link" href="#seg-agent">医疗Agent <span class="nav-count">4</span></a>
+    <a class="nav-link" href="#seg-world-model">世界模型 <span class="nav-count">3</span></a>
     <a class="nav-link" href="#seg-pet-ct">PET/CT <span class="nav-count">4</span></a>
-    <a class="nav-link nav-link--industry" href="#industry">行业动态 <span class="nav-count">2</span></a>
+    <a class="nav-link nav-link--industry" href="#industry">行业动态 <span class="nav-count">1</span></a>
   </div>
 </nav>
 
 <main id="main-content" class="shell">
   <section id="research" class="section">
     <header class="section-heading"><span class="section-index">01 / RESEARCH</span><h2 class="section-title">论文研究</h2>
-<p class="section-note">按研究点与关键词分段；卡片完整展示中文摘要，不截断。论文时间范围：5月17日–8月7日。</p></header>
+<p class="section-note">按研究点与关键词分段；卡片完整展示中文摘要，不截断。论文时间范围：5月20日–8月10日。</p></header>
     <div class="evidence-note">
 <strong>Evidence note</strong><span>以下为研究信息摘要，不代表方法已经完成临床验证。预印本、动物实验、回顾性研究、前瞻性试验和概念验证应分别理解。</span>
 </div>
     <div class="research-groups">
 
       <div class="research-group" id="seg-segmentation">
-        <div class="group-heading"><span class="group-index">01</span><span class="group-title">医学图像分割</span><span class="group-count">6 篇</span></div>
+        <div class="group-heading"><span class="group-index">01</span><span class="group-title">医学图像分割</span><span class="group-count">3 篇</span></div>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2608.05844" target="_blank" rel="noopener noreferrer">
+<a class="card" href="https://arxiv.org/abs/2608.09391" target="_blank" rel="noopener noreferrer">
   <span class="card-num">01</span><div class="card-body">
-<h3 class="card-title">Curia-MAE：30 万张 CT/MRI 预训练的放射学基础模型</h3>
-<p class="card-summary">在 30 万张 CT 和 MRI 图像上预训练多模态、多解剖区域 MAE 模型，引入鲁棒重建目标、特征正则化和局部-全局相似性目标。在 8 个分割基准上，冻结编码器表现优于强 MAE 基线；在标注数据稀缺的病灶任务上优于从头训练的 nnU-Net。该模型已被 ECCV 2026 Workshop AI4M3D 接收，预训练权重将公开发布。</p>
+<h3 class="card-title">CoInS-Net：连续位置感知网络联合完成医学影像插值与分割</h3>
+<p class="card-summary">各向异性医学体数据在层面间采样稀疏，常出现结构不连续与边界模糊，而现有方法大多将插值与分割独立处理，既冗余又未能利用切片间的互补结构信息。本文提出连续位置感知交互网络 CoInS-Net：在共享 Swin 编码器下引入连续空间坐标查询，实现两个任务的跨层双向交互；空间连续位置插值模块从相对坐标与物理间距生成任意目标位置特征，基于原型的任务互交互模块通过少量共享原型在分割与插值分支间交换全局结构，多尺度任务协作解码器在各尺度上分离共享与任务专属成分。在四个覆盖多种模态和解剖区域的开源医学影像数据集上，联合优化方案稳定优于传统单任务方案，无需额外标注即可实现插值与分割的相互促进，为临床智能影像分析提供通用技术方案。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · Raidium</span><span class="evidence">预印本</span><time class="time">4天前</time>
+<span class="source-chip">ArXiv · 东北大学/北京大学</span><span class="evidence">预印本</span><time class="time">昨天</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2608.07368" target="_blank" rel="noopener noreferrer">
+<a class="card" href="https://arxiv.org/abs/2608.08844" target="_blank" rel="noopener noreferrer">
   <span class="card-num">02</span><div class="card-body">
-<h3 class="card-title">ZTE MRI 全自动髋关节形态测量与专家手动读数一致</h3>
-<p class="card-summary">CT 仍是股骨髋臼撞击综合征（FAI）3D 骨形态测量的参考标准，但需电离辐射与手动测量。零回波时间（ZTE）MRI 可显示皮质骨且其 FAI 角度与 CT 一致，但自动角度提取仍受限。研究开发并验证了从 ZTE MRI 自动计算 FAI 角度的方法，在横断面研究（证据等级 3）中评估其与专家手动测量的一致性：73 名受试者（平均年龄 36.8±18.5 岁）共 135 个髋关节，nnU-Net 在 100 个手动整理的髋上训练以分割股骨、骨盆与三个骨性标志点，自定义几何算法从推断分割计算 alpha 角、股骨颈干角、Tonnis 角、冠状与矢状中心边缘角及髋臼版本角。骨 Dice 超过 0.96、标志点 Dice 为 0.65–0.83，标志点中位误差 0.38 mm（股骨头）至 2.5 mm（大转子）；模型与阅片者均值在髋臼版本角、冠状中心边缘角与 Tonnis 角上一致性优秀（ICC 0.92–0.96），alpha 角（0.45）与股骨颈干角（0.55）为一般，但模型 Bland-Altman 一致性界限对多数角度窄于阅片者间界限。结论：ZTE MRI 全自动形态测量可行，多数覆盖角与版本角表现与专家阅片相当。</p>
+<h3 class="card-title">免掩码标注：SAM3 文本提示实现内镜手术器械分割</h3>
+<p class="card-summary">手术器械分割是计算机辅助介入的基础任务，但现有方法依赖像素级标注或人工空间提示，可扩展性受限。研究利用新发布的 Segment Anything Model 3（SAM3），提出两阶段框架实现无需真实掩码与人工交互的实例级分割：第一阶段用自然语言对齐的通用提示词 "tool" 触发 SAM3 零样本能力生成二值掩码；第二阶段集成经 SAM3 掩码区域微调的视觉语言模型（Qwen）完成器械分类，将掩码扩展至实例级。在 EndoVis 2017 与 2018 数据集上，该两阶段方法虽未达到当前全监督方法的水平，但显著优于直接以文本提示使用 SAM3 的实例分割结果，为免标注手术器械分割指出了可行方向，同时揭示了 SAM3 在该任务上的能力边界。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 特种外科医院</span><span class="evidence">预印本</span><time class="time">3天前</time>
+<span class="source-chip">ArXiv · 罗切斯特理工学院</span><span class="evidence">会议论文（MIUA）</span><time class="time">昨天</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2608.07340" target="_blank" rel="noopener noreferrer">
+<a class="card" href="https://arxiv.org/abs/2608.08575" target="_blank" rel="noopener noreferrer">
   <span class="card-num">03</span><div class="card-body">
-<h3 class="card-title">H2AL：双曲分层聚合学习用于配准少样本医学图像分割</h3>
-<p class="card-summary">配准式少样本医学图像分割（RFMIS）通过配准将标注图像形变到未标注图像以生成伪标签，但现有方法主要在欧氏空间做像素级优化与推理，将解剖结构视为平坦且互不相连，忽略其内在层级，导致伪标签质量下降、模糊区域判别力减弱。本文提出双曲分层聚合学习框架 H2AL：H2I 模块利用双曲空间的分层建模能力，通过变换引导的监督双曲对比学习学习分层感知表征，并经门控注入块将分层先验注入欧氏空间以保留语义丰富性；同时提出基于梯度聚合的端到端联合优化算法，将配准与分割解码器的梯度聚合更新共享编码器，促进跨任务协同学习。在两个解剖区域、五种实验设置上的实验验证了该方法在配准与分割任务上的有效性与效率。该文被 ACM Multimedia 2026（MM '26）接收，代码已开源。</p>
+<h3 class="card-title">CDGC-Net：协作双尺度自注意力与分组通道建模的 3D 分割网络</h3>
+<p class="card-summary">3D 医学图像分割需要同时整合长程解剖上下文与精细边界细节，现有方法常在独立模块或特征层分别建模全局与局部特征，导致语义错配与表征冗余。CDGC-Net 在单个模块内以协作双尺度自注意力（CDSA）将注意力头分配到并行局部窗口与全局稀疏分支，共享键投影保持特征参照一致；随后以分组层次通道注意力（GHCA）对通道分组建模组内与跨组依赖，再经残差特征对齐融合。在 Synapse、ACDC、BraTS 与 LA 四个数据集上平均 Dice 分别达 86.96%、92.91%、82.56% 与 93.52%，均超过次优方法；参数量 25.83M、计算量 28.62G FLOPs（64×128×128 输入），较 UNETR++ 分别降低约 39.9% 与 40.3%，在精度与计算复杂度之间取得更优平衡。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 大连理工大学/北京儿童医院</span><span class="evidence">会议论文</span><time class="time">3天前</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.04906" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">04</span><div class="card-body">
-<h3 class="card-title">SpineSegDiff：扩散模型用于腰椎 MRI 分割</h3>
-<p class="card-summary">面向下背痛患者的腰椎 MRI 语义分割提出基于扩散模型的框架 SpineSegDiff，可在 T1 与 T2 加权序列上统一分割椎体、椎间盘与椎管。在 SPIDER 数据集上其性能与目前最优的非扩散模型 nnU-Net 相当，且在识别退化椎间盘方面表现更佳；模型生成的不确定性图可为临床复核提供参考，增强分割结果的稳健性与可靠性。研究提示扩散模型有望通过更精确的病理脊柱 MRI 分析改善下背痛的诊断与管理。该文发表于 MIDL 2025 会议论文集（PMLR 301）。</p>
-<div class="card-meta">
-<span class="source-chip">ArXiv · 苏黎世联邦理工学院</span><span class="evidence">会议论文</span><time class="time">5天前</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.05815" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">05</span><div class="card-body">
-<h3 class="card-title">贝叶斯自适应加权集成：少样本腹部分割应对域偏移</h3>
-<p class="card-summary">少样本学习是标注数据稀缺时解剖结构分割的可行方案，但不同算法在不同解剖部位与机构数据上各有优劣。本文提出贝叶斯自适应加权集成框架：先用少量标注支持集适配多个少样本分割算法，再用贝叶斯优化在目标域验证集上自动确定使分割性能最优的集成权重，并固定权重应用于未见查询图像。在跨机构男性盆腔结构数据集上，以留出解剖结构与机构模拟标注稀缺与机构域偏移，结果显著优于单一少样本学习器、固定权重集成、从头训练基线与近期最优集成方法，为严重标注受限条件下分割系统向新临床站点部署提供了实用机制。该文被 MICCAI 2026 DEMI 研讨会接收。</p>
-<div class="card-meta">
-<span class="source-chip">ArXiv · 伦敦玛丽女王大学/UCL/牛津大学</span><span class="evidence">会议论文</span><time class="time">4天前</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.06311" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">06</span><div class="card-body">
-<h3 class="card-title">FLAIR 超分辨率会抹除还是幻觉出小病灶？</h3>
-<p class="card-summary">白质高信号（WMH）是 FLAIR 扫描上的亮区，与脑血管病变和神经退行性疾病相关。临床 FLAIR 常以厚层采集，层间分辨率差；超分辨率（SR）常被用于从各向异性扫描恢复各向同性体积，但 SR 之后再做 WMH 分割是否保留病灶内容此前未知——模型可能抹除小的真实病灶，也可能幻觉出并不存在的病灶。研究使用 ADNI 队列 29 名受试者的 1mm 各向同性高分辨率 FLAIR（专家逐病灶手动分割 WMH），将其降质模拟 3mm 与 5mm 层间采集，再用多对比隐式神经表示（INR）、单对比自监督模型 ECLARE 与三次插值上采样至原始分辨率，并在对小病灶最敏感的 MARS-WMH 分割器上按检测灵敏度、抹除率与幻觉率评估。结果显示：SR 的主要效应是抹除小的真实病灶而非幻觉，且随层厚增加而加重；不过所有重建方式对病灶检测仍优于原始厚层扫描。ECLARE 在两个层厚下对小病灶信号保留最佳，INR 并不优于三次插值。</p>
-<div class="card-meta">
-<span class="source-chip">ArXiv · 宾夕法尼亚大学</span><span class="evidence">预印本</span><time class="time">4天前</time>
+<span class="source-chip">ArXiv · 南昌航空大学</span><span class="evidence">预印本</span><time class="time">2天前</time>
 </div>
 </div>
 </a>
@@ -283,41 +256,32 @@
       </div>
 
       <div class="research-group" id="seg-diagnosis">
-        <div class="group-heading"><span class="group-index">02</span><span class="group-title">疾病诊断</span><span class="group-count">4 篇</span></div>
+        <div class="group-heading"><span class="group-index">02</span><span class="group-title">疾病诊断</span><span class="group-count">3 篇</span></div>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2607.02596" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">07</span><div class="card-body">
-<h3 class="card-title">CIPHER：四条因果路径干预提升医疗 AI 公平性</h3>
-<p class="card-summary">深度学习医学诊断模型在不同敏感子组（如种族、性别）间常表现出显著性能差异。现有生成式数据增强只处理敏感属性与图像特征间的一两条依赖通路。本文通过结构因果模型形式化医学图像形成过程，发现敏感属性通过四条通路影响图像内容；据此提出 CIPHER 框架，系统性干预全部四条因果路径。该框架采用带无分类器引导与空文本反转的扩散骨干，忠实重建患者特异性解剖的同时，可精确合成所需反事实以切断敏感依赖链。在胸部 X 光和皮肤镜基准（含标准与偏移数据分布）上，相比疾病条件合成基线，多通路干预将最差组差异平均降低 35.8%，同时提升总体诊断准确率。该文被 MICCAI 2026 接收。</p>
+<a class="card" href="https://arxiv.org/abs/2608.08920" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">04</span><div class="card-body">
+<h3 class="card-title">领域结构化集成框架：从电子病历预测围手术期术后谵妄</h3>
+<p class="card-summary">围手术期风险预测模型常受限于狭窄手术人群、不完整术中数据、校准不佳与可解释性有限。研究提出基于电子病历的领域结构化集成框架：预测变量按患者相关、手术相关与麻醉相关领域分组，领域专属梯度提升模型各自输出独立风险估计，再由逻辑回归元学习器整合。在含 5,386 例手术（2,693 例病例与 2,693 例对照）的病例对照样本上验证术后谵妄预测，堆叠元学习器 AUROC 达 0.899、精确率-召回率 AUC 0.881、Brier 分数 0.126，优于最佳单阶段模型（AUROC 0.849）；2017 年后数据的时间验证 AUROC 达 0.915，校准表现良好。模块化设计支持替代结局、预测域扩展与动态风险更新。研究经印第安纳大学 IRB 审查，数据来自印第安纳州健康信息交换网络。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 复旦大学</span><span class="evidence">会议论文</span><time class="time">7月1日</time>
+<span class="source-chip">ArXiv · 印第安纳大学</span><span class="evidence">预印本 · 回顾性病例对照</span><time class="time">2天前</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2607.25324" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">08</span><div class="card-body">
-<h3 class="card-title">平衡软专家混合模型：多模态青光眼检测</h3>
-<p class="card-summary">青光眼是导致不可逆视力丧失的主要原因之一，早期检测至关重要。针对多模态学习中的单模态表征失衡与欠优化问题，本文提出带负载均衡损失的平衡软专家混合模型（三个专家），联合学习多种成像模态的互补信息。在 AUC 指标上，该方法超越所有单模态基线、常规多模态模型及当前最优的平衡多模态模型，并可推广至糖尿病视网膜病变等其他疾病检测场景。</p>
+<a class="card" href="https://arxiv.org/abs/2607.04486" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">05</span><div class="card-body">
+<h3 class="card-title">LeukocyteCount：深度学习自动识别与计数白细胞</h3>
+<p class="card-summary">白细胞数量是评估机体抵抗感染防御机制的重要指标，传统计数与分类方法劳动密集且易受人为误差影响。研究提出混合机器学习方案：YOLOv5 检测白细胞，微调后的预训练 MobileNetV2 与逻辑回归分类器完成四类白细胞的识别、计数与分类，并另设基于 YOLOv5 的红细胞检测模块。在 BCCD 数据集上，YOLOv5 阶段检测准确率 98%，后续分类准确率 99.04%，红细胞检测 F1 分数 99.73%，优于基线。研究提示该混合模型有潜力改变传统实验室白细胞分析流程，为疾病诊断与监测提供更准确高效的自动化途径。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 路易斯安那大学拉法叶分校</span><span class="evidence">预印本</span><time class="time">7月28日</time>
+<span class="source-chip">ArXiv · 赫勒万大学</span><span class="evidence">预印本</span><time class="time">7月5日</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2607.06549" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">09</span><div class="card-body">
-<h3 class="card-title">无监督域适应提升乳腺钼靶钙化跨站点分类</h3>
-<p class="card-summary">基于深度学习的乳腺钼靶计算机辅助诊断在分类任务上表现强劲，但跨站点数据集间的域偏移仍是挑战。本文提出钙化分类框架提升多站点钼靶数据上恶性与良性乳腺病变分类性能：包含两个组件——基于风格迁移（AdaIN 与 CycleGAN）的无监督域适应模块，无需额外标注即可生成厂商与采集技术特异的训练样本；以及以 Swin Transformer V2 为骨干的监督分类模块。在英国 OPTIMAM（n=2,994）交叉验证后，在美国 EMBED（n=125，埃默里大学）与 Duke 钙化数据集 v1（n=788）上外部验证，跨站点 AUC 分别从 0.68 提升至 0.72 和 0.73，表明域适应可降低域偏移、提升多站点钙化分类泛化能力。</p>
+<a class="card" href="https://arxiv.org/abs/2608.09053" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">06</span><div class="card-body">
+<h3 class="card-title">LuminaECG：以医生式测量先验驱动的 ECG 诊断推理框架</h3>
+<p class="card-summary">心脏病专家通过定位波形成分、测量节律与间期模式，并将结构化观察转化为诊断证据来解读心电图；这种"专家阅读过程"能否作为 ECG 智能体的有效先验此前尚不明确。LuminaECG 将心电图信号渲染在标准心电图网格纸上以保留临床阅读中的空间与尺度线索，显式描绘 P 波、QRS 与 T 波边界，用彩色编码分割把波形分解为离散视觉测量基元，再以低秩监督微调训练 2B 视觉语言骨干，将这些基元与诊断推理关联，无需架构修改。在开放、专有与 ECG 专科零样本基线中，LuminaECG 同时改善波形测量与诊断恢复，在 CODE-test 基准上达到具临床意义的阅片者层级，无需重训练即可跨地理多样化的 ECG 数据集迁移，生成的报告结构还包含突现的预后信号。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 杜克大学</span><span class="evidence">预印本</span><time class="time">7月7日</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2607.24814" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">10</span><div class="card-body">
-<h3 class="card-title">Aletheia：面向撒哈拉以南非洲的离线临床决策支持系统</h3>
-<p class="card-summary">基于 Qwen2.5-3B-Instruct 微调的离线临床决策支持系统，使用 27,000 条覆盖 50 种东非高发疾病的临床推理样本进行 QLoRA 微调。Top-1 诊断准确率 80.0%，Top-3 准确率 100.0%，BERTScore-F1 达 0.909。推理峰值内存约 3,630 MB，在消费级笔记本上即可运行，无需云端基础设施，适用于医师与患者比低于 1:25,000 的资源匮乏基层医疗场景。</p>
-<div class="card-meta">
-<span class="source-chip">ArXiv · 索罗提大学</span><span class="evidence">预印本</span><time class="time">7月14日</time>
+<span class="source-chip">ArXiv · 东南大学</span><span class="evidence">预印本</span><time class="time">昨天</time>
 </div>
 </div>
 </a>
@@ -327,39 +291,39 @@
       <div class="research-group" id="seg-foundation">
         <div class="group-heading"><span class="group-index">03</span><span class="group-title">医学基础模型</span><span class="group-count">4 篇</span></div>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2608.05960" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">11</span><div class="card-body">
-<h3 class="card-title">3D CT 基础模型冻结特征基准：大、亮还是不可见？</h3>
-<p class="card-summary">在三个胸部 CT 队列上评估 10 个冻结 CT 编码器，使用 k 近邻、零样本提示和线性探测。研究发现不存在通用最优模型，排名随评估上下文波动。关键发现：检测能力主要受物理瓶颈制约——病灶对比度和空间范围决定可检测性。弥漫性或高对比度异常（如装置和积液）可可靠恢复，而小而低对比度的局灶性病变在所有编码器中仍是持续挑战。</p>
+<a class="card" href="https://arxiv.org/abs/2608.08319" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">07</span><div class="card-body">
+<h3 class="card-title">Alcmaeon：可持续扩展的脑 MRI 基础模型</h3>
+<p class="card-summary">脑部 MRI 是神经科学与临床评估的核心，但模型通常针对单一疾病、人群或成像协议开发。研究展示 Alcmaeon——在超过 42.5 万个体积及其衍生影像上无人工标签预训练的三维脑 MRI 基础模型——可跨临床领域顺序扩展。Alcmaeon 结合体积编码与潜在扩散生成，采用图蓝图剪枝（GBP）保护对早期领域重要的网络模块、同时保留其余容量可训练。从健康老龄化与神经退行性领域向发育、精神科与肿瘤影像扩展时，GBP 在体素级重建指标上的遗忘明显少于顺序适应与弹性权重巩固等方法；不同模型层级表示支持图像合成、疾病分类、生存建模与术后预测。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 慕尼黑工业大学等</span><span class="evidence">预印本</span><time class="time">4天前</time>
+<span class="source-chip">ArXiv · 剑桥大学</span><span class="evidence">预印本</span><time class="time">3天前</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2608.04472" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">12</span><div class="card-body">
-<h3 class="card-title">EndoVLM：解剖引导稀疏池化的内窥镜视觉语言基础模型</h3>
-<p class="card-summary">在超过 34.8 万例内窥镜检查（每例包含临床报告与对应图像集）上预训练的视觉语言基础模型。引入解剖引导稀疏池化机制，利用文本描述作为查询驱动稀疏注意力，高效聚合语义显著帧。渐进式语义感知对齐策略通过结构化软目标建模临床分类法。在多个下游任务上优于现有基础模型，并展现出鲁棒的零样本泛化能力。</p>
+<a class="card" href="https://arxiv.org/abs/2608.08244" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">08</span><div class="card-body">
+<h3 class="card-title">FemWear：面向女性健康的专用可穿戴基础模型</h3>
+<p class="card-summary">通用可穿戴基础模型在大范围传感器流与人群上预训练，但并非围绕女性健康任务设计。FemWear 通过参数高效方式复用预训练多模态可穿戴骨干：保留 patch 投影与 Transformer 编码器，仅训练 239,236 个参数（约占 21.54M 参数编码器的 1.11%），以低秩残差适配器与因果任务族头部学习月经、症状、情绪、睡眠/恢复、自主神经、活动与妊娠相关结局的共享纵向表征。在周期相位 macro-F1 上提升 8.15%，绞痛、情绪症状与睡眠问题 MAE 分别降低 9.32%、5.80% 与 9.43%。论文同时明确：研究未建立普遍性能优势或临床有效性，结论仍属早期探索。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 阿里达摩院/上海交大</span><span class="evidence">预印本</span><time class="time">5天前</time>
+<span class="source-chip">ArXiv · 香港中文大学（深圳）</span><span class="evidence">预印本</span><time class="time">3天前</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2608.07176" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">13</span><div class="card-body">
-<h3 class="card-title">REVEAL：迄今最大规模内窥镜生成基础模型（GastroNet-5M）</h3>
-<p class="card-summary">内窥镜基础生成模型的开发受限于自然图像与临床图像之间的差距，以及训练大型扩散 Transformer 的计算成本。本文提出 REVEAL（表征驱动的内窥镜视觉嵌入对齐），这是迄今最大规模的内窥镜生成基础模型，在 GastroNet-5M（GN-5M）这一包含 500 万内窥镜帧的多中心数据集上训练。REVEAL 不依赖域外先验，而是使用直接在内窥镜分布上预训练的编码器，将扩散潜变量与领域特定视觉特征对齐，保留精细纹理与复杂解剖结构。除图像生成外，REVEAL 同时是强特征提取器：在多个基准上其性能与专为分类任务调优的 EndoViT、Endo-FM 等内窥镜基础模型相当甚至更优，并在真实成像损坏下表现出强表示鲁棒性。模型可生成高保真图像，在修复（inpainting）与外扩（outpainting）等潜空间编辑中保持结构连贯性，为条件合成、分割与分布外检测等未来智能消化内科系统提供了开放的基础骨干。该文被 ECCV 2026 DCA-MI 研讨会接收。</p>
+<a class="card" href="https://arxiv.org/abs/2608.07857" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">09</span><div class="card-body">
+<h3 class="card-title">CT 基础模型蒸馏为可编辑概念瓶颈：肺结节恶性预测</h3>
+<p class="card-summary">基础模型提供可迁移的 CT 表征，但直接基于嵌入的预测难以解释。研究开发概念瓶颈模型，将两个冻结 CT 基础模型的表征映射到八项放射科医生定义的肺结节属性，再由估计概念与结节大小预测恶性程度。概念保真度中等，FMCIB 在细微度（R² 0.24 对 0.11）、毛刺（0.17 对 0.08）、纹理（0.17 对 0.07）、分叶（0.15 对 0.05）等属性上高于 CT-FM；内部 AUROC 0.86，外部 0.72–0.73，与仅用结节大小的 0.73 相近，但优于纯嵌入探针（0.60 与 0.67）。概念瓶颈提供了透明的恶性预测，并可通过受控概念干预修改预测结果。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 埃因霍温理工大学/阿姆斯特丹大学医学中心</span><span class="evidence">会议论文</span><time class="time">3天前</time>
+<span class="source-chip">ArXiv · 亚利桑那大学</span><span class="evidence">预印本</span><time class="time">3天前</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2608.06613" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">14</span><div class="card-body">
-<h3 class="card-title">3D 医学基础模型能否看穿 MRI 伪影？受控表示鲁棒性研究</h3>
-<p class="card-summary">自监督 3D 医学基础模型越来越多地用作通用特征提取器，但其对 MRI 伪影的敏感性仍知之甚少。本文对五个预训练 3D 编码器（涵盖不同架构、目标、预训练域与数据集规模）进行受控的表示鲁棒性评估：利用 BraTS-Africa 病例的四种 MRI 序列，生成七种频域与图像域伪影、五种预定损坏设置；鲁棒性用线性中心核对齐（CKA）、RankMe 与 UMAP 评估，并辅以独立的分割一致性分析。结果显示鲁棒性强烈依赖模型与伪影类型：3DINO 的表示最稳定，BrainIAC 对多种损坏高度敏感，NeuroVFM、BrainFM 与 Neuro-SimCLR 呈中等但各异的伪影特应性。许多条件下 CKA 大幅下降而 RankMe 相对稳定，说明伪影常扭曲表示几何但不导致维度塌缩；分割一致性在损坏（尤其鬼影与 Rician 噪声）下也退化，但与表示级鲁棒性仅部分对齐。结论：更大规模或域特定预训练本身并不保证伪影不变性，异构 MRI 环境部署前需进行显式鲁棒性评估。该文被 ECCV 2026 AI4M3D 研讨会接收。</p>
+<a class="card" href="https://arxiv.org/abs/2608.08896" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">10</span><div class="card-body">
+<h3 class="card-title">MedGemma 微调：多模态影像设备维护助手服务低资源地区</h3>
+<p class="card-summary">影像设备停机是中低收入国家医疗服务的重要障碍，常源于生物医学工程专业支持匮乏。研究提出多模态医疗设备维护问答框架并微调医学基础模型执行专业故障排查：基于九国调查，从 MRI 与超声系统技术手册生成 INGENZI_DatasetV1（含 10,294 个问答-上下文对），用 QLoRA 参数高效微调将 MedGemma-4b-it 适配为解释系统错误日志并生成逐步维修指令的任务。相比基线模型，F1 分数从 0.22 提升至 0.38，ROUGE-2 从 0.18 提升至 0.41，BERTScore F1 从 0.86 提升至 0.91，表明模型能生成更精确、程序更正确的技术响应。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 哥本哈根大学</span><span class="evidence">会议论文</span><time class="time">4天前</time>
+<span class="source-chip">ArXiv · 麦吉尔大学/卡内基梅隆大学非洲校区</span><span class="evidence">预印本</span><time class="time">2天前</time>
 </div>
 </div>
 </a>
@@ -367,32 +331,41 @@
       </div>
 
       <div class="research-group" id="seg-agent">
-        <div class="group-heading"><span class="group-index">04</span><span class="group-title">医疗Agent与临床智能体</span><span class="group-count">3 篇</span></div>
+        <div class="group-heading"><span class="group-index">04</span><span class="group-title">医疗Agent与临床智能体</span><span class="group-count">4 篇</span></div>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2608.06366" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">15</span><div class="card-body">
-<h3 class="card-title">nMAS：多智能体系统自动构建心衰电子病历特征</h3>
-<p class="card-summary">电子病历特征工程占数据科学家 39-45% 工作量。研究团队开发 Nimblemind 多智能体系统（nMAS），在 500 份患者记录上自动生成 132 个结构化特征和 70 个评分聚合特征，所有特征均经过结构完整性、评分合规性和来源验证。加入聚合特征后，HFrEF 表型分类 AUROC 从 0.895 提升至 0.963，HFpEF 从 0.870 提升至 0.910。评估限于单机构队列，外部验证仍需进行。</p>
+<a class="card" href="https://arxiv.org/abs/2608.09861" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">11</span><div class="card-body">
+<h3 class="card-title">AMIE (Video)：实时视频问诊达到专家级临床水平</h3>
+<p class="card-summary">音视频交互是医患咨询的标准形式，能实现自然沟通并通过非语言线索评估病情，但早期将医疗 AI 扩展至音视频的尝试尚未达到临床医生水平。本文首次展示基于 Gemini 的多智能体系统 AMIE (Video) 在视频配置下实现专家级实时临床视频咨询，集成了低延迟对话、临床推理与实时音视频感知，并建立了远程医疗场景中临床音视频线索的分类学与自动化评估框架。在一项含 30 名初级保健医生、15 名患者演员与 100 个临床场景的随机客观结构化临床考试（OSCE）研究中，AMIE (Video) 在病史采集、诊断、管理与体格观察检查方面被临床评估者评为与初级保健医生相当或更优；患者演员更偏好 AMIE 评估和解释病情的方式，而医生在建立融洽关系方面更受青睐。局限仍存在于精细解剖精度、细微情感线索与高频运动方面；研究强调实际临床应用前还需进一步验证。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 罗格斯大学等</span><span class="evidence">预印本</span><time class="time">4天前</time>
+<span class="source-chip">ArXiv · Google Research/DeepMind</span><span class="evidence">预印本 · 随机OSCE</span><time class="time">昨天</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2608.04514" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">16</span><div class="card-body">
-<h3 class="card-title">RESPClinBench：呼吸专科多模态临床决策基准</h3>
-<p class="card-summary">呼吸专科医疗需要多模态解读、纵向风险评估、符合指南的干预与全程管理，现有以考试为导向的医学基准难以覆盖。研究构建基于真实临床场景的 RESPClinBench 基准，评估七款大语言模型在 AECOPD-PIM（427 例 COPD 开放病例）与 PNBIM（196 例结合胸部 CT 与结构化临床信息的肺结节多模态病例）上的表现。七款模型共生成 4,361 条响应，623 例平均最终得分 68.58，Qwen3.6-27B 以 71.22 总分居首；PNBIM 响应中影像幻觉与严重医疗风险分别出现在 31.85% 与 8.16%，AECOPD-PIM 中用药安全风险与严重医疗风险分别为 26.93% 与 1.44%。结合显式临床动作覆盖、整体评估与独立安全标记，该基准为模型选型与前瞻性验证提供了临床依据。</p>
+<a class="card" href="https://arxiv.org/abs/2608.09142" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">12</span><div class="card-body">
+<h3 class="card-title">GatorOnco：智能体 LLM 辅助结直肠癌治疗计划制定</h3>
+<p class="card-summary">精准肿瘤学的治疗计划需整合异质患者信息与快速演变的临床指南。GatorOnco 面向结直肠癌治疗计划构建智能体 LLM，以总计 2,820 亿 token 的生物医学文本开发（含来自 UF Health 的 1,660 亿 token 医疗系统级临床文本），结合预训练、模型合并、两阶段后训练与基于智能体的强化学习；智能体检索增强生成将时效性临床指南动态整合进推理。在一项由 5 名佛罗里达大学健康中心肿瘤学家进行的盲法随机临床评估中，GatorOnco 显著优于开源 LLM（P&lt;0.01），并与专家肿瘤学家水平相当：可读性（4.46 对 4.19）与完整性（3.91 对 3.52）评分显著更高，正确性、时效性与安全性评分与专家无统计显著差异。商业应用前仍需更大规模前瞻验证。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 上海人工智能实验室/广州医科大学附属第一医院</span><span class="evidence">预印本</span><time class="time">5天前</time>
+<span class="source-chip">ArXiv · 佛罗里达大学</span><span class="evidence">预印本 · 专家盲法评估</span><time class="time">昨天</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2608.07418" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">17</span><div class="card-body">
-<h3 class="card-title">ResidencyRL：模拟临床环境中的强化学习训练临床智能体</h3>
-<p class="card-summary">在医学教育中，医生通过住院医师培训将学术知识转化为临床专长：经历数千次接诊、多年训练、多样化反馈与渐进自主。多数临床推理依赖患者接诊——临床医生在不确定性下采集病史、完善诊断假设并决定管理方案的对话过程。大语言模型在静态医学基准上表现出色，但优化完整临床决策序列的方法仍不成熟。本文提出 ResidencyRL，一种通过模拟多轮临床接诊（每条轨迹最多 60 轮对话与 8 次工具调用）训练临床 AI 智能体的强化学习方法：将策略智能体与能表现复杂对抗行为的 LLM 模拟器配对，针对对齐诊断准确性、管理质量、沟通、文书与安全的结构化奖励进行训练。在留出评估中，ResidencyRL 智能体在对抗条件下将诊断准确率提升 7.0%（88.0% 对 81.0%），漏诊红旗（red flag）率降低 31%，体现出对过早结束诊断（premature closure）的有效抑制；盲法专家临床医生在 87.6% 的并排对比中更偏好训练后的智能体。程序性能力可迁移至未见基准：智能体在 AMIE 多访视基准的全部六个临床轴上优于基础模型，并在 AgentClinic 与 CRAFT-MD 上呈现一致的方向性改进。结果表明序列化临床决策可通过模拟中的多轮强化学习有效习得，获得稳健且可泛化的能力；真实工作流的前瞻性验证仍是确立临床效用的必要条件。该研究由 Google DeepMind 与多家临床机构合作完成。</p>
+<a class="card" href="https://arxiv.org/abs/2608.09443" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">13</span><div class="card-body">
+<h3 class="card-title">ATLAS：耦合图-策略蒸馏保障老年多病患者的用药安全</h3>
+<p class="card-summary">LLM 智能体可在就诊间隙支持用药审查，但对多种慢病共存的老年人，安全用药决策取决于用户可能遗漏的病情、药物与老年病风险。ATLAS 将指南证据构建为用药安全图，通过针对性提问更新患者状态，并把相关关系蒸馏为患者特异性用药冲突图（PMCG）；风险优先的多智能体策略利用 PMCG 筛查禁忌症、评估注意事项与监测需求、识别更安全替代方案并验证最终用药计划，同时引入交互式基准 GeriMedBench。在欧洲非交互多病种、亚洲交互多病种与亚洲非交互跨指南基准上，ATLAS 完整决策性能均优于对比系统，其中欧洲非交互多病种基准上严格成功率超出最强专有 LLM 基线 53.73 个百分点，整体安全推理评分高出 14.63 分，且自动评估未发现不安全建议；盲法临床评估在全部五项标准上给出更高平均评分，同时标记了 1 例 ATLAS 与 2 例 Gemini 案例中的潜在不安全建议。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · Google DeepMind</span><span class="evidence">预印本</span><time class="time">3天前</time>
+<span class="source-chip">ArXiv · 香港科技大学（广州）</span><span class="evidence">预印本 · 临床专家评估</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.09024" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">14</span><div class="card-body">
+<h3 class="card-title">EHR2Dial-Triage：面向急诊分诊的 EHR 锚定交互对话基准</h3>
+<p class="card-summary">急诊科分诊要求临床医生在信息不完整的就诊早期快速识别需要立即关注的患者并优先分配有限资源，许多关键信息通过聚焦对话获得；而现有急诊基准大多从固定临床快照评估病情严重度预测，未捕捉分诊证据被引出与解释的交互过程。研究基于 MIMIC-IV-ED 提出智能体对话生成框架与基准 EHR2Dial-Triage：在明确的角色与时间信息边界下构建分诊对话，每条被接受的患者披露均链接到支持的 EHR 事件及其首个可获得对话轮次，支持对信息引出、证据使用、五级紧急严重度指数（ESI）预测及跨模型与患者角色的沟通进行受控评估。跨模型结果显示，信息获取、证据使用与最终分诊预测能力并不总是一致，提示会话式分诊应超越最终严重度预测进行评估。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 密歇根大学</span><span class="evidence">预印本 · 基准</span><time class="time">昨天</time>
 </div>
 </div>
 </a>
@@ -400,23 +373,32 @@
       </div>
 
       <div class="research-group" id="seg-world-model">
-        <div class="group-heading"><span class="group-index">05</span><span class="group-title">世界模型（研究关键词）</span><span class="group-count">2 篇</span></div>
+        <div class="group-heading"><span class="group-index">05</span><span class="group-title">世界模型（研究关键词）</span><span class="group-count">3 篇</span></div>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2607.28487" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">18</span><div class="card-body">
-<h3 class="card-title">AuricularWorld：世界模型框架用于耳部 CT 精细分割</h3>
-<p class="card-summary">针对耳部软骨边界不规则、软骨与周围软组织界面模糊等挑战，提出基于世界模型的分割框架。在编码器-解码器架构中引入确定性循环状态空间模型，通过分层解剖动作更新循环状态并渐进式优化潜在表示。推理阶段执行三步潜在展开，无需真实标注引导。实验显示该框架持续提升分割精度，对小而不规则的耳部结构 HD95 降低超过 43%。</p>
+<a class="card" href="https://arxiv.org/abs/2608.06770" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">15</span><div class="card-body">
+<h3 class="card-title">Surg-UniWorld：带多模态控制专家的统一手术世界模型</h3>
+<p class="card-summary">可控手术世界模型可通过合成逼真的器械-组织交互为手术 AI 与模拟提供生成基础，但现有方法缺乏统一的多模态控制范式，异构视觉条件直接融合常导致解剖扭曲、器械外观漂移与时间不一致。Surg-UniWorld 先由首帧外观与层次语义掩码构建"层次手术锚点"以保持场景身份、解剖组织与交互边界；锚点相对模态专家再以共享锚点为参照解读边缘、深度与光流证据，互补捕获边界、几何与运动信息；多模态控制专家进行保留贡献的分阶段组合并生成 Wan2.2 视频扩散骨干的控制提示。研究还构建了可控手术视频生成基准 Cholec80-SurgWAM，实验显示其在生成质量、时间一致性与多模态可控性上一致优于现有可控视频生成方法与手术世界模型基线。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 中国医科院整形外科医院/港中文</span><span class="evidence">预印本</span><time class="time">7月30日</time>
+<span class="source-chip">ArXiv · 香港中文大学/悉尼大学</span><span class="evidence">预印本</span><time class="time">4天前</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2605.23992" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">19</span><div class="card-body">
-<h3 class="card-title">GazeWorld：以放射科医生注视轨迹为世界模型的预训练</h3>
-<p class="card-summary">放射科医生的眼动数据记录了专家如何搜索、比较与积累证据，但现有方法只部分利用该信号（静态空间先验或与诊断解耦的辅助预测目标）。本文提出 GazeWorld 医学影像世界模型：将图像视为世界、医生的注视序列视为穿越世界的轨迹，自回归预测下一个注视斑块的潜在表示，同时用空间补全分支覆盖未访问区域；推理时仅凭图像即可生成斑块表示序列，无需真实注视数据。冻结的 GazeWorld 特征在 CheXpert、RSNA 肺炎、SIIM-ACR 气胸三个基准的九个监督设置上均达当前最优诊断准确率，并取得最高零样本准确率；在 GazeSearch 基准上，基于同一冻结特征的通用解码器在 ScanMatch 与 SED 指标上分别超过专门构建的 LogitGaze-Med 16% 与 22%。研究提示，建模专家如何阅读（而非仅建模结论）是医学影像 AI 有前景的预训练范式。</p>
+<a class="card" href="https://arxiv.org/abs/2608.08070" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">16</span><div class="card-body">
+<h3 class="card-title">SurgWMBench：面向手术器械运动规划的世界模型视觉基准</h3>
+<p class="card-summary">可靠的手术规划要求模型不仅识别当前手术步骤或模仿专家演示，还要预判器械运动如何重塑后续术野状态；现有手术视频理解方法多聚焦于阶段与动作识别，器械运动预测方法则大多未建模未来手术视频状态的耦合演化。世界模型为联合建模视觉状态转换与器械运动动力学提供了自然框架，但现有手术世界模型研究集中于视觉生成质量，依赖 FVD 等生成导向指标，与运动规划目标脱节，且领域缺乏公开数据集与标准化评估协议。研究提出 SurgWMBench——面向短时程手术运动规划与动力学预测的视觉基准：给定术中图像序列与历史器械轨迹，评估近期器械运动预测能力及连续展开或输入扰动下的稳定性，为以运动为中心的评估提供标准化基础设施。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 佐治亚大学等</span><span class="evidence">预印本</span><time class="time">2026年5月17日</time>
+<span class="source-chip">ArXiv · 澳门大学/新加坡国立大学</span><span class="evidence">预印本 · 基准</span><time class="time">3天前</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2608.09266" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">17</span><div class="card-body">
+<h3 class="card-title">EndoClock：审计医学世界模型流水线是否抹除了关键事件</h3>
+<p class="card-summary">医学世界模型常从多模态记录学习，并把各原生流重采样到固定频率网格的共享时间轴。当观测时钟依赖于潜在或采集状态（即内生的）时，同步可能并不中立，可能在模型看到数据之前就抹除任务相关证据。研究提出四区间分类法，刻画区分目标事件或状态所需证据的存续位置：相关见证可能保留在采样值、网格单元更新模式、原生时间戳，或仅存在于外部采集通道。EndoClock 将该分类法操作化为保守的预训练审计，报告现有证据支持的最低见证表征，或在无法确立任何区间时标记"未解决"。研究以超声心动图为例说明该失效模式：脉冲波多普勒采集期间 B 模式视频停止写入，对应测量事件仅记录在外部采集日志中。论文定位为初步失效告警与可执行审计，实用建议是保留原生观测过程足够久，以确定同步是否抹除了目标任务所需信息。该文被 MICCAI 2026 医学世界模型研讨会（MWM）接收。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · Diastole Medical R&D</span><span class="evidence">会议论文（MWM 2026）</span><time class="time">昨天</time>
 </div>
 </div>
 </a>
@@ -426,39 +408,39 @@
       <div class="research-group" id="seg-pet-ct">
         <div class="group-heading"><span class="group-index">06</span><span class="group-title">PET/CT（研究关键词）</span><span class="group-count">4 篇</span></div>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2606.28392" target="_blank" rel="noopener noreferrer">
+<a class="card" href="https://arxiv.org/abs/2608.09721" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">18</span><div class="card-body">
+<h3 class="card-title">PET/CT 放射基因组学：多标签学习预测 NSCLC 基因突变</h3>
+<p class="card-summary">靶向治疗改善了非小细胞肺癌（NSCLC）患者结局，但依赖组织活检的突变谱分析具有侵入性且存在局限。研究用深度学习基于 PET/CT 预测 EGFR、TP53 与 KRAS 突变，并系统考察成对多标签学习相比传统单基因分类是否提升预测性能——据作者所述，这是首批系统研究 PET/CT 放射基因组突变预测中多标签学习的工作之一。实验在全新英国放射基因组队列上进行：KRAS 与 TP53 联合预测将 KRAS AUC 从 0.58 提升至 0.64、TP53 从 0.69 提升至 0.71；EGFR/KRAS 组合仅 EGFR 获益，EGFR/TP53 组合无改善。结果表明多标签学习的有效性取决于所建模的基因突变组合，提示 PET/CT 放射基因组预测或需突变特异的建模策略。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 牛津大学</span><span class="evidence">预印本 · 回顾性研究</span><time class="time">昨天</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2606.15611" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">19</span><div class="card-body">
+<h3 class="card-title">MuDuo：双基础模型互蒸馏实现半监督 PET/CT 分割</h3>
+<p class="card-summary">器官分割对肿瘤定量分析与放疗计划至关重要，但 PET/CT 标注成本高。研究提出互蒸馏框架 MuDuo，将结构 CT 与代谢 PET 的模态特异性基础模型作为通才教师：SAM-Med3D 蒸馏 CT 结构先验、SegAnyPET 蒸馏 PET 代谢先验，把知识压缩进轻量学生网络，无需人工提示即可最大化利用未标注数据。在 AutoPET 数据集上仅用 5 例标注数据即达到当前最优性能，为低标注条件下的自动分割提供了实用方案。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 中南大学</span><span class="evidence">预印本</span><time class="time">2026年6月14日</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2605.21835" target="_blank" rel="noopener noreferrer">
   <span class="card-num">20</span><div class="card-body">
-<h3 class="card-title">RADIANT-PET：LLM 推理增强的 PET/CT 病灶分割</h3>
-<p class="card-summary">PET/CT 病灶分割对肿瘤诊疗至关重要，但生理性示踪剂摄取与伪影常模拟恶性信号。本文提出推理增强框架 RADIANT-PET，将高灵敏度体素级分割模型与病灶级大语言模型裁定相结合：先用刻意宽松的分割阶段生成候选摄取区，再转换为概括摄取强度、形态与区域及全身解剖背景的结构化文本描述，由 LLM 将每个候选分类为真病灶或假阳性，并可选用放射学报告作为额外临床上下文。研究还通过 Group Relative Policy Optimization 对本地 LLM 进行强化学习优化，奖励正确病灶分类与解剖一致部位分配。在 AutoPET 与俄亥俄州立大学测试队列上，RADIANT-PET 持续优于强图像基线，提供放射学报告时提升最大，表明基于 LLM 的病灶级推理可抑制生理性假阳性，并使体素级预测与临床解读对齐。</p>
+<h3 class="card-title">开放多中心全身 FDG PET/CT 肿瘤分割基础模型</h3>
+<p class="card-summary">CT 解剖信息与 PET 代谢信息的协同解读对肿瘤影像至关重要，但现有 PET/CT 深度学习方法大多任务特定、常在单中心队列训练，或采用延迟跨模态交互的双分支融合。研究发布开源多中心全身 FDG PET/CT 基础模型：基于四个公开数据集的 4,997 例经协调扫描，采用层次 UNet 形骨干与早期通道级拼接，使解剖与代谢特征从首个嵌入层即开始交互；以零均值插值的掩码自编码目标与加权全局重建损失训练，避免可学习掩码 token 在掩码区边界产生非物理强度不连续。在 AutoPET 病灶分割下游任务上表现出强标注效率：仅用 10% 标注训练数据即可达到全量数据从头训练模型的性能；极端 5-shot 线性探测下，PET/CT 联合预训练也优于分离模态预训练。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 俄亥俄州立大学/玛希隆大学</span><span class="evidence">预印本</span><time class="time">2026年6月23日</time>
+<span class="source-chip">ArXiv · 耶鲁大学</span><span class="evidence">预印本</span><time class="time">2026年5月20日</time>
 </div>
 </div>
 </a>
-<a class="card" href="https://arxiv.org/abs/2607.03931" target="_blank" rel="noopener noreferrer">
+<a class="card" href="https://arxiv.org/abs/2608.07155" target="_blank" rel="noopener noreferrer">
   <span class="card-num">21</span><div class="card-body">
-<h3 class="card-title">GLOW-FDG：全身 FDG PET/CT 癌症病灶分割开源模型</h3>
-<p class="card-summary">在 1,563 例多癌种 PET/CT 扫描上训练的开源全身癌症病灶分割模型，在 185 例独立机构外部扫描上评估。覆盖乳腺癌、肺癌、头颈癌和黑色素瘤，在病灶检测上持续优于公开基准模型，同时减少假阳性。总肿瘤负荷和总病灶糖酵解定量在多个队列间保持稳健，性能接近专家放射肿瘤科医师之间的变异范围。</p>
+<h3 class="card-title">机器学习恢复晶体内散射事件：超高分辨率 PET 成像</h3>
+<p class="card-summary">晶体内散射（ICS）事件是超高分辨率 PET（UHR-PET）的显著挑战：探测器晶体越小、读出越细分，问题越突出；现有方案要么拒绝事件损失灵敏度，要么以次优定位算法接受事件损失图像分辨率。研究以前馈神经网络优化 ICS 事件恢复，推断首次康普顿相互作用所属的响应线，并在基于 LabPET-II 的全像素化临床前与脑 UHR-PET 扫描仪的蒙特卡洛模拟与实验数据上验证。相比常规方法，灵敏度提升 70% 至 106%，同时保持亚毫米空间可分辨性（低至 1.6 mm），有效补偿了小像素化探测器检测效率较低的问题，可在基本保持图像质量的同时缩短扫描时间、降低辐射剂量。</p>
 <div class="card-meta">
-<span class="source-chip">ArXiv · 苏黎世大学医院/DKFZ</span><span class="evidence">预印本</span><time class="time">7月4日</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2606.10115" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">22</span><div class="card-body">
-<h3 class="card-title">不确定性增强模型改进全身 PET/CT 病灶分割</h3>
-<p class="card-summary">全身 PET/CT 病灶分割对癌症分期与治疗规划至关重要：PET 提供不同示踪剂的功能代谢信息，CT 提供解剖定位，但病灶勾画因细微影像特征、混杂因素与阅片者间差异而极具挑战。现有深度学习方法受训练随机性、预测不一致、高肿瘤负荷漏检与缺乏不确定性量化等限制，临床可靠性不足。本文以 nnU-Net 为基线提出不确定性感知框架，整合三部分：(1) 贝叶斯集成降低训练随机性；(2) 体素级不确定性量化，分解认知（epistemic）与偶然（aleatoric）不确定性；(3) 认知不确定性增强训练以改善病灶检测。研究使用两个公开数据集 AutoPET-III（1,611 例扫描）与 Deep-PSMA（200 例扫描），覆盖多种癌症的 FDG 与 PSMA 研究。结果显示：贝叶斯集成在未见 AutoPET-III 测试集上比确定性 nnU-Net 更鲁棒、性能更优；不确定性图突出模型分歧区域并与误分类（尤其假阳性）相关；不确定性增强训练以增加假阳性体积为代价提升病灶恢复率，体现精度-召回权衡；病例自适应路由策略在基础模型与增强模型间选择，进一步改善 Dice。据作者所述，这是首个系统研究多示踪剂、泛癌 PET/CT 分割中不确定性量化，并将贝叶斯集成与不确定性感知建模结合的工作。</p>
-<div class="card-meta">
-<span class="source-chip">ArXiv · 达特茅斯盖泽尔医学院/希区柯克医学中心</span><span class="evidence">预印本</span><time class="time">2026年6月8日</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2607.21800" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">23</span><div class="card-body">
-<h3 class="card-title">头颈癌三维 CT 到 PET 合成：双路径框架与热点引导融合</h3>
-<p class="card-summary">18F-FDG PET/CT 在头颈癌的分期、治疗规划与疗效评估中发挥核心作用，为解剖 CT 影像提供功能信息补充；但 PET 采集需要放射性示踪剂注射、专业基础设施与额外成本，限制了重复成像的可及性。本文提出概念验证的深度学习框架，直接从常规 CT 扫描合成类 PET 图像，目标是为影像分诊与临床决策支持提供补充代谢信息，而非替代诊断性 PET。研究回顾性分析了 44 名来自公开 QIN-HEADNECK 数据集的患者，采用五折交叉验证；提出全 3D 双路径架构：一是针对体素级定量 SUV 估计优化的回归 U-Net，二是针对逼真 PET 纹理优化的条件生成对抗网络，两者输出经热点引导的拉普拉斯金字塔混合集成，使代谢活跃区域保留回归路径的定量信息、其余区域利用对抗纹理合成。重建的 3D PET 体积平均绝对误差 0.00395、PSNR 39.19 dB、SSIM 0.9634；定性评估显示可准确定位许多 FDG 高摄取病灶，并生成解剖学上真实的背景纹理。与既往 CT 到 PET 合成研究一致，主要局限是高代谢活性肿瘤区域存在 SUV 系统性低估。</p>
-<div class="card-meta">
-<span class="source-chip">ArXiv · 普渡大学/印第安纳大学医学院</span><span class="evidence">预印本 · 概念验证</span><time class="time">7月23日</time>
+<span class="source-chip">ArXiv · 谢布鲁克大学</span><span class="evidence">预印本</span><time class="time">4天前</time>
 </div>
 </div>
 </a>
@@ -470,26 +452,17 @@
 
   <section id="industry" class="section section--industry">
     <header class="section-heading"><span class="section-index">02 / INDUSTRY</span><h2 class="section-title">行业动态</h2>
-<p class="section-note">优先采用公司、机构和监管部门的原始公告；二手报道明确标识。数据日期：AI HOT 8月10日日报与 24 小时检索无医疗条目，本期动态取自 7 日窗口检索（8月4-9日）。</p></header>
+<p class="section-note">优先采用公司、机构和监管部门的原始公告；二手报道明确标识。数据日期：AI HOT 8月11日日报与 medical/health 检索均无合格医疗条目；本期动态取自 24 小时及 7 日窗口检索，仅 1 条通过医学 + AI 双重相关性筛选，已回一手来源核验。</p></header>
     <div class="evidence-note">
 <strong>Source note</strong><span>产品能力、合作范围和安全数字按原始来源转述，不延伸为医疗效果判断。</span>
 </div>
     <div class="card-grid industry-grid">
-<a class="card" href="https://news.microsoft.com/signal/articles/teaching-ai-to-speak-the-language-of-pathology/" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">24</span><div class="card-body">
-<h3 class="card-title">PRISM2：微软×Paige 病理多模态基础模型，用临床对话解读病理切片</h3>
-<p class="card-summary">微软研究与病理 AI 公司 Paige（现属 Tempus）合作开发的多模态病理基础模型，研究发表于《Nature Medicine》（同行评审）。PRISM2 在 230 万张全切片图像与约 70 万份真实病理报告（纪念斯隆凯特琳癌症中心）衍生的 1,400 万条问答对上训练，通过临床对话监督将组织形态学与诊断推理语言对齐，既支持提示式问答推理，也提供可迁移的嵌入表征。问答式推理在前列腺癌、乳腺癌与乳腺淋巴结转移检测上达到或超过临床级产品（Paige Prostate、Paige Breast、Paige BLN）的平衡准确率；泛癌检测诊断嵌入 AUC 达 0.967。在下游应用中，PRISM2 还可预测生物标志物状态与患者预后，在结直肠癌无复发生存预测中 C-index 达 0.809。完整模型权重已在 Hugging Face 公开发布供研究使用。研究同时指出局限：训练数据来自单一机构影像流水线、模型可能产生幻觉、以固定分辨率处理图像且不显式建模切片间空间关系，跨机构部署前仍需进一步验证。厂商背景：Paige 为商业病理 AI 公司，2024 年被 Tempus AI 收购。</p>
+<a class="card" href="https://www.wcax.com/2026/08/07/kinney-drugs-pulls-back-ai-phone-assistant-after-hundreds-customer-complaints" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">22</span><div class="card-body">
+<h3 class="card-title">金尼药房在数百起客户投诉后撤回 AI 电话助手 Burt</h3>
+<p class="card-summary">美国连锁药房金尼药房（Kinney Drugs，佛蒙特州）宣布缩减其 AI 电话助手 Burt 的使用范围。Burt 于今年 5 月上线，用于与患者沟通处方与续药事宜；客户随后集中投诉其通话内容混乱、提供错误剂量并漏发处方通知，报道称投诉达数百起。药房总裁 John Marraffa 表示"在隐私与安全上做对了，并不等于体验做对了，我们承认这一点"，并宣布恢复传统按键式电话系统处理来电；Burt 仅保留用于处方续药短信等外发通信，且患者需主动选择接收。针对客户对个人健康信息可能经 AI 平台泄露的担忧，Marraffa 称 Burt 完全符合 HIPAA 合规要求，非开源、不生成或操作数据。报道由佛蒙特州当地电视台 WCAX 依据 VTDigger 的先行报道整理，属一手来源核实的事件信息，非研究证据。</p>
 <div class="card-meta">
-<span class="source-chip">Microsoft News</span><span class="evidence official">官方公告 · 同行评审</span><time class="time">8月4日 · 6天前</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://www.writingruxandrabio.com/p/intelligence-is-not-the-main-bottleneck" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">25</span><div class="card-body">
-<h3 class="card-title">观点：智力并非主要瓶颈——AI 时代医学进步的真实制约</h3>
-<p class="card-summary">作者 Ruxandra Teslo 在个人 Substack 撰文，针对硅谷 AI 圈"AGI 将解决一切（包括治愈疾病）"的主流叙事提出反驳：即便 AI 智力持续提升，现实世界的变革常受非智力因素制约，医学领域尤为典型。文章援引数据指出：临床试验平均耗时约七年、每款药物成本超过十亿美元；Eroom 定律显示自 1960 年代以来，每美元研发投入对应的新药批准数量长期下降；专利制度鼓励"靶点羊群效应"，资本扎堆于 AI 更易改进的分子设计与优化环节，而非更有社会价值的新靶点验证；即便找到合适的替代终点（如骨密度），其验证也耗时约 12 年。作者认为医疗进步的真正瓶颈是治理、监管与激励结构，将资源集中于 AI 驱动的生物学研究而忽视监管改革，是瞄准了错误的瓶颈。本文为观点评论，非研究证据，文中数字请以原文核对。</p>
-<div class="card-meta">
-<span class="source-chip">Ruxandra's Substack</span><span class="evidence">观点评论</span><time class="time">8月6日 · 4天前</time>
+<span class="source-chip">WCAX（佛蒙特州）</span><span class="evidence">媒体报道 · 一手来源</span><time class="time">8月8日 · 3天前</time>
 </div>
 </div>
 </a>
@@ -504,8 +477,8 @@
 
 <footer>
   <div class="shell footer-inner">
-    <span>共 25 条 · 数据源：<a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AI HOT</a> + <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">ArXiv</a></span>
-    <span>最后更新：2026年8月10日 12:00 · 北京时间</span>
+    <span>共 22 条 · 数据源：<a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AI HOT</a> + <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">ArXiv</a></span>
+    <span>最后更新：2026年8月11日 12:00 · 北京时间</span>
   </div>
 </footer>
 
