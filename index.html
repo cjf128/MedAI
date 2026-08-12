@@ -182,7 +182,7 @@
       <aside class="issue-panel" aria-label="本期统计"><p class="issue-label">Latest issue</p>
 <p class="issue-date">2026年8月12日<br>星期三 · 北京时间</p>
 <div class="issue-total">
-<strong>19</strong><span>15 篇研究<br>4 条动态</span>
+<strong>24</strong><span>18 篇研究<br>6 条动态</span>
 </div></aside>
     </div>
     <div class="source-strip" aria-label="来源与质量标准">
@@ -202,20 +202,20 @@
 <nav class="nav" aria-label="医学 AI 日报导航">
   <div class="shell nav-inner">
     <span class="nav-brand">Contents / Evidence map</span>
-    <a class="nav-link active" href="#research">论文研究 <span class="nav-count">15</span></a>
+    <a class="nav-link active" href="#research">论文研究 <span class="nav-count">18</span></a>
     <a class="nav-link" href="#seg-segmentation">图像分割 <span class="nav-count">2</span></a>
     <a class="nav-link" href="#seg-diagnosis">疾病诊断 <span class="nav-count">4</span></a>
     <a class="nav-link" href="#seg-foundation">基础模型 <span class="nav-count">4</span></a>
-    <a class="nav-link" href="#seg-agent">医疗Agent <span class="nav-count">1</span></a>
-    <a class="nav-link" href="#seg-pet-ct">PET/CT <span class="nav-count">4</span></a>
-    <a class="nav-link nav-link--industry" href="#industry">行业动态 <span class="nav-count">4</span></a>
+    <a class="nav-link" href="#seg-agent">医疗Agent <span class="nav-count">2</span></a>
+    <a class="nav-link" href="#seg-pet-ct">PET/CT <span class="nav-count">6</span></a>
+    <a class="nav-link nav-link--industry" href="#industry">行业动态 <span class="nav-count">6</span></a>
   </div>
 </nav>
 
 <main id="main-content" class="shell">
   <section id="research" class="section">
     <header class="section-heading"><span class="section-index">01 / RESEARCH</span><h2 class="section-title">论文研究</h2>
-<p class="section-note">按研究点与关键词分段；卡片完整展示中文摘要，不截断。论文时间范围：7月4日–8月11日，均在 90 天窗口内；世界模型分段本期无新增合格论文，已省略。</p></header>
+<p class="section-note">按研究点与关键词分段；卡片完整展示中文摘要，不截断。论文时间范围：6月16日–8月11日，均在 90 天窗口内；世界模型分段本期无机构可核验的合格新论文，已省略。</p></header>
     <div class="evidence-note">
 <strong>Evidence note</strong><span>以下为研究信息摘要，不代表方法已经完成临床验证。预印本、会议论文、动物实验、回顾性研究、前瞻性试验和概念验证应分别理解。</span>
 </div>
@@ -330,7 +330,7 @@
       </div>
 
       <div class="research-group" id="seg-agent">
-        <div class="group-heading"><span class="group-index">04</span><span class="group-title">医疗Agent与临床智能体</span><span class="group-count">1 篇</span></div>
+        <div class="group-heading"><span class="group-index">04</span><span class="group-title">医疗Agent与临床智能体</span><span class="group-count">2 篇</span></div>
         <div class="card-grid">
 <a class="card" href="https://arxiv.org/abs/2608.07418" target="_blank" rel="noopener noreferrer">
   <span class="card-num">11</span><div class="card-body">
@@ -341,14 +341,23 @@
 </div>
 </div>
 </a>
+<a class="card" href="https://arxiv.org/abs/2608.07651" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">12</span><div class="card-body">
+<h3 class="card-title">智能体框架克服 LLM 青光眼检测的固有局限</h3>
+<p class="card-summary">大语言模型（LLM）在医学图像解读中前景广阔，但存在幻觉、准确性有限与运行间不一致等固有缺陷。研究开发并验证了将 LLM 与专用深度学习工具集成的智能体 AI 框架，用于眼底照相青光眼检测：工作流分三步——LLM 初始评估；函数调用调用专用工具（图像质量模型 QAModel/FundaQ-8、青光眼分类 SwinV2-Tiny、视盘/视杯分割 SegFormer-B0）；LLM 反思整合初始印象与工具输出。在 ORIGA 与 RIM-ONE-v3 两个公开数据集（各 n=100）上评估 Gemini 2.5 Flash 与 GPT-5.4 mini，所有图像由盲法青光眼专科医生独立分级。智能体工作流在所有条件下将分类准确率提升 16–47 个百分点，最接近专科医生水平的差距收窄至 6 个百分点内；RIM-ONE-v3 上最优配置与专科医生准确率 88% 持平。纯 LLM 方案出现两类失败：GPT-5.4 mini 呈阳性偏倚（灵敏度 95–100%、特异度 0–5%），Gemini 2.5 Flash 运行间随机波动，智能体工作流均予纠正。杯盘比误差降低 15–50%（MAE 从 0.156–0.228 降至 0.104–0.132），与专科医生分级相关性由弱（r=0.12–0.39）升至中强（r=0.59–0.84），运行间一致性由近随机（kappa 最低 -0.01）升至近完美（kappa 最高 0.96）。两种 LLM 均获益，提示医学 AI 正从单体模型转向编排式多智能体系统。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 加州大学圣地亚哥分校</span><span class="evidence">预印本</span><time class="time">5天前</time>
+</div>
+</div>
+</a>
         </div>
       </div>
 
       <div class="research-group" id="seg-pet-ct">
-        <div class="group-heading"><span class="group-index">05</span><span class="group-title">PET/CT（研究关键词）</span><span class="group-count">4 篇</span></div>
+        <div class="group-heading"><span class="group-index">05</span><span class="group-title">PET/CT（研究关键词）</span><span class="group-count">6 篇</span></div>
         <div class="card-grid">
 <a class="card" href="https://arxiv.org/abs/2608.11076" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">12</span><div class="card-body">
+  <span class="card-num">13</span><div class="card-body">
 <h3 class="card-title">FEEDS：基础模型驱动采样缓解 PET/CT 病灶标注稀缺</h3>
 <p class="card-summary">全身 PET/CT 的自动化病灶分割可帮助临床医生跨示踪剂与癌种进行癌症检出、分期与治疗计划，但训练覆盖病灶大小、分布与外观差异的分割模型需要大量标注数据，标注耗时且需专业知识，导致有限标注下训练的模型缺乏临床所需的准确性与泛化性。FEEDS 提出标签与计算高效的学习策略，利用视觉基础模型嵌入选择最具信息量与多样性的未标注病例供专家标注；与无监督、半监督和主动学习不同，FEEDS 是单步训练范式，仅需有限且有代表性的训练集。使用 AutoPET-III 训练与验证，并在 AutoPET-III、DeepPSMA 与达特茅斯-希区柯克医学中心内部数据集三个留出集上测试，在体素、病灶与解剖区域层面评估临床效用。FEEDS 优于随机采样标注、伪标签半监督学习与仅有限标注训练，跨三个测试集、FDG 与 PSMA 示踪剂及多种疾病泛化，以 70% 更少的标注负担匹配全标注（100%）训练性能，为自动病灶分割中的标注稀缺问题提供了实用方案。</p>
 <div class="card-meta">
@@ -357,7 +366,7 @@
 </div>
 </a>
 <a class="card" href="https://arxiv.org/abs/2608.10429" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">13</span><div class="card-body">
+  <span class="card-num">14</span><div class="card-body">
 <h3 class="card-title">LAFNO：病灶感知傅里叶神经算子合成 CT→PSMA PET</h3>
 <p class="card-summary">从 CT 或 MRI 合成 PET 的深度学习模型可降低患者剂量与扫描仪需求，但通常以 L1 或均方误差等全局损失优化，对所有体素一视同仁；在全身 PSMA-PET 中，肿瘤体素仅占体积很小一部分，却承载临床相关的活性信号，因此模型可能在结构相似度（SSIM）、峰值信噪比（PSNR）较高的情况下仍低估病灶活性或丢失肿瘤特异结构。放射组学能提供生物学意义的肿瘤强度与纹理描述，但直接以放射组学为条件需对勾画的病灶区提取特征，耗时长。LAFNO 提出病灶感知自适应傅里叶神经算子，用两个由 CT 推导的高效代理通道替代高维放射组学条件：对比代理（局部密度变化）与无序代理（局部纹理异质性），注入模型瓶颈；结合全容积重建与病灶级总病灶活性（TLA）、肿瘤核心对比与瘤周监督。在 TCIA PSMA-PET-CT-Lesions 数据集上对比四个基线：全容积图像质量具竞争力（18F 与 68Ga-PSMA 的 SSIM 分别为 0.960 与 0.938），单患者 TLA 误差分别降至 48.3% 与 64.0%，两种示踪剂在所有特征类别上取得最高肿瘤核心放射组学可重复性；瘤周可重复性仍依赖示踪剂，表明合成 PSMA-PET 的生物学保真仍具挑战。</p>
 <div class="card-meta">
@@ -365,8 +374,26 @@
 </div>
 </div>
 </a>
+<a class="card" href="https://arxiv.org/abs/2608.09721" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">15</span><div class="card-body">
+<h3 class="card-title">多标签学习提升 NSCLC 的 PET/CT 放射基因组突变预测</h3>
+<p class="card-summary">肺癌仍是全球癌症相关死亡的主要原因之一；尽管靶向治疗改善了非小细胞肺癌（NSCLC）患者预后，但这些治疗依赖组织活检获取突变谱，属侵入性操作且存在多种局限。研究利用深度学习探索基于 PET/CT 的 EGFR、TP53 与 KRAS 突变放射基因组预测，并进一步评估成对多标签学习是否比传统单基因分类更能改善突变预测；据作者所述，这是首批系统研究 PET/CT 放射基因组突变预测中多标签学习的工作之一。实验在新型英国放射基因组队列上进行：KRAS 与 TP53 联合预测将 KRAS 的 AUC 从 0.58 提升至 0.64、TP53 从 0.69 提升至 0.71；EGFR/KRAS 组合中仅 EGFR 从联合学习获益，EGFR/TP53 组合未观察到改善。结果表明多标签学习的有效性取决于所建模的具体基因突变组合，提示 PET/CT 放射基因组预测或宜采用突变特异性建模策略。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 牛津大学</span><span class="evidence">预印本</span><time class="time">2天前</time>
+</div>
+</div>
+</a>
+<a class="card" href="https://arxiv.org/abs/2606.17570" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">16</span><div class="card-body">
+<h3 class="card-title">Fine-UNETR：PSMA PET/CT 病灶分割与生存分层</h3>
+<p class="card-summary">研究开发并评估基于 Vision Transformer 的 Fine-UNETR 架构，用于全身 PET/CT 上 PSMA 高摄取病灶的自动分割，并评估 AI 衍生肿瘤负荷生物标志物在放射配体治疗中总生存分层的临床效用。这项回顾性研究分析 373 例前列腺癌患者的 PSMA PET/CT 扫描（平均年龄 71±8 岁）；Fine-UNETR 为改进版 UNETR，采用 8×8×8 体素块嵌入与轴向滑动窗口训练，299 次扫描训练、74 次验证；在 67 例放疗前患者的独立队列中以 Kaplan-Meier 分析与 log-rank 检验评估总生存分层，并在 AutoPET IV PSMA PET/CT 数据集 192 例上外部验证。结果：分割 Dice 66.63%、灵敏度 70.27%、精确率 67.77%、病灶检出率 79.53%（SUVmax≥5 病灶达 96.05%）；外部验证集 Dice 44.11%、检出率 87.18%，提示存在域偏移但检出能力保持。AI 衍生生物标志物与金标准一致性良好（总肿瘤体积 r=0.984、总病灶摄取 r=0.989、病灶计数 r=0.960）；临床队列中总肿瘤体积（p=0.0019）、SUVmax（p=0.014）与 SUVmean（p=0.016）显著分层总生存，支持自动化 PSMA PET/CT 定量用于预后分层的临床价值。</p>
+<div class="card-meta">
+<span class="source-chip">ArXiv · 加州大学旧金山分校</span><span class="evidence">预印本 · 回顾性研究</span><time class="time">2026年6月16日</time>
+</div>
+</div>
+</a>
 <a class="card" href="https://arxiv.org/abs/2607.26498" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">14</span><div class="card-body">
+  <span class="card-num">17</span><div class="card-body">
 <h3 class="card-title">HERMES：头颈肿瘤分割、分期与复发预测的混合集成</h3>
 <p class="card-summary">HERMES 是针对 HECKTOR 2026 三项子任务（基于 FDG-PET/CT 与电子病历的原发肿瘤及病理性淋巴结分割、影像 T/N 分期、无复发生存预测）的单一容器化算法：10 折 STU-Net Small 集成完成分割，预测掩码驱动下游任务；分期模型不直接使用通用放射组学向量，而是从预测掩码导出与 AJCC/UICC 第 7 版影像 N/T 分期大小与数量轴对齐的紧凑几何特征，内部交叉验证将 N 分期平衡准确率从 0.691 提升至 0.720（+0.030），且特征维度更低；预后部分以等权重集成互补的深度与临床风险专家，并以自研追踪一致性指数（训练期近似 C-index）的生存损失训练深度专家。组件均按正则化导向协议在诚实的折外预测上选择，未在公开验证集上调参；HECKTOR 2026 验证榜加权得分 0.6454（平均 Dice 0.641、T 分期平衡准确率 0.580、N 分期 0.642、RFS C-index 0.679），进入测试阶段。</p>
 <div class="card-meta">
@@ -375,7 +402,7 @@
 </div>
 </a>
 <a class="card" href="https://arxiv.org/abs/2607.03931" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">15</span><div class="card-body">
+  <span class="card-num">18</span><div class="card-body">
 <h3 class="card-title">GLOW-FDG：全身癌症病灶分割的开源模型</h3>
 <p class="card-summary">全身 FDG-PET/CT 广泛用于癌症诊疗，但手动病灶勾画缓慢、主观且难以规模化。GLOW-FDG 是开源的全身癌症病灶分割 AI 模型：在涵盖多种癌症类型的 1,563 例扫描上训练，在来自独立机构的 185 例外部扫描上评估；在乳腺癌、非转移性与寡转移性肺癌、头颈癌与转移性黑色素瘤中，病灶检出一致优于公开基准模型，同时减少假阳性并保持较强分割精度；总肿瘤负荷与总病灶糖酵解定量在队列间稳健，性能接近放射肿瘤学专家之间的变异性。结果支持 GLOW-FDG 作为全身影像中自动化癌症分割与定量影像生物标志物提取的通用工具。</p>
 <div class="card-meta">
@@ -391,13 +418,13 @@
 
   <section id="industry" class="section section--industry">
     <header class="section-heading"><span class="section-index">02 / INDUSTRY</span><h2 class="section-title">行业动态</h2>
-<p class="section-note">优先采用公司、机构和监管部门的原始公告；二手报道明确标识。数据日期：AI HOT 2026-08-12 日报；medical 关键词检索当日持续返回服务暂不可用（503），health/drug 等检索与 7 日窗口检索共筛出 4 条合格动态，均回到一手来源核验。</p></header>
+<p class="section-note">优先采用公司、机构和监管部门的原始公告；二手报道明确标识。数据日期：AI HOT 2026-08-12 日报；medical 关键词接口当日持续返回服务暂不可用（503），health/drug/clinical/disease 等检索与 7 日窗口检索共筛出 6 条合格动态，均回到一手来源核验。</p></header>
     <div class="evidence-note">
 <strong>Source note</strong><span>产品能力、合作范围和安全数字按原始来源转述，不延伸为医疗效果判断。</span>
 </div>
     <div class="card-grid industry-grid">
 <a class="card" href="https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">16</span><div class="card-body">
+  <span class="card-num">19</span><div class="card-body">
 <h3 class="card-title">Google 展示 AMIE 实时临床视频问诊能力</h3>
 <p class="card-summary">Google Research 与 Google DeepMind 宣布推进研究型医疗 AI 系统 AMIE 实现实时临床视频问诊，首次在此场景展示专家级 AI 能力。AMIE 基于 Gemini 与 Project Astra，采用多智能体架构，可解读视觉与听觉线索、引导虚拟体格检查并实时进行诊断推理。在采用患者演员与初级保健医生、使用模拟咨询的随机研究中，临床评估者对 AMIE 在病史采集全面性、诊断准确性、管理适当性与沟通质量等核心临床能力上给予好评，患者演员也更偏好视频体验而非文字聊天。Google 强调 AMIE 仍是研究系统，负责任地部署到真实临床前还需更多研究。该公告与 Google Research 同日发布的 AMIE (Video) 技术论文为同一研究的不同版本。</p>
 <div class="card-meta">
@@ -406,7 +433,7 @@
 </div>
 </a>
 <a class="card" href="https://www.artificialintelligence-news.com/news/novo-nordisk-ai-drug-discovery-aws/" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">17</span><div class="card-body">
+  <span class="card-num">20</span><div class="card-body">
 <h3 class="card-title">诺和诺德与 AWS 深化合作，将智能体 AI 引入药物发现</h3>
 <p class="card-summary">诺和诺德（Novo Nordisk）宣布扩大 AWS AI 工具在药物发现中的应用，包括用于靶点识别、疗法设计与研究流程的 AI 智能体；根据协议，AWS 将成为诺和诺德的首选云服务商与战略 AI 合作伙伴，并在其伦敦现有设施设立联合创新中心，由 AWS 工程师与诺和诺德科学家共同基于公司数据与研究洞察工作，旨在缩短从药物靶点识别到首次人体给药的路径。涉及技术包括 Amazon Bio Discovery（提供 40 多个生物学 AI 模型，智能体可跨模型选择与协调，支持生成与排序候选药物分子）与 Amazon Bedrock AgentCore（企业数据上的多步智能体工作流）。AWS 案例显示，诺和诺德已有超 2.5 万名员工使用基于 Bedrock 的生成式 AI 平台（2,500 多个用例），部分临床文档生成时间减少 90% 以上；诺和诺德还与 OpenAI、丹麦 Gefion 超算开展其他 AI 合作。本报道由 Artificial Intelligence News 依据公开协议与 AWS 案例整理，属行业媒体报道。</p>
 <div class="card-meta">
@@ -414,8 +441,17 @@
 </div>
 </div>
 </a>
+<a class="card" href="https://www.science.org/doi/10.1126/science.aec2657" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">21</span><div class="card-body">
+<h3 class="card-title">AI 从头设计完整病毒基因组，16 种噬菌体获实验验证</h3>
+<p class="card-summary">斯坦福大学与 Arc Institute 团队将基因组语言模型 Evo 与计算生物学方法及实验筛选结合，从零设计完整且功能正常的噬菌体基因组：以 ΦX174 噬菌体（基因组约 5,386 个核苷酸、编码 11 个基因）为模板，模型生成约 70 万个候选基因组，筛选 285 个进行 DNA 合成，最终 16 个在实验室成功复制并裂解大肠杆菌；其中部分工程噬菌体的裂解速度超过天然 ΦX174，冷冻电镜显示一个生成噬菌体的衣壳使用了进化上距离较远的 DNA 包装蛋白，多种生成噬菌体的混合物还能突破两种对天然 ΦX174 耐药的大肠杆菌菌株防线，为噬菌体疗法与抗菌策略提供新路径。研究团队在 Evo 训练数据中排除了感染人类、动物与植物的病毒序列，实验使用非致病性大肠杆菌。相关研究由 Samuel H. King 等人于 8 月 6 日发表于《Science》；同期评论文章警告生成式病毒基因组设计带来迫在眉睫的生物安全与生物安保问题，指出问题已非"AI 能否设计病毒基因组"，而是社会能否建立有效的监督治理机制。本条目依据 Science 论文及科技日报、网易等媒体对论文与评论文章的报道整理。</p>
+<div class="card-meta">
+<span class="source-chip">Science（经科技日报等报道）</span><span class="evidence">同行评审论文 · 生物安全议题</span><time class="time">6天前</time>
+</div>
+</div>
+</a>
 <a class="card" href="https://www.anthropic.com/news/improving-fable-5-s-biology-safeguards" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">18</span><div class="card-body">
+  <span class="card-num">22</span><div class="card-body">
 <h3 class="card-title">Anthropic 更新 Fable 5 生物安全防护，大幅减少误拦截</h3>
 <p class="card-summary">Anthropic 宣布更新 Claude Fable 5 的生物安全防护机制，显著降低误报率：测试显示，更新后各产品面上与生物学相关的"回退"（系统将请求切换到能力较弱模型的机制）减少约 85%。Fable 5 因而能协助更广泛的生物学任务，用户在日常健康与教育问题（解读化验结果、理解症状、教育场景学习生物学）上遇到的降级明显减少，医疗专业人员也能在临床任务上获得更多支持。Anthropic 表示其认为 AI 对世界产生积极影响的最大机会在生物学与医学，正在以负责任的方式投资扩展前沿生物学能力；但涉及双重用途的请求——包括病毒学、毒理学与分子设计——仍回退至 Opus 5，Fable 5 尚不能用于专业生物学研究与药物开发。</p>
 <div class="card-meta">
@@ -423,8 +459,17 @@
 </div>
 </div>
 </a>
+<a class="card" href="https://www.wcax.com/2026/08/07/kinney-drugs-pulls-back-ai-phone-assistant-after-hundreds-customer-complaints" target="_blank" rel="noopener noreferrer">
+  <span class="card-num">23</span><div class="card-body">
+<h3 class="card-title">金尼药房因数百起投诉缩减 AI 手机助手 Burt 使用范围</h3>
+<p class="card-summary">美国连锁药房金尼药房（Kinney Drugs）在收到数百起客户投诉后，缩减其 AI 手机助手 Burt 的使用范围。Burt 于今年 5 月上线，用于与患者沟通处方与续药事宜；客户反映通话内容混乱、提供错误剂量并漏发处方通知，还有人对个人健康信息可能经 AI 平台泄露表示担忧。公司总裁 John Marraffa 表示"隐私与安全做对了，不等于体验做对了，这一点我们承认"，并宣布来电将恢复传统的按键式电话系统；Burt 仍用于处方续药短信等外发通信，患者需主动选择接收。公司称 Burt 符合 HIPAA 合规要求、非开源且不生成或操纵数据。该事件由 VTDigger 率先报道，WCAX 跟进，属医疗 AI 实际部署中的安全事件案例。</p>
+<div class="card-meta">
+<span class="source-chip">WCAX（VTDigger 首发）</span><span class="evidence">媒体报道 · 安全事件</span><time class="time">5天前</time>
+</div>
+</div>
+</a>
 <a class="card" href="https://openai.com/index/openai-and-apa-partner-to-advance-responsible-ai/" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">19</span><div class="card-body">
+  <span class="card-num">24</span><div class="card-body">
 <h3 class="card-title">OpenAI 与美国心理学会合作推进青少年心理健康 AI</h3>
 <p class="card-summary">OpenAI 宣布与美国心理学会（APA）启动合作，将心理学研究引入负责任 AI 的开发与青少年使用之中。APA 是美国心理学领域领先的科学与专业组织，双方工作将围绕多个方向展开：为父母与照护者提供家庭 AI 使用资源、支持临床医生与学校心理学家识别过度依赖并干预不健康使用模式、召集青少年与家庭等有亲身经验者理解现有系统缺口。该工作建立在 OpenAI 既有安全努力之上：与 260 多名心理健康专家合作帮助 ChatGPT 识别痛苦信号、扩展本地危机资源与一键热线、为低龄用户增加家长控制等保护。APA 首席执行官 Arthur C. Evans 表示，APA 将用发展与临床科学界定负责任的设计。该合作属官方公告，不涉及具体产品效果声明。</p>
 <div class="card-meta">
@@ -443,8 +488,8 @@
 
 <footer>
   <div class="shell footer-inner">
-    <span>共 19 条 · 数据源：<a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AI HOT</a> + <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">ArXiv</a></span>
-    <span>最后更新：2026年8月12日 12:00 · 北京时间</span>
+    <span>共 24 条 · 数据源：<a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AI HOT</a> + <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">ArXiv</a></span>
+    <span>最后更新：2026年8月12日 12:55 · 北京时间</span>
   </div>
 </footer>
 
