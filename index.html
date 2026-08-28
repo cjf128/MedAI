@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="医学人工智能研究与行业动态证据简报">
-<title>MedAI Brief · 2026年8月27日</title>
+<meta name="description" content="医学人工智能论文研究与科研实践提示简报">
+<title>MedAI Brief · 2026年8月28日</title>
 <style>
   :root {
     color-scheme: dark;
@@ -23,7 +23,7 @@
     --amber: #ffc36b;
     --coral: #ff8076;
     --research: #78e6bd;
-    --industry: #70b9ff;
+    --tips: #70b9ff;
     --shadow: 0 28px 80px rgba(0,0,0,.4);
     --page: 1200px;
   }
@@ -43,10 +43,9 @@
   a:focus-visible { outline: 2px solid var(--mint); outline-offset: 5px; }
   .skip-link { position: fixed; left: 18px; top: 14px; z-index: 999; padding: 9px 13px; color: #07100e; background: var(--mint); font-size: .78rem; font-weight: 800; transform: translateY(-160%); }
   .skip-link:focus { transform: translateY(0); }
-  .reading-progress { position: fixed; inset: 0 auto auto 0; z-index: 300; width: 0; height: 3px; background: linear-gradient(90deg, var(--mint), var(--industry)); }
+  .reading-progress { position: fixed; inset: 0 auto auto 0; z-index: 300; width: 0; height: 3px; background: linear-gradient(90deg, var(--mint), var(--tips)); }
   .shell { width: min(var(--page), calc(100% - 48px)); margin-inline: auto; }
 
-  /* Clinical editorial masthead */
   .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line-strong); }
   .hero::after { content: "+"; position: absolute; right: max(24px, calc((100vw - var(--page)) / 2)); top: 8rem; color: rgba(120,230,189,.045); font: 300 clamp(15rem, 31vw, 29rem)/.65 "Times New Roman", serif; pointer-events: none; }
   .masthead { position: relative; z-index: 1; display: flex; align-items: center; gap: 18px; min-height: 68px; border-bottom: 1px solid var(--line); color: var(--muted); font: 800 .68rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
@@ -72,14 +71,13 @@
   .source-cell small { display: block; color: var(--dim); font: 800 .61rem/1 "Bahnschrift", sans-serif; letter-spacing: .14em; text-transform: uppercase; }
   .source-cell strong { display: block; margin-top: 8px; color: var(--paper); font-size: .79rem; }
 
-  /* Two-level contents */
   .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,16,14,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
   .nav-inner { display: flex; align-items: stretch; min-height: 58px; overflow-x: auto; scrollbar-width: none; }
   .nav-inner::-webkit-scrollbar { display: none; }
   .nav-brand { display: flex; align-items: center; margin-right: auto; color: var(--dim); font: 800 .65rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; }
   .nav-link { --nav-accent: var(--mint); position: relative; display: inline-flex; align-items: center; gap: 9px; padding: 0 19px; border-left: 1px solid var(--line); color: var(--muted); font-size: .76rem; font-weight: 800; white-space: nowrap; }
   .nav-link:last-child { border-right: 1px solid var(--line); }
-  .nav-link--industry { --nav-accent: var(--industry); }
+  .nav-link--tips { --nav-accent: var(--tips); }
   .nav-link::after { content: ""; position: absolute; inset: auto 17px 0; height: 2px; background: var(--nav-accent); transform: scaleX(0); transition: transform .2s ease; }
   .nav-link:hover, .nav-link.active { color: var(--ink); }
   .nav-link.active::after { transform: scaleX(1); }
@@ -89,7 +87,7 @@
   .section { margin-bottom: 108px; scroll-margin-top: 86px; }
   .section-heading { display: grid; grid-template-columns: 130px 1fr auto; gap: 28px; align-items: end; padding-bottom: 21px; border-bottom: 1px solid var(--line-strong); }
   .section-index { color: var(--mint); font: 800 .7rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; }
-  .section--industry .section-index { color: var(--industry); }
+  .section--tips .section-index { color: var(--tips); }
   .section-title { color: var(--paper); font: 600 clamp(2.2rem, 4vw, 3.8rem)/.95 "STZhongsong", "SimSun", serif; letter-spacing: -.045em; }
   .section-note { max-width: 300px; color: var(--dim); font-size: .72rem; line-height: 1.65; text-align: right; }
   .evidence-note { display: grid; grid-template-columns: auto 1fr; gap: 18px; margin: 24px 0 38px; padding: 16px 19px; border: 1px solid #2c4d43; background: rgba(120,230,189,.035); color: var(--muted); font-size: .76rem; }
@@ -113,16 +111,21 @@
   .card-summary { margin: 16px 0 22px; color: var(--muted); font-size: .83rem; line-height: 1.86; }
   .card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 11px; margin-top: auto; }
   .topic-chip, .source-chip, .evidence, .time { font-size: .67rem; line-height: 1.55; }
-  .topic-chip { padding: 2px 7px; border: 1px solid rgba(112,185,255,.32); color: var(--industry); background: rgba(112,185,255,.06); }
+  .topic-chip { padding: 2px 7px; border: 1px solid rgba(112,185,255,.32); color: var(--tips); background: rgba(112,185,255,.06); }
   .source-chip { color: var(--mint-soft); font-weight: 800; }
   .evidence { padding: 2px 7px; border: 1px solid rgba(255,195,107,.36); color: var(--amber); background: rgba(255,195,107,.06); }
   .evidence.official { border-color: rgba(120,230,189,.35); color: var(--mint); background: rgba(120,230,189,.06); }
   .time { margin-left: auto; color: var(--dim); }
-  .industry-grid { grid-template-columns: 1fr; }
-  .industry-grid .card { min-height: 0; }
-  .industry-grid .card::before { background: var(--industry); }
-  .industry-grid .card-num { border-color: rgba(112,185,255,.45); color: var(--industry); }
-  .industry-grid .card-summary { max-width: 920px; }
+  .card-points { display: grid; gap: 9px; margin: -5px 0 22px; padding-top: 15px; border-top: 1px solid var(--line); list-style: none; }
+  .card-points li { color: var(--muted); font-size: .76rem; line-height: 1.78; }
+  .card-points strong { margin-right: 8px; color: var(--mint-soft); font-size: .7rem; letter-spacing: .04em; }
+  .resource-note { margin-bottom: 22px; color: var(--dim); font-size: .7rem; line-height: 1.75; }
+  .resource-note strong { color: var(--mint); }
+  .tips-grid { grid-template-columns: 1fr; }
+  .tips-grid .card { min-height: 0; }
+  .tips-grid .card::before { background: var(--tips); }
+  .tips-grid .card-num { border-color: rgba(112,185,255,.45); color: var(--tips); }
+  .tips-grid .card-summary, .tips-grid .card-points { max-width: 920px; }
   .empty-state { padding: 32px; border: 1px dashed var(--line); color: var(--dim); font-size: .8rem; text-align: center; }
   .disclaimer { display: grid; grid-template-columns: 130px 1fr; gap: 28px; padding: 30px; border: 1px solid rgba(255,128,118,.3); background: rgba(255,128,118,.035); }
   .disclaimer strong { color: var(--coral); font: 800 .68rem/1.5 "Bahnschrift", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
@@ -163,295 +166,267 @@
   }
 </style>
 </head>
-<body data-template="clinical-dossier-v1">
+<body data-template="clinical-dossier-v2">
 <a class="skip-link" href="#main-content">跳到正文</a>
 <div class="reading-progress" aria-hidden="true"></div>
 
 <header class="hero">
   <div class="shell">
-    <div class="masthead">
-<span class="masthead-brand">MedAI Evidence Brief</span><span class="masthead-rule" aria-hidden="true"></span><span>Clinical intelligence / Beijing</span><span class="masthead-status"><span>Evidence-aware edition</span></span>
-</div>
+    <div class="masthead"><span class="masthead-brand">MedAI Research Brief</span><span class="masthead-rule" aria-hidden="true"></span><span>Clinical imaging / Beijing</span><span class="masthead-status"><span>Research-profile edition</span></span></div>
     <div class="hero-grid">
       <div>
-<p class="eyebrow">Medical AI Daily · 2026年8月27日</p>
-<h1 class="hero-title">医学 AI<br><em>证据与行业简报</em>
-</h1>
-<p class="hero-deck">追踪可核验的医学人工智能进展。研究按检索主题分段，产业信息与学术证据分开呈现，并明确区分预印本、会议论文、概念验证、临床试验、官方公告与媒体报道。</p>
-</div>
-      <aside class="issue-panel" aria-label="本期统计"><p class="issue-label">Latest issue</p>
-<p class="issue-date">2026年8月27日<br>星期四 · 北京时间</p>
-<div class="issue-total">
-<strong>19</strong><span>16 篇研究<br>3 条动态</span>
-</div></aside>
+        <p class="eyebrow">Medical AI Daily · 2026年8月28日</p>
+        <h1 class="hero-title">医学 AI<br><em>研究证据简报</em></h1>
+        <p class="hero-deck">围绕 PET/CT 肿瘤分割、基础模型与医学影像 Agent 研究画像，收录经一手页面核验的论文、基线与官方代码；本期覆盖头颈 PET/CT 分割、LLM 病灶判定、医学影像基础模型评估与诊断 Agent，并补充一条关于病灶分割评估的研究型 Tip。</p>
+      </div>
+      <aside class="issue-panel" aria-label="本期统计">
+        <p class="issue-label">Latest issue</p>
+        <p class="issue-date">2026年8月28日<br>星期五 · 北京时间</p>
+        <div class="issue-total"><strong>11</strong><span>条精选内容<br>10 篇研究 · 1 条 Tips</span></div>
+      </aside>
     </div>
     <div class="source-strip" aria-label="来源与质量标准">
-      <div class="source-cell">
-<small>Research source</small><strong>ArXiv 原始论文 · 机构已核验</strong>
-</div>
-      <div class="source-cell">
-<small>Industry source</small><strong>AI HOT 线索 · 一手来源优先</strong>
-</div>
-      <div class="source-cell">
-<small>Editorial rule</small><strong>90 天窗口 · 宁缺毋滥</strong>
-</div>
+      <div class="source-cell"><small>Research discovery</small><strong>PubMed · 重点期刊 · 会议 · ArXiv</strong></div>
+      <div class="source-cell"><small>Reproducibility</small><strong>数据集 · 基线 · 作者官方代码</strong></div>
+      <div class="source-cell"><small>Editorial rule</small><strong>90 天窗口 · 权威 Tips · 宁缺毋滥</strong></div>
     </div>
   </div>
 </header>
 
-<nav class="nav" aria-label="医学 AI 日报导航">
+<nav class="nav" aria-label="医学 AI 研究日报导航">
   <div class="shell nav-inner">
-    <span class="nav-brand">Contents / Evidence map</span>
-    <a class="nav-link active" href="#research">论文研究 <span class="nav-count">16</span></a>
-    <a class="nav-link" href="#seg-segmentation">图像分割 <span class="nav-count">3</span></a>
-    <a class="nav-link" href="#seg-diagnosis">疾病诊断 <span class="nav-count">2</span></a>
-    <a class="nav-link" href="#seg-foundation">基础模型 <span class="nav-count">4</span></a>
-    <a class="nav-link" href="#seg-agent">医疗Agent <span class="nav-count">3</span></a>
-    <a class="nav-link" href="#seg-world-model">World Model <span class="nav-count">2</span></a>
-    <a class="nav-link" href="#seg-pet-ct">PET/CT <span class="nav-count">2</span></a>
-    <a class="nav-link nav-link--industry" href="#industry">行业动态 <span class="nav-count">3</span></a>
+    <span class="nav-brand">Contents / Research map</span>
+    <a class="nav-link active" href="#research">论文研究 <span class="nav-count">10</span></a>
+    <a class="nav-link" href="#direction-npc-lesion-segmentation">鼻咽癌病灶分割 <span class="nav-count">1</span></a>
+    <a class="nav-link" href="#direction-whole-body-lesion-segmentation">全身病灶分割 <span class="nav-count">3</span></a>
+    <a class="nav-link" href="#direction-petct-foundation-model">基础模型 <span class="nav-count">3</span></a>
+    <a class="nav-link" href="#direction-medical-imaging-agent">影像 Agent <span class="nav-count">1</span></a>
+    <a class="nav-link" href="#direction-transferable-baseline">可迁移基线 <span class="nav-count">2</span></a>
+    <a class="nav-link nav-link--tips" href="#tips">今日 Tips <span class="nav-count">1</span></a>
   </div>
 </nav>
 
 <main id="main-content" class="shell">
   <section id="research" class="section">
-    <header class="section-heading"><span class="section-index">01 / RESEARCH</span><h2 class="section-title">论文研究</h2>
-<p class="section-note">按研究点与关键词分段；卡片完整展示中文摘要，不截断。论文时间范围：7月5日–8月26日，均在 90 天窗口内；医学图像分割、疾病诊断、医学基础模型三个核心方向均已检索并按实际匹配收录，机构逐篇核验。</p></header>
-    <div class="evidence-note">
-<strong>Evidence note</strong><span>以下为研究信息摘要，不代表方法已经完成临床验证。预印本、会议论文、动物实验、回顾性研究、前瞻性试验和概念验证应分别理解。</span>
-</div>
+    <header class="section-heading">
+      <span class="section-index">01 / RESEARCH</span>
+      <h2 class="section-title">论文研究</h2>
+      <p class="section-note">本期论文日期为 2026年6月14日–8月27日，均在 90 天窗口内。全身 PET/CT 解剖结构分割暂无合格论文，按规则省略该分段。</p>
+    </header>
+    <div class="evidence-note"><strong>Evidence note</strong><span>以下为研究信息摘要，不代表方法已经完成临床验证。预印本、会议论文、回顾性研究、基准研究和同行评审 Online 版应分别理解。</span></div>
+
     <div class="research-groups">
-
-      <div class="research-group" id="seg-segmentation">
-        <div class="group-heading"><span class="group-index">01</span><span class="group-title">医学图像分割</span><span class="group-count">3 篇</span></div>
+      <section id="direction-npc-lesion-segmentation" class="research-group" aria-labelledby="npc-lesion-title">
+        <header class="group-heading"><span class="group-index">R.01 / PRIORITY</span><h3 id="npc-lesion-title" class="group-title">鼻咽癌原发灶与淋巴结分割</h3><span class="group-count">1 篇</span></header>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2608.25866" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">01</span><div class="card-body">
-<h3 class="card-title">LUTSeg：纵向多专家溃疡组织分割数据集与半监督 TiSage 框架</h3>
-<p class="card-summary">量化创面组织成分对监测慢性溃疡进展、指导治疗决策至关重要，但像素级标注成本高昂，多组织创面数据集稀缺，麻风病等被忽视疾病的创面数据尤为匮乏。研究引入 LUTSeg——纵向慢性溃疡数据集：39 例患者的 141 张图像，带创面掩膜与由五位临床专家标注的五类组织标签，并含多专家金标准子集用于评估标注者间一致性。为建立初始基准，进一步提出 TiSage——半监督组织分割框架，在教师-学生架构中整合来自冻结医学视觉语言模型的多尺度语义先验。在 LUTSeg 与 DFUTissue 上评估，TiSage 在多数低标注设置下优于监督与半监督基线，代码与数据开源。</p>
-<div class="card-meta">
-<span class="topic-chip">医学图像分割</span><span class="source-chip">ArXiv · KAUST/哥伦比亚罗萨里奥大学</span><span class="evidence">预印本 · 数据集研究</span><time class="time">昨天</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.26033" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">02</span><div class="card-body">
-<h3 class="card-title">UltraPIPS：用基础模型改进 B 超影像感知相似度评估</h3>
-<p class="card-summary">医学影像中常用感知图像块相似度（LPIPS）在特征空间比较图像语义，但多数 LPIPS 使用自然图像预训练骨干；B 超图像具有独特的斑点模式与声学特异统计特征，与自然图像乃至放射学其他模态差异显著，研究因此提出超声数据需要领域特异模型衡量感知相似度。研究比较自然图像、医学通用与超声骨干模型在下游分类、分割与重建任务中的 LPIPS 指标，显示 LPIPS 骨干的选择是重要的设计决策：超声骨干模型与监督模型下游表现的关联高于经典与自然图像模型，用超声骨干优化 LPIPS 损失在重建质量与真实感间取得良好平衡。研究开源 UltraPIPS 库，提供基于所分析开源基础模型的一组 LPIPS 指标。</p>
-<div class="card-meta">
-<span class="topic-chip">医学图像分割</span><span class="source-chip">ArXiv · 特拉维夫大学</span><span class="evidence">预印本</span><time class="time">昨天</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2607.28858" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">03</span><div class="card-body">
-<h3 class="card-title">多任务 3D 脑肿瘤分割的统一深度学习模型基准</h3>
-<p class="card-summary">基于 MRI 的自动脑肿瘤分割已成为计算机辅助诊断、治疗规划与疾病监测的基础任务，但已发表研究常采用不同数据集、预处理策略、训练协议与评估流程，客观比较困难。研究在统一实验条件下构建基准，比较代表性 CNN、Transformer 与状态空间模型（SSM）架构：在脑膜瘤分割（BraTS 2023）与治疗后胶质瘤分割（BraTS 2024）两个临床场景数据集上，以相同预处理、数据增强、优化与评估协议训练 3D U-Net、SegResNet、Swin UNETR、SegMamba 与 SegMambaV2 五种三维分割模型。性能评估结合分割精度与推理时间、模型规模等计算成本指标，为不同架构范式在困难三维脑肿瘤分割中的适用性提供实证参考。</p>
-<div class="card-meta">
-<span class="topic-chip">医学图像分割</span><span class="source-chip">ArXiv · 西班牙拉斯帕尔马斯大学</span><span class="evidence">预印本 · 基准研究</span><time class="time">2026年7月30日</time>
-</div>
-</div>
-</a>
+          <a class="card" href="https://doi.org/10.1088/1361-6560/ae8e2a" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">01</span>
+            <div class="card-body">
+              <h4 class="card-title">区分性特征提取的 PET/CT 头颈肿瘤分割扩散模型</h4>
+              <p class="card-summary">面向放疗规划的头颈肿瘤 PET/CT 自动分割，提出 CED-Diff：区分性特征提取（DFE）显式建模 PET 代谢热点与 CT 解剖边界，任务导向辅助监督（TAS）约束特征学习。在 HeadNeck 数据集上取得评估方法中最高 Dice（66.28%），敏感性 78.70%、精确率 69.08%。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>PET 与 CT 互补但异构，现有融合未显式建模代谢热点与解剖边界，小病灶和边界模糊病灶难以勾画。</li>
+                <li><strong>方法与数据</strong>扩散分割框架 CED-Diff + DFE/TAS；在 HeadNeck 数据集验证，Dice 66.28%、敏感性 78.70%、精确率 69.08%。</li>
+                <li><strong>局限与迁移</strong>Dice 约 66% 说明头颈小病灶分割仍困难；数据集非鼻咽癌特异，迁移到 NPC 的 GTVp/GTVn 需在鼻咽癌数据上验证示踪剂、分期与靶区定义差异。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码。</p>
+              <div class="card-meta"><span class="topic-chip">头颈 PET/CT 分割</span><span class="source-chip">Phys Med Biol · 沈阳工业大学</span><span class="evidence">同行评审期刊 · 方法研究</span><time class="time">2026年7月21日</time></div>
+            </div>
+          </a>
         </div>
-      </div>
+      </section>
 
-      <div class="research-group" id="seg-diagnosis">
-        <div class="group-heading"><span class="group-index">02</span><span class="group-title">疾病诊断</span><span class="group-count">2 篇</span></div>
+      <section id="direction-whole-body-lesion-segmentation" class="research-group" aria-labelledby="whole-body-lesion-title">
+        <header class="group-heading"><span class="group-index">R.02 / PRIORITY</span><h3 id="whole-body-lesion-title" class="group-title">全身 PET/CT 病灶与转移灶分割</h3><span class="group-count">3 篇</span></header>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2607.14747" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">04</span><div class="card-body">
-<h3 class="card-title">面向可穿戴设备的低功耗心律失常检测：近似计算方案</h3>
-<p class="card-summary">心血管疾病是全球主要死因，心律失常等病症常需长期监测；现有可穿戴监测设备体积大、不舒适，且依赖临床医生人工评估心电图。深度学习算法在心律失常检测与分类中表现优异，但其计算复杂度与高功耗限制了可穿戴部署。研究探索用近似计算技术（数据精度缩减与近似乘法）降低深度学习架构的功耗与能耗，同时保持可接受的分类性能：在 MIT-BIH 心律失常数据库上训练验证模型，并综合评估采用多种近似乘法器的硬件实现。与最先进的 8.75 μW（2.08 μJ）参考架构相比，所提架构在 12 kHz 下功耗降至 3.07 μW（2.17 μJ），功耗降低 64.9%，同时保持 93.7% 分类准确率与 92.1% 灵敏度；100 MHz 下能耗降低 61.5%。结果表明近似计算可显著延长可穿戴设备电池寿命，同时保持所需的心律失常分类性能。</p>
-<div class="card-meta">
-<span class="topic-chip">疾病诊断</span><span class="source-chip">ArXiv · 荷兰特文特大学/阿姆斯特丹自由大学</span><span class="evidence">预印本 · 硬件实现研究</span><time class="time">2026年7月16日</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2607.04486" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">05</span><div class="card-body">
-<h3 class="card-title">LeukocyteCount：深度学习的白细胞自动识别与计数</h3>
-<p class="card-summary">疾病诊断与监测常涉及生物样本分析，血液分析尤为关键——白细胞是评估机体防御感染的重要标志物，但传统白细胞计数与分类方法劳动密集且易因人为误差影响诊断与监测的准确性。研究提出基于机器学习的自动化方案：集成 YOLOv5 白细胞检测、微调预训练 MobileNetV2 与逻辑回归分类器的混合模型，实现四类白细胞的识别、计数与分类，在 BCCD 数据集上训练验证：YOLOv5 检测阶段准确率 98%，后续分类阶段准确率 99.04%；基于 YOLOv5 的红细胞检测模块 F1 达 99.73%，优于基线。研究认为该模型有望改变传统实验室白细胞分析实践，为更准确、高效、可靠的疾病诊断与监测提供路径。</p>
-<div class="card-meta">
-<span class="topic-chip">疾病诊断</span><span class="source-chip">ArXiv · 埃及赫勒万大学/尼罗大学</span><span class="evidence">预印本</span><time class="time">2026年7月5日</time>
-</div>
-</div>
-</a>
-        </div>
-      </div>
+          <a class="card" href="https://arxiv.org/abs/2606.28392" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">02</span>
+            <div class="card-body">
+              <h4 class="card-title">LLM 推理判定减少 PET 病灶分割假阳性</h4>
+              <p class="card-summary">RADIANT-PET 把病灶分割拆成两段：高灵敏度分割器（SUV 阈值或改进 nnUNet）生成宽松候选，再将候选转为结构化文本描述（摄取强度、形态、解剖上下文），由 LLM 判定真病灶与假阳性，可用 GRPO 强化学习优化病灶级分类并可选结合放射报告。在 AutoPET 与 OSU 测试队列上持续优于强图像基线，加入放射报告时提升最大。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>生理性摄取与伪影可模仿恶性信号，纯图像分割模型难以区分，限制肿瘤负荷量化可靠性。</li>
+                <li><strong>方法与数据</strong>高灵敏度候选生成 + LLM 逐区域判定（GRPO 优化）；在 AutoPET 与 OSU 队列评估，优于图像单模态基线。</li>
+                <li><strong>局限与迁移</strong>作者承认文本化可能丢失精细视觉线索，需消融验证；迁移到鼻咽癌需重新验证候选生成阈值与 LLM 判定依据。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方仓库 github.com/jwang-580/RADIANT-PET（含权重与复现说明）。</p>
+              <div class="card-meta"><span class="topic-chip">病灶分割与判定</span><span class="source-chip">ArXiv · 俄亥俄州立大学</span><span class="evidence">预印本 · 方法研究</span><time class="time">2026年6月23日</time></div>
+            </div>
+          </a>
 
-      <div class="research-group" id="seg-foundation">
-        <div class="group-heading"><span class="group-index">03</span><span class="group-title">医学基础模型</span><span class="group-count">4 篇</span></div>
+          <a class="card" href="https://arxiv.org/abs/2606.15611" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">03</span>
+            <div class="card-body">
+              <h4 class="card-title">双基础模型互蒸馏：5 例标注达 PET/CT 分割 SOTA</h4>
+              <p class="card-summary">MuDuo 将结构域基础模型 SAM-Med3D（CT）与功能域基础模型 SegAnyPET（PET）作为双教师，向轻量学生网络互蒸馏，无需人工提示即可利用未标注数据做半监督 PET/CT 分割。在 AutoPET 数据集上仅用 5 例标注即取得当时最优结果。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>PET/CT 分割标注成本高；SAM-Med3D 与 SegAnyPET 等基础模型模态特异且需人工提示。</li>
+                <li><strong>方法与数据</strong>双教师互蒸馏框架 MuDuo；AutoPET 数据集，5 例标注达 SOTA。</li>
+                <li><strong>局限与迁移</strong>AutoPET 为 FDG 全身病灶场景；迁移到鼻咽癌或其他示踪剂需验证教师模型覆盖度与伪标签质量。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方仓库 github.com/Wu-beining/MuDuo；基线可复现 AutoPET 设置。</p>
+              <div class="card-meta"><span class="topic-chip">基础模型蒸馏</span><span class="source-chip">MICCAI 2026 · 中南大学</span><span class="evidence">会议论文 · 方法研究</span><time class="time">2026年6月14日</time></div>
+            </div>
+          </a>
+
+          <a class="card" href="https://doi.org/10.3390/jimaging12080364" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">04</span>
+            <div class="card-body">
+              <h4 class="card-title">AutoPET 权重迁移的 NSCLC PET/CT 分割基准</h4>
+              <p class="card-summary">在组织学确认的越南 NSCLC PET/CT 数据集上系统比较 ResNet-3D U-Net、nnU-Net v2 与 Swin UNETR，并用 AutoPET II 权重初始化微调 nnU-Net 检验跨域迁移。微调版达到 DSC 83.4%、HD95 5.1mm，比 nnU-Net v2 提升 6.8% DSC 且训练时间减少 37.5%；MTV 与金标准强相关（Pearson r=0.96）。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>深度学习模型跨临床域泛化受扫描协议与人群差异限制，新中心缺少基准验证。</li>
+                <li><strong>方法与数据</strong>三种架构从零训练对比 + AutoPET II 权重迁移微调；内部越南数据集，DSC 83.4±6.5%、precision 89.6±8.2%。</li>
+                <li><strong>局限与迁移</strong>单中心内部数据且样本量有限（原文未披露具体数量）；第一作者受雇 Viettel（商业参与）；其“预训练权重迁移 + 统一评估协议”可迁移到 PET/CT 病灶分割复现。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码；AutoPET II 公开权重可作为迁移基线。</p>
+              <div class="card-meta"><span class="topic-chip">迁移学习基准</span><span class="source-chip">J Imaging · 河内科技大学</span><span class="evidence">同行评审期刊 · 回顾性基准研究</span><time class="time">2026年8月8日</time></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="direction-petct-foundation-model" class="research-group" aria-labelledby="petct-foundation-title">
+        <header class="group-heading"><span class="group-index">R.03 / METHOD TRANSFER</span><h3 id="petct-foundation-title" class="group-title">PET/CT 基础模型</h3><span class="group-count">3 篇</span></header>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2608.25948" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">06</span><div class="card-body">
-<h3 class="card-title">可审计 CT 表型分析：影像基础模型可能依赖非证据捷径</h3>
-<p class="card-summary">医学影像基础模型可从 CT 预测临床表型，但高性能可能来自读取疾病特异发现，而非与诊断相关的捷径。研究用基于报告衍生放射学观察的可审计 CT 表型分析（ACT）测试 221 个电子健康记录（EHR）表型：在 38,317 名患者上训练，挖掘 376,194 条观察，并在 25,183 名留出患者上评估。ACT 在零样本标注上超过五个视觉语言基线，并在 221 个表型上超过 CT-CLIP（零样本评分 0.651 对 0.572，线性探测 0.709 对 0.662）。逐条读取探针暴露准确率掩盖的问题：仅 97 条观察占据 221 个排名第一的位置，描述主动脉与冠状动脉钙化的一个短语对 20 个表型（包括骨质疏松、尿路感染与重度抑郁障碍）排名第一；将观察库限制为临床医生指定证据后，86 个表型的探针转向表型相关观察且准确率不受损（0.751 对 0.741）。研究表明，准确的基于 CT 的 EHR 表型分析可能建立在并非编码表型有效证据的观察上，而 ACT 能识别并干预这一问题。</p>
-<div class="card-meta">
-<span class="topic-chip">医学基础模型</span><span class="source-chip">ArXiv · 宾夕法尼亚大学</span><span class="evidence">预印本 · 回顾性研究</span><time class="time">昨天</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.25810" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">07</span><div class="card-body">
-<h3 class="card-title">无标签医学基础模型选择：伪标签差异应对跨中心分布偏移</h3>
-<p class="card-summary">基础模型越来越多用于医学影像分析，但在部署中典型的机构间分布偏移下，其性能差异很大，且无目标域标签时无法预知，留下实际问题：面对若干候选基础模型与带标注的源域数据，应在无标注目标域部署哪一个？研究提出基于 SUDO 框架的无标签选择标准：将无标注目标数据按预测概率分区，测量反映类别污染的伪标签差异，聚合得到无需目标标注或微调的评分（AURCC）。在三种跨医院偏移场景的胸片分类上，AURCC 可用于排序多种视觉语言模型（BioMedCLIP、CXR-CLIP、CheXzero、MedCLIP、MedImageInsight、CLIP），在零样本与 MLP 探测下恢复真实排序的 Spearman ρ 最高达 0.943；在标注源数据较大时与按留出源准确率排序的基线相当，在资源受限、源数据较小时排序更准确。</p>
-<div class="card-meta">
-<span class="topic-chip">医学基础模型</span><span class="source-chip">ArXiv · 布宜诺斯艾利斯大学/CONICET</span><span class="evidence">预印本</span><time class="time">昨天</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.25148" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">08</span><div class="card-body">
-<h3 class="card-title">采集偏移下的血液学基础模型可靠性审计：15 个冻结编码器跨域评估</h3>
-<p class="card-summary">冻结血液学基础模型嵌入在域内白细胞准确率接近饱和，但临床部署要求跨扫描仪、机构、染色与制备流程的可靠性。研究审计 15 个冻结编码器（血液学、病理学与通用视觉）在四个公开单细胞采集域上的准确率稳健性与校准：域内线性探测宏 F1 饱和（0.98–0.997），但跨数据集宏 F1 下降 34–72% 且排名重排——域内最优的 DinoBloom-L 在最偏移目标（MLL23）上跌至 15 个中的第 10；排名迁移依赖探测方式（1-NN 检索平均比源拟合线性头更稳定，中位 ρ 0.65 对 0.45）。校准同样崩溃：源训练探测域内近校准（ECE 0.004），域外自信错误（ECE 0.35）。研究进一步审计预训练暴露并识别 MLL23 为 DinoBloom 的内部队列，提出免训练的类平衡再标准化（CBR）方法，改善所有目标先验场景的均值并部分改善校准。结论：血液学基础模型基准必须联合审计准确率、校准、暴露与类先验稳健性。</p>
-<div class="card-meta">
-<span class="topic-chip">医学基础模型</span><span class="source-chip">ArXiv · 弗吉尼亚理工大学</span><span class="evidence">预印本 · 模型审计研究</span><time class="time">2天前</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.24342" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">09</span><div class="card-body">
-<h3 class="card-title">元数据感知的生成式基础模型适配：条件化心脏磁共振合成</h3>
-<p class="card-summary">合成图像生成是应对医学影像数据稀缺与临床重要表型代表性不足的有前景策略，但生成忠实反映患者特征的图像仍具挑战。研究用预训练潜在扩散模型实现元数据条件化心脏磁共振（CMR）合成，将结构化临床元数据与切片位置编码为文本提示，并整合无元数据分类器自由引导（CFG）、对比批采样与逆频率采样三种策略提升元数据遵循度、缓解临床属性不平衡。在 UK Biobank 的 59,058 张短轴 CMR 上微调评估：组合方法 FID 达 37.47，比无这些策略的同一模型提升 57.04%，比需要心脏几何额外输入的先前文本条件 CMR 扩散基线提升 28.68%，且仅依赖患者元数据。分布增益主要由无元数据 CFG 驱动，伴随配对相似度小幅下降，提示模型优先整体人群真实性而非精确复制图像；亚组分析显示人口统计学与采集元数据对齐改善，疾病特异条件化是最具挑战的任务。</p>
-<div class="card-meta">
-<span class="topic-chip">医学基础模型</span><span class="source-chip">ArXiv · 巴塞罗那大学/伦敦玛丽女王大学</span><span class="evidence">预印本</span><time class="time">2天前</time>
-</div>
-</div>
-</a>
-        </div>
-      </div>
+          <a class="card" href="https://arxiv.org/abs/2608.16268" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">05</span>
+            <div class="card-body">
+              <h4 class="card-title">统一病理与放射的多维医学视觉基础模型</h4>
+              <p class="card-summary">CoM3eT 用注意力建模多维上下文，统一病理与放射、稀疏与密集预测、二维与三维输入，一个模型同时覆盖分割、分类与报告生成。在 UNICORN 开放竞赛（5 个断层 + 4 个全切片 + 3 个二维数据集）中总体、放射学与病理学均获第一；少于 2.5% 参数微调即可媲美全量微调，联邦学习性能接近集中训练。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>医学基础模型通常局限于单一专科、单一输出类型或单一输入维度，跨任务复用困难。</li>
+                <li><strong>方法与数据</strong>多维上下文注意力建模；UNICORN 竞赛 12 个数据集，双领域第一；联邦学习与参数高效微调验证。</li>
+                <li><strong>局限与迁移</strong>竞赛基准不等于临床验证；研究含西门子医疗商业参与；迁移到 PET/CT 病灶分割需验证断层任务覆盖与 PET 模态表征。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码；UNICORN 竞赛基线与数据公开可用。</p>
+              <div class="card-meta"><span class="topic-chip">医学影像基础模型</span><span class="source-chip">ArXiv · Fraunhofer MEVIS</span><span class="evidence">预印本 · 竞赛基准研究</span><time class="time">2026年8月17日</time></div>
+            </div>
+          </a>
 
-      <div class="research-group" id="seg-agent">
-        <div class="group-heading"><span class="group-index">04</span><span class="group-title">医疗Agent与临床智能体</span><span class="group-count">3 篇</span></div>
+          <a class="card" href="https://doi.org/10.1109/TMI.2026.3727625" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">06</span>
+            <div class="card-body">
+              <h4 class="card-title">自监督功能引导解耦的免微调脑表征</h4>
+              <p class="card-summary">SF-DisenNet 以个体静息态功能连接（FC）为神经生物学监督信号，学习与功能组织对齐的结构 MRI 表征，无需疾病标签：图谱引导解剖映射单元把局部 patch 聚合为区域嵌入，配对关系与 FC 对齐，独立性正则促进区域解耦。UK Biobank 单阶段预训练后免微调迁移到 AD/MCI、ASD、PD 等任务。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>神经影像“一病一模型”限制知识迁移；结构像表征常依赖预定义特征或疾病标签。</li>
+                <li><strong>方法与数据</strong>自监督功能对齐 + 区域解耦；UK Biobank 预训练、ADNI 纵向验证，SC-FC 指纹匹配 95.1%。</li>
+                <li><strong>局限与迁移</strong>模态为脑 MRI/fMRI，非 PET/CT；其“自监督解耦 + 免微调迁移”范式可迁移，但需在 PET/CT 上构建功能-结构对齐的监督信号并验证。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方仓库 github.com/k-Jayus/BRAIN（论文接收后开源，当前为 README 预告）。</p>
+              <div class="card-meta"><span class="topic-chip">自监督表征</span><span class="source-chip">IEEE TMI · 深圳大学</span><span class="evidence">同行评审 Online · 方法研究</span><time class="time">2天前</time></div>
+            </div>
+          </a>
+
+          <a class="card" href="https://doi.org/10.1007/s11548-026-03786-x" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">07</span>
+            <div class="card-body">
+              <h4 class="card-title">CT 基础模型系统评估：聚合策略不是性能关键</h4>
+              <p class="card-summary">在 200 张腹部 CT 的器官级异常二分类上系统评估 5 个医学影像基础模型与 6 种特征聚合策略（含 attention 多实例学习）。结果显示 3D CT-native 模型整体优于 2D 多模态模型，而任何聚合策略都未显著超过 mean pooling（attention MIL 与 mean 的 ΔAUC=0.008）；所有表现较好模型对局灶异常均低于弥漫异常（最大 ΔAUC=0.108）。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>基础模型作冻结特征提取器时，模型选择、聚合策略与异常类型对下游性能的影响不明。</li>
+                <li><strong>方法与数据</strong>SPECTRE、TAP-CT、CT-FM 等 5 模型 × 6 聚合策略；200 张 CT 注释测试集。</li>
+                <li><strong>局限与迁移</strong>任务为 CT 分类而非 PET/CT 分割；局灶异常编码不足提示小病灶需定位感知预训练，对 PET/CT 小病灶检测有迁移启发，需体素级验证。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码；所列基础模型权重为公开基线。</p>
+              <div class="card-meta"><span class="topic-chip">基础模型评估</span><span class="source-chip">IJCARS · Radboudumc</span><span class="evidence">同行评审 Online · 基准评估研究</span><time class="time">昨天</time></div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section id="direction-medical-imaging-agent" class="research-group" aria-labelledby="medical-imaging-agent-title">
+        <header class="group-heading"><span class="group-index">R.04 / PRIORITY</span><h3 id="medical-imaging-agent-title" class="group-title">医学影像 Agent</h3><span class="group-count">1 篇</span></header>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2608.24237" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">10</span><div class="card-body">
-<h3 class="card-title">STRIVE：多智能体结构化时序推理与集成验证的纵向放射报告生成</h3>
-<p class="card-summary">纵向放射报告生成（LRRG）需识别当前发现及其相对既往检查的变化，现有方法在隐式表征中联合建模诊断、属性估计、时序比较与语言生成，可能造成任务干扰、模糊每项决策的证据并限制错误可追溯性；模型还把进展状态视为独立标签，忽略其有序结构，将遗漏变化与方向反转等同处理。研究提出 STRIVE——多智能体结构化时序推理与集成验证框架：将临床推理分解为专门的诊断、属性与时序变化智能体，产生显式中间证据；时序变化智能体进一步用进展感知 GRPO 后训练——一种可验证的分级奖励，为方向保持错误分配部分奖励、方向反转评分最低。验证分两阶段：确定性一致性门在报告生成前协调智能体输出，验证智能体检查生成报告是否由聚合临床证据支持。在 Longitudinal-MIMIC 上，STRIVE 取得近期方法中最佳临床效能，纵向变化一致性（LCC）较最强基线翻倍以上。</p>
-<div class="card-meta">
-<span class="topic-chip">医疗Agent与临床智能体</span><span class="source-chip">ArXiv · 高丽大学/江原国立大学</span><span class="evidence">预印本</span><time class="time">2天前</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.25771" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">11</span><div class="card-body">
-<h3 class="card-title">P4-DT：两难情境训练的 LLM 预测患者治疗偏好，优于人类代理人</h3>
-<p class="card-summary">在重症疾病中，人类代理人预测患者偏好的准确率常有限（约 68%），易导致决策冲突。个性化患者偏好预测器（P4）智能体提供潜在方案，但先前原型将价值观视为静态评分，忽略医疗选择依赖具体情境的本质。研究基于"照护逻辑"提出 P4-DT：通过双向训练引导用户面对多种医疗两难情境、引出个体偏好推理，从而构建患者决策策略。在 12 组患者-代理人配对研究中，P4-DT 以 81.7% 准确率预测患者治疗选择，显著超过随机水平（OR=5.61），并优于无辅助代理人（55.0%）与 P4-DT 辅助的代理人（61.7%）；提示词对比显示，融入情境化场景决策与开放式文本比初始价值观评分提高 15.0 个百分点。研究讨论了对语境感知 AI 智能体做进一步测试与设计、以参与复杂决策的含义。</p>
-<div class="card-meta">
-<span class="topic-chip">医疗Agent与临床智能体</span><span class="source-chip">ArXiv · 新加坡国立大学</span><span class="evidence">预印本 · 配对用户研究</span><time class="time">昨天</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.23336" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">12</span><div class="card-body">
-<h3 class="card-title">编码智能体能否构建稳健基线？医学影像模型开发流水线的自动化</h3>
-<p class="card-summary">为医学影像开发有竞争力的深度学习基线仍是高度迭代的过程，需要文献综述、实现、实验与专家改进；现有自动化方法通常优化孤立组件（如架构搜索或超参调优），而非完整基线开发流程。研究提出智能体式 AI 科学家工作流：结合文献引导推理、自动代码生成与假设驱动实验，为医学影像挑战生成有竞争力的基线模型。在覆盖分割、分类与检测的四个公开基准上评估：实验流水线持续提升验证性能，取得有竞争力的排行榜成绩（PUMA 双赛道 15 队中第 6、MILK10k 125 队中第 31）；在 MIDOG25 上，模型在扫描仪、肿瘤类型与物种间表现出强领域泛化。以同一工作流应对所有挑战而无需任务特异重新设计，表明基于技能、文献引导的智能体工作流可大幅减少开发医学影像竞争力基线所需的工程投入。该研究由阿根廷 UNICEN-CONICET 与商业软件公司 Arionkoder 联合完成，属商业合作研究。</p>
-<div class="card-meta">
-<span class="topic-chip">医疗Agent与临床智能体</span><span class="source-chip">ArXiv · UNICEN-CONICET/Arionkoder</span><span class="evidence">预印本 · 商业合作研究</span><time class="time">3天前</time>
-</div>
-</div>
-</a>
+          <a class="card" href="https://arxiv.org/abs/2608.10827" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">08</span>
+            <div class="card-body">
+              <h4 class="card-title">反射式证据验证的医学影像诊断 Agent</h4>
+              <p class="card-summary">MIRA 让医学视觉 Agent 在调用 zooming、grounding、pointing、旋转、测量与网络搜索等工具时同步评估证据的相关性与一致性，验证工具动作是否必要、证据是否支持当前诊断假设。两阶段训练：工具增强蒙特卡洛树搜索数据引擎构造监督轨迹，再用强化学习做在线反射原则演化。九个医学视觉推理基准平均 64.73 分，较 Qwen3-VL-8B 提升 7.44 分，有用工具判定从 56.2% 升至 73.8%。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>无差别工具调用会引入噪声或误导性证据，诊断 Agent 需要反射式验证而非一味调用工具。</li>
+                <li><strong>方法与数据</strong>MCTS 数据引擎 + RL 原则演化；9 个医学视觉推理基准，含工具使用判定消融。</li>
+                <li><strong>局限与迁移</strong>评估基于医学视觉推理基准而非 PET/CT 分割工作流；迁移到影像科研 Agent（预处理/分割/质控/报告）需扩展影像工具链并保留证据追踪。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方项目页 MIRA-VL.github.io（作者关联）。</p>
+              <div class="card-meta"><span class="topic-chip">诊断 Agent</span><span class="source-chip">ArXiv · 同济大学</span><span class="evidence">预印本 · 方法研究</span><time class="time">2026年8月11日</time></div>
+            </div>
+          </a>
         </div>
-      </div>
+      </section>
 
-      <div class="research-group" id="seg-world-model">
-        <div class="group-heading"><span class="group-index">05</span><span class="group-title">World Model（研究关键词）</span><span class="group-count">2 篇</span></div>
+      <section id="direction-transferable-baseline" class="research-group" aria-labelledby="transferable-baseline-title">
+        <header class="group-heading"><span class="group-index">R.05 / SUPPORTING</span><h3 id="transferable-baseline-title" class="group-title">可迁移基线与研究方法</h3><span class="group-count">2 篇</span></header>
         <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2608.12904" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">13</span><div class="card-body">
-<h3 class="card-title">HounsWorld：面向隐藏患者状态读取、重建与模拟的多模态世界模型</h3>
-<p class="card-summary">临床智能要求从不完整观测估计患者潜在状态，而非学习从扫描到答案的孤立映射。三维医学图像提供解剖、衰减与病灶的密集观测，临床语言提供稀疏但互补的语义观测。研究将 CT 中心智能形式化为对共享潜在患者状态的推理，引入 HounsBench——以 CT 为中心的患者状态基准，以患者级划分统一读取、重建与模拟三类任务族并分族评估；以及 HounsWorld——3B 多模态世界模型，通过联合理解-生成学习将三维扫描与语言视为共享状态的观测。共享 Transformer 形成隐式患者状态估计，支持三类输出：读取状态的查询条件回答、以语言重建状态（报告与描述）、以及条件特异 CT 体积生成（低剂量去噪、虚拟对比增强、解剖约束的文本/掩膜到体积生成）。零初始化 CT 适配器保持预训练多模态映射，条件显式 Hounsfield 窗采样暴露具有临床意义的密度观测。HounsWorld 在全部三类任务族上表现强劲，并通过临床结构化补全持续提升 CT 理解。该研究由华东师范大学与阿里巴巴达摩院合作完成，含商业机构参与。</p>
-<div class="card-meta">
-<span class="topic-chip">World Model</span><span class="source-chip">ArXiv · 华东师范大学/阿里巴巴达摩院</span><span class="evidence">预印本 · 商业机构参与</span><time class="time">2026年8月13日</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.13518" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">14</span><div class="card-body">
-<h3 class="card-title">干预感知的临床世界模型：心内科术后结局预测</h3>
-<p class="card-summary">许多临床预测模型将术后结局视为基线测量到终点的单步映射，但手术恢复常呈不规则轨迹：临床观察、用药变化、重复干预与生理测量异步记录，可随时间改变风险评估。研究提出干预感知的临床世界模型：以结构化潜在状态表示每位患者，并通过时间有序的术后事件推进状态——先将基线影像编码为三维空间潜在状态，再用手术情境、静态协变量、经过时间与围手术期生理嵌入更新；随访影像仅以潜在预测目标提供训练监督。应用于房颤消融：在 90 天恢复窗口，不规则术后记录为长期复发风险提供具有临床意义的证据。DECAAF-II 重复内部交叉验证中，复发预测 AUROC 0.756、AUPRC 0.777，瘢痕范围 MAE 2.971 个百分点且推理时不需随访 MRI 强度；学习状态支持不同时间视界的复发风险查询，以及空白期记录的回顾性输入编辑。</p>
-<div class="card-meta">
-<span class="topic-chip">World Model</span><span class="source-chip">ArXiv · 美国杜兰大学</span><span class="evidence">预印本 · 回顾性队列研究</span><time class="time">2026年8月13日</time>
-</div>
-</div>
-</a>
-        </div>
-      </div>
+          <a class="card" href="https://doi.org/10.1007/s10278-026-02217-2" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">09</span>
+            <div class="card-body">
+              <h4 class="card-title">准确率不等于视觉理解：13 个 VLM 胸片评估</h4>
+              <p class="card-summary">回顾性评估 13 个视觉语言模型（GPT、Gemini、Claude、Grok、Mistral 及开源模型）在 100 例胸片/CT/MR/PET 单选改卷上的表现，对照 10 名读者（含 3 名胸部放射科医生）。Gemini 3.0 Pro 的 Top-1 准确率 57.0% 接近放射科均值 57.3%，但其正确回答中仅 80.7% 推理健全，约五分之一的正确诊断建立在幻觉或遗漏发现之上；全部模型校准误差达 18.2 点（过自信）。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>多选题准确率上升是否反映真实视觉理解存疑，模型推理与图像证据是否一致缺乏评估。</li>
+                <li><strong>方法与数据</strong>图像输入与描述输入双条件；100 例胸部影像 + 放射科医生对推理错误分级。</li>
+                <li><strong>局限与迁移</strong>样本量有限；其“准确率 + 推理忠实性 + 校准”评估框架可迁移到 PET/CT 报告与诊断 Agent 的可靠性审计。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码；评估协议可作为 VLM 可靠性基准设计参考。</p>
+              <div class="card-meta"><span class="topic-chip">VLM 可靠性评估</span><span class="source-chip">J Imaging Inform Med · 首尔国立大学医院</span><span class="evidence">同行评审 Online · 评估研究</span><time class="time">2天前</time></div>
+            </div>
+          </a>
 
-      <div class="research-group" id="seg-pet-ct">
-        <div class="group-heading"><span class="group-index">06</span><span class="group-title">PET/CT（研究关键词）</span><span class="group-count">2 篇</span></div>
-        <div class="card-grid">
-<a class="card" href="https://arxiv.org/abs/2608.19063" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">15</span><div class="card-body">
-<h3 class="card-title">双示踪剂分歧：临床 PET/CT 分割的多模态融合研究</h3>
-<p class="card-summary">PSMA 与 FDG PET/CT 在前列腺癌中可视化互补生物信息，结合两种示踪剂或能捕获单用其一遗漏的异质性肿瘤表型，但业界对融合这些模态的深度学习架构缺乏共识。研究用公开 DEEP-PSMA 挑战数据集评估全身 PET/CT 病灶分割的多模态融合策略，以估计总肿瘤负荷：训练示踪剂特异 3D nnU-Net 基线，比较早期融合（单编码器单/双解码器）与双编码器交叉注意力 U-Net（DECA-UNet）中间融合。示踪剂特异基线表现强劲（PSMA Dice 0.93、FDG 0.81）；融合结果参差——早期融合在较易的非示踪剂特异任务上综合 Dice 0.90，但示踪剂特异融合模型 PSMA/FDG 分别降至 0.69/0.64（OETD）与 0.76/0.57（DECA-UNet）。融合常改善 PSMA 分割但损害 FDG 性能，无策略稳定超过单示踪剂基线。研究结论：单示踪剂模型仍是更强基线，临床有用的多模态融合增益或需更好保留示踪剂特异表征的架构。</p>
-<div class="card-meta">
-<span class="topic-chip">PET/CT</span><span class="source-chip">ArXiv · 英国牛津大学</span><span class="evidence">预印本 · 回顾性研究</span><time class="time">2026年8月19日</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://arxiv.org/abs/2608.21881" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">16</span><div class="card-body">
-<h3 class="card-title">区域加权损失与模型融合的跨模态 PET 衰减校正</h3>
-<p class="card-summary">BIC-MAC 挑战要求从非衰减校正 PET（NAC-PET）、DIXON MRI 与定位像（topogram）合成亨氏单位伪 CT，并同时评分伪 CT 与其重建出的衰减校正 PET（AC-PET）。该团队报告三项关键改进：损失比架构更重要——在 CT 指标自身使用的 Carney 衰减系数（μ）空间计算 L1 误差并按解剖区域加权；该损失落地后，未配准的 DIXON MRI 才能作为额外输入通道有效工作；两个独立训练模型的固定凸组合在四项指标中的三项击败单个成员，并在公共验证排行榜总体排名第一。</p>
-<div class="card-meta">
-<span class="topic-chip">PET/CT</span><span class="source-chip">ArXiv · 比利时根特大学</span><span class="evidence">预印本 · 挑战赛方法报告</span><time class="time">5天前</time>
-</div>
-</div>
-</a>
+          <a class="card" href="https://doi.org/10.1007/s10278-026-02188-4" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">10</span>
+            <div class="card-body">
+              <h4 class="card-title">对比学习多模态预测乳腺癌 pCR：4 队列 1491 例</h4>
+              <p class="card-summary">在 4 个临床试验队列共 1491 例（含专家肿瘤分割）上构建多模态对比学习模型，对齐影像与临床表征预测新辅助化疗后的病理完全缓解（pCR）。留出集 AUC 0.83（95% CI 0.78–0.89），优于无对比对齐的晚期融合与单模态基线；是目前规模较大的多队列乳腺癌 MRI 多模态研究之一。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>新辅助化疗前预测 pCR 的多模态融合缺少大规模多队列验证，特征对齐方式影响跨模态收益。</li>
+                <li><strong>方法与数据</strong>多模态对比学习对齐影像-临床表征；4 队列 1491 例，留出集 AUC 0.83。</li>
+                <li><strong>局限与迁移</strong>场景为乳腺癌 MRI；其对比对齐与多队列评估设计可迁移到 PET/CT 多模态预后建模，需验证示踪剂与分割输入。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码。</p>
+              <div class="card-meta"><span class="topic-chip">多模态对比学习</span><span class="source-chip">J Imaging Inform Med · 达特茅斯学院</span><span class="evidence">同行评审 Online · 回顾性多队列研究</span><time class="time">2天前</time></div>
+            </div>
+          </a>
         </div>
-      </div>
-
+      </section>
     </div>
   </section>
 
-  <section id="industry" class="section section--industry">
-    <header class="section-heading"><span class="section-index">02 / INDUSTRY</span><h2 class="section-title">行业动态</h2>
-<p class="section-note">数据日期：AI HOT 2026-08-27 日报与 medical/health 24 小时检索共筛出 2 条合格动态（8月26日发布）；7 天窗口补充 1 条（AlgorithmWatch 调查，8月22日发布）。其余日报条目均为通用 AI 内容，未收录。所有动态均回到一手来源核验。</p></header>
-    <div class="evidence-note">
-<strong>Source note</strong><span>产品能力、合作范围和安全数字按原始来源转述，不延伸为医疗效果判断。涉及商业产品时标注厂商背景与利益关系。</span>
-</div>
-    <div class="card-grid industry-grid">
-<a class="card" href="https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">17</span><div class="card-body">
-<h3 class="card-title">Google Research 发布 GlucoFM：面向连续血糖监测的轻量基础模型</h3>
-<p class="card-summary">Google Research 发布 GlucoFM——轻量级自监督连续血糖监测（CGM）基础模型，用于多种代谢预测任务。双流架构分别建模缓慢血糖趋势（低频状态流）与短期波动（残差事件流），保留时间点信息与缺失掩码，采用 JEPA 风格潜在预测预训练（上下文预测与下一小时稳态/波动预测）与 CGM 感知数据增强（基线漂移、压缩样下降、稀疏采样、短时断连），将记录对齐到 24 小时、5 分钟间隔网格。模型在 109,066 小时无标注 CGM 数据（Wear-CGM 研究加 4 个已发表数据集，共 477 名参与者/会话）上预训练。在四个队列、七项临床预测任务（糖尿病风险、胰岛素抵抗、β细胞功能障碍、高脂血症、低血糖、肥胖、糖型）的 14 项评估中，线性探测 PR-AUC 平均 58.8，较最强 GluFormer 变体（同一语料预训练）提升 4.1 点（相对约 7.5%）；餐后血糖反应预测 MAE 最低 21.88 mg/dL（对比最强基线 22.90）；12 项跨数据集迁移评估中 11 项领先；少样本与极端低标注设置（每类 1 名标记受试者）下均最优。作者为 Google Research 研究人员（Ahmed A. Metwally 等），属商业机构研究；作者明确结果以预训练与基准评估为主，不构成临床验证。</p>
-<div class="card-meta">
-<span class="source-chip">Google Research Blog</span><span class="evidence official">官方技术发布 · 模型研究</span><time class="time">昨天</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://techcrunch.com/2026/08/26/hearing-tech-startup-legato-emerges-from-stealth-with-12m-and-a-peek-at-its-ai-hearing-glasses/" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">18</span><div class="card-body">
-<h3 class="card-title">听力科技初创 Legato 获 1200 万美元融资，推出 AI 听力眼镜 Legato Frames</h3>
-<p class="card-summary">听力科技初创公司 Legato 于 8月26日脱离隐身模式，宣布 1200 万美元融资（投资方 Neotribe Ventures、Listen、Village Global），并首次展示 AI 听力眼镜 Legato Frames——将公司专利助听技术集成于镜腿，外观与普通眼镜无异。系统采用 AI 区分背景噪音与人声、仅放大语音，旨在嘈杂环境（如餐厅）中提升对话清晰度；开耳式双扬声器设计将声音定向至佩戴者，数英寸外漏音减少 99%。公司由两位前 Bose 高管创办：Mehul Trivedi（Bose Frames 创造者、前 EssilorLuxottica 智能眼镜负责人、曾参与 Meta Ray-Bans）与 Steve Romine（前 Bose 助听器部门主管、前 Audicus COO），2024 年底创立。目标人群为轻中度听力损失者（美国约 5000 万成人，仅约 20% 寻求治疗），产品计划今年秋季通过美国指定眼镜护理机构发售，价格据称为传统助听器的"零头"，或可适用视力保险。产品尚未上市，无临床验证数据；本条目属商业公司产品发布与融资动态。</p>
-<div class="card-meta">
-<span class="source-chip">TechCrunch</span><span class="evidence official">行业报道 · 融资与产品发布</span><time class="time">昨天</time>
-</div>
-</div>
-</a>
-<a class="card" href="https://algorithmwatch.org/en/chatbots-abortion-ai/" target="_blank" rel="noopener noreferrer">
-  <span class="card-num">19</span><div class="card-body">
-<h3 class="card-title">AlgorithmWatch 跨国调查：AI 聊天机器人常向孕期用户推荐反堕胎网站且不披露立场</h3>
-<p class="card-summary">非营利研究机构 AlgorithmWatch 发布跨国调查：测试 ChatGPT-5、Gemini 3、Grok 4.3 与 Claude Sonnet 4.8 四款聊天机器人，以三个虚构人物（16 岁学生、28 岁职业女性、38 岁失业单身母亲）用英语、德语、意大利语提出意外怀孕相关问题，共分析 270 条回复。结果显示：至少四分之一的查询中，聊天机器人包含至少一个反堕胎网站链接，且未区分官方卫生机构与意识形态组织；与反堕胎组织 Heartbeat International 有关联的 Profemina 出现在约 17% 的回复中（德语关于个人经历的查询中达 33%、意大利语 29%），多数情况下未披露其反堕胎立场，个别模型甚至在同一对话中既推荐又警告该来源；在德国，11/12 次对话推荐了不签发堕胎法定证明所需咨询证书的 Caritas，可能延误求助者。调查于 2026 年 8 月 22 日发布（德语版发表于 netzpolitik、意大利语版发表于 Guerre di Rete、英语版发表于 OpenDemocracy）。本条目属 AI 医疗信息可靠性/安全事件研究，非临床研究。</p>
-<div class="card-meta">
-<span class="source-chip">AlgorithmWatch</span><span class="evidence official">调查报告 · 非营利研究机构</span><time class="time">5天前</time>
-</div>
-</div>
-</a>
+  <section id="tips" class="section section--tips">
+    <header class="section-heading">
+      <span class="section-index">02 / PRACTICE</span>
+      <h2 class="section-title">今日 Tips</h2>
+      <p class="section-note">本条为基于本期入选原始研究的研究型实践启发，不等同于通用临床指南。</p>
+    </header>
+    <div class="evidence-note"><strong>Learning note</strong><span>体素级 Dice 与患者级代谢肿瘤体积（MTV）衡量的是不同层面的质量；临床量化任务应分别验证，不能以整体 Dice 代替患者级一致性。</span></div>
+    <div class="card-grid tips-grid">
+      <a class="card" href="https://doi.org/10.3390/jimaging12080364" target="_blank" rel="noopener noreferrer">
+        <span class="card-num">11</span>
+        <div class="card-body">
+          <h3 class="card-title">PET/CT 病灶分割：Dice 高不等于 MTV 准</h3>
+          <p class="card-summary">Dice 衡量体素重叠，而 MTV/TLG 等肿瘤负荷指标是患者级临床相关量。小病灶或边界误差对体素级指标影响有限，却可能显著改变 MTV；生理性摄取产生的假阳性几乎不降低整体 Dice，但会直接污染肿瘤负荷估计。本期越南 NSCLC 基准与 RADIANT-PET 都提示：自动分割若要支持量化，必须同时验证患者级一致性并抑制假阳性。</p>
+          <ul class="card-points">
+            <li><strong>操作要点</strong>除整体 Dice 外报告患者级指标：MTV 与金标准的 Pearson/Spearman 相关、Bland-Altman 一致性区间、患者级 Dice 分布；对假阳性病灶计数并分层报告小病灶（如 &lt;5 mL）表现；比较模型前固定数据划分、重采样、SUV 定义与评估协议。</li>
+            <li><strong>适用条件</strong>适用于 PET/CT 病灶分割与肿瘤负荷量化任务，尤其是以 MTV/TLG 为下游临床变量的场景。</li>
+            <li><strong>常见误区</strong>“DSC≥0.8 即可用于临床量化”。高 Dice 可能掩盖 MTV 偏差与生理性摄取假阳性；只报体素级指标无法证明患者级量化可靠性。</li>
+          </ul>
+          <div class="card-meta"><span class="topic-chip">评估方法</span><span class="source-chip">J Imaging 2026 越南 NSCLC 基准 / RADIANT-PET</span><span class="evidence official">研究型 Tip · 非共识指南</span><time class="time">2026年8月8日</time></div>
+        </div>
+      </a>
     </div>
   </section>
 
   <aside class="disclaimer">
     <strong>Medical disclaimer</strong>
-    <p>本页面仅用于医学人工智能领域的信息整理，不构成诊断、治疗、用药或投资建议。预印本与会议论文未经同行评审或未经期刊完整审稿流程，研究结果不等同于临床有效性；涉及具体健康问题，请咨询具备资质的医疗专业人员。</p>
+    <p>本页面仅用于医学人工智能研究与科研学习的信息整理，不构成诊断、治疗或用药建议。预印本、会议结果、代码基线和科研 Tips 不等同于临床有效性或专业操作规范；涉及具体健康问题，请咨询具备资质的医疗专业人员。</p>
   </aside>
 </main>
 
 <footer>
   <div class="shell footer-inner">
-    <span>共 19 条 · 数据源：<a href="https://aihot.virxact.com/" target="_blank" rel="noopener noreferrer">AI HOT</a> + <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">ArXiv</a></span>
-    <span>最后更新：2026年8月27日 12:35 · 北京时间</span>
+    <span>共 <strong>11</strong> 条 · 实际数据源：<a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">ArXiv</a> · <a href="https://iopscience.iop.org/journal/0031-9155" target="_blank" rel="noopener noreferrer">Phys Med Biol</a> · <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=42" target="_blank" rel="noopener noreferrer">IEEE TMI</a> · <a href="https://link.springer.com/journal/11548" target="_blank" rel="noopener noreferrer">IJCARS</a> · <a href="https://www.mdpi.com/journal/jimaging" target="_blank" rel="noopener noreferrer">J Imaging</a> · <a href="https://link.springer.com/journal/10278" target="_blank" rel="noopener noreferrer">J Imaging Inform Med</a></span>
+    <span>本期日期：2026年8月28日 · 更新时间：2026年8月28日 16:37 · 北京时间</span>
   </div>
 </footer>
 
@@ -461,14 +436,14 @@
   const targets = navLinks.map(link => document.querySelector(link.hash)).filter(Boolean);
   const updateProgress = () => {
     const max = document.documentElement.scrollHeight - innerHeight;
-    progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
+    progress.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
   };
   addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      navLinks.forEach(link => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
+      navLinks.forEach(link => link.classList.toggle('active', link.hash === '#' + entry.target.id));
     });
   }, { rootMargin: '-28% 0px -64% 0px' });
   targets.forEach(target => observer.observe(target));
