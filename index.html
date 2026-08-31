@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="医学人工智能论文研究与科研实践提示简报">
-<title>MedAI Brief · 2026年8月30日</title>
+<title>MedAI Brief · 2026年8月31日</title>
 <style>
   :root {
     color-scheme: dark;
@@ -46,6 +46,7 @@
   .reading-progress { position: fixed; inset: 0 auto auto 0; z-index: 300; width: 0; height: 3px; background: linear-gradient(90deg, var(--mint), var(--tips)); }
   .shell { width: min(var(--page), calc(100% - 48px)); margin-inline: auto; }
 
+  /* Clinical editorial masthead */
   .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line-strong); }
   .hero::after { content: "+"; position: absolute; right: max(24px, calc((100vw - var(--page)) / 2)); top: 8rem; color: rgba(120,230,189,.045); font: 300 clamp(15rem, 31vw, 29rem)/.65 "Times New Roman", serif; pointer-events: none; }
   .masthead { position: relative; z-index: 1; display: flex; align-items: center; gap: 18px; min-height: 68px; border-bottom: 1px solid var(--line); color: var(--muted); font: 800 .68rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
@@ -71,6 +72,7 @@
   .source-cell small { display: block; color: var(--dim); font: 800 .61rem/1 "Bahnschrift", sans-serif; letter-spacing: .14em; text-transform: uppercase; }
   .source-cell strong { display: block; margin-top: 8px; color: var(--paper); font-size: .79rem; }
 
+  /* Two-level contents */
   .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,16,14,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
   .nav-inner { display: flex; align-items: stretch; min-height: 58px; overflow-x: auto; scrollbar-width: none; }
   .nav-inner::-webkit-scrollbar { display: none; }
@@ -172,17 +174,17 @@
 
 <header class="hero">
   <div class="shell">
-    <div class="masthead"><span class="masthead-brand">MedAI Research Brief</span><span class="masthead-rule" aria-hidden="true"></span><span>Clinical imaging / Beijing</span><span class="masthead-status"><span>Research-profile edition</span></span></div>
+    <div class="masthead"><span class="masthead-brand">MedAI Evidence Brief</span><span class="masthead-rule" aria-hidden="true"></span><span>Clinical intelligence / Beijing</span><span class="masthead-status"><span>Evidence-aware edition</span></span></div>
     <div class="hero-grid">
       <div>
-        <p class="eyebrow">Medical AI Daily · 2026年8月30日</p>
+        <p class="eyebrow">Medical AI Daily · 2026年8月31日</p>
         <h1 class="hero-title">医学 AI<br><em>研究证据简报</em></h1>
-        <p class="hero-deck">本期主线是「定量结果能不能跨站点、跨协议站得住」。核医学方向收录两项直接针对 PET/SPECT 定量链路的工作：一项用 PET 分割作为 SPECT 分割先验的双中心 nnU-Net 研究，一项在全身 PET/CT 分割上系统引入认知与偶然不确定度分解；基础模型方向收录可审计的放射学概念基础模型、三维 CT 联合嵌入预训练，以及分布漂移下无需目标域标签的模型选择准则；医学世界模型方向本期首次有论文达到证据门槛。Tips 回到 PET 定量的起点——先核对 DICOM 的 Units、SUV Type 与 Decay Correction 字段。</p>
+        <p class="hero-deck">本期主线是「指标与适配策略会不会骗人」。核医学方向收录三项直接落在 PET/SPECT 定量链路上的工作：用通用解剖分割模型推导关节 ROI 的 FDG/NaF PET/CT 定量、33 机构 1,610 例的多模态 PET-MR 胶质母细胞瘤分割、以及 83 例公开数据上的心肌灌注 SPECT 分割；分类方向一项量化了 PET/CT 影像基因组学中多标签学习的收益边界。基础模型方向三篇分别检验基础模型嵌入能否替代人工 ROI 放射组学、概念瓶颈能否兼顾可解释与判别力、以及微调在远分布外数据上何时适得其反；Agent 方向给出把空间关系交给确定性几何验证的模块化设计；世界模型方向收录机制约束的肝脏数字孪生。Tips 回到评价本身：先按问题结构选指标，小目标分割不要用 Accuracy 当主指标。</p>
       </div>
       <aside class="issue-panel" aria-label="本期统计">
         <p class="issue-label">Latest issue</p>
-        <p class="issue-date">2026年8月30日<br>星期日 · 北京时间</p>
-        <div class="issue-total"><strong>12</strong><span>条精选内容<br>11 篇研究 · 1 条 Tips</span></div>
+        <p class="issue-date">2026年8月31日<br>星期一 · 北京时间</p>
+        <div class="issue-total"><strong>13</strong><span>条精选内容<br>12 篇研究 · 1 条 Tips</span></div>
       </aside>
     </div>
     <div class="source-strip" aria-label="来源与质量标准">
@@ -195,12 +197,12 @@
 
 <nav class="nav" aria-label="医学 AI 日报导航">
   <div class="shell nav-inner">
-    <span class="nav-brand">Contents / Research map</span>
-    <a class="nav-link active" href="#research">论文研究 <span class="nav-count">11</span></a>
-    <a class="nav-link" href="#direction-nuclear-medicine-segmentation">核医学分割 <span class="nav-count">2</span></a>
-    <a class="nav-link" href="#direction-nuclear-medicine-classification">核医学分类 <span class="nav-count">1</span></a>
+    <span class="nav-brand">Contents / Evidence map</span>
+    <a class="nav-link active" href="#research">论文研究 <span class="nav-count">12</span></a>
+    <a class="nav-link" href="#direction-nuclear-medicine-segmentation">核医学分割 <span class="nav-count">3</span></a>
+    <a class="nav-link" href="#direction-nuclear-medicine-classification">核医学分类 <span class="nav-count">2</span></a>
     <a class="nav-link" href="#direction-medical-imaging-foundation-model">影像基础模型 <span class="nav-count">3</span></a>
-    <a class="nav-link" href="#direction-medical-imaging-agent">影像 Agent <span class="nav-count">2</span></a>
+    <a class="nav-link" href="#direction-medical-imaging-agent">影像 Agent <span class="nav-count">1</span></a>
     <a class="nav-link" href="#direction-medical-world-model">医学世界模型 <span class="nav-count">1</span></a>
     <a class="nav-link" href="#direction-transferable-baseline">可迁移基线 <span class="nav-count">2</span></a>
     <a class="nav-link nav-link--tips" href="#tips">今日 Tips <span class="nav-count">1</span></a>
@@ -212,201 +214,205 @@
     <header class="section-heading">
       <span class="section-index">01 / RESEARCH</span>
       <h2 class="section-title">论文研究</h2>
-      <p class="section-note">本期论文首发/在线日期为 2026年6月8日–8月26日，均在 90 天窗口内。6 个启用方向中 5 个有合格论文；鼻咽癌 PET/CT 方向未检索到窗口内同时满足 PET/CT 模态与 AI 方法门槛的新论文，本期为 0 条。</p>
+      <p class="section-note">本期论文在线/首发日期为 2026年7月7日–8月22日，均在 90 天窗口内。6 个启用方向中 5 个有合格论文；鼻咽癌 PET/CT 方向窗口内未检索到同时满足 PET/CT 模态与 AI 方法门槛的新论文，本期为 0 条。另有两篇期刊论文因首次公开（预印本）时间早于窗口起点而被排除。</p>
     </header>
-    <div class="evidence-note"><strong>Evidence note</strong><span>以下为研究信息摘要，不代表方法已经完成临床验证。预印本、回顾性研究、数据集资源与同行评审 Online 版应分别理解；不确定度、一致性化与模型选择类方法改善的是代理指标，不等同于诊断或分割准确率的临床获益。</span></div>
+    <div class="evidence-note"><strong>Evidence note</strong><span>以下为研究信息摘要，不代表方法已经完成临床验证。预印本、同行评审 Online 版、回顾性队列、公开数据集基准与模拟验证应分别理解；图像级指标（PSNR、SSIM、Dice）的改善不等同于病灶检出率、定量偏差或患者获益。</span></div>
 
     <div class="research-groups">
       <section id="direction-nuclear-medicine-segmentation" class="research-group" aria-labelledby="nm-seg-title">
-        <header class="group-heading"><span class="group-index">R.01 / PRIORITY</span><h3 id="nm-seg-title" class="group-title">核医学深度学习分割</h3><span class="group-count">2 篇</span></header>
+        <header class="group-heading"><span class="group-index">R.01 / PRIORITY</span><h3 id="nm-seg-title" class="group-title">核医学深度学习分割</h3><span class="group-count">3 篇</span></header>
         <div class="card-grid">
-          <a class="card" href="https://doi.org/10.1186/s13550-026-01468-y" target="_blank" rel="noopener noreferrer">
+          <a class="card" href="https://doi.org/10.1007/s00259-026-08139-z" target="_blank" rel="noopener noreferrer">
             <span class="card-num">01</span>
             <div class="card-body">
-              <h4 class="card-title">PET 引导 SPECT：PSMA 治疗前后双中心病灶自动分割</h4>
-              <p class="card-summary">转移性去势抵抗性前列腺癌患者接受 177Lu-PSMA 放射性配体治疗时，需要逐病灶手工分割才能提取体积与剂量学生物标志物，但手工分割在高度转移患者身上尤其耗时、难以规模化。这项双中心回顾性研究用 nnU-Net 训练了四种模型：仅 PET/CT（M1）、仅 SPECT/CT（M2）、PET/CT 与 SPECT/CT 联合训练而推理时单模态输入（M3）、以及把 PET/CT 分割结果作为先验输入通道的 SPECT/CT 模型（M4）。73 例患者每例都配对了治疗前的 68Ga-PSMA PET/CT 与第一周期治疗中的 177Lu-PSMA SPECT/CT，全部由四名核医学医师共识手工分割；模型先在亨利·贝克勒尔癌症中心 48 例上训练与内部验证，再在全队列重训后于南特大学医院 25 例上做外部验证。PET/CT 分割上 M1 与 M3 表现相当；SPECT/CT 上以 PET 为先验的 M4 最好。</p>
+              <h4 class="card-title">自动关节分割让 FDG/NaF PET/CT 关节定量可标准化</h4>
+              <p class="card-summary">用 PET 定量关节代谢与炎症时，关节边界在解剖上并不清晰，手工勾画既耗时又难以标准化。这套流程先用 TotalSegmentator 在 CT 上生成骨性结构分割，再按“相邻骨之间、落在设定距离阈值内”的规则推导出 30 个负重关节区域，从而在 PET/CT 上自动得到关节 ROI 并计算 SUVmean。数据为健康志愿者扫描（FDG 75 例、NaF 80 例），用 Pearson 相关分析关节摄取与年龄、BMI 的关系，并在每个示踪剂-协变量族内做 Benjamini-Hochberg FDR 校正。自动流程把单例分割时间从约 30 分钟降到约 1.5 分钟；同一参与者两次 PET/CT 检查各自独立生成的关节 ROI 高度一致（中位 r=0.98，中位 ICC 0.94）。FDR 校正后，NaF 摄取与 BMI 在胸段（T3-T6、T7-T8、T9-T11）和腰骶段（L5-S1）椎间盘、双侧骶髂关节、髋与膝关节正相关，与年龄在颈椎间盘（C1-C2、C3-C7）正相关；FDG 摄取与 BMI 在 C1-T6（T1-T2 除外）和 T9-S1 椎间盘、双侧骶髂关节、左髋与双膝正相关，与年龄在双膝正相关（均 q<0.05）。</p>
               <ul class="card-points">
-                <li><strong>研究痛点</strong>PSMA 治疗前后需要跨模态的逐病灶分割以计算体积与剂量指标，但 SPECT 空间分辨率较低，单独分割精度不足，手工勾画难以规模化。</li>
-                <li><strong>方法与数据</strong>四种 nnU-Net 变体（PET/CT、SPECT/CT、联合训练、PET 分割作为先验）；73 例双中心配对 68Ga-PSMA PET/CT 与 177Lu-PSMA SPECT/CT（48 训练 / 25 外部）；四名医师共识标注。PET/CT：M1 内部 DSC 0.83±0.19、外部 0.76±0.22，M3 内部 0.83±0.16、外部 0.77±0.21。SPECT/CT：M4 内部 DSC 0.63±0.24、外部 0.78±0.14（PPV 0.65±0.26 / 0.75±0.23）；与 SPECT-only 的 M2 相比内部差异不显著（DSC p=0.35）、外部显著（DSC p=0.014）。</li>
-                <li><strong>局限与迁移</strong>回顾性设计、样本量仅 73 例且外部队列 25 例，置信区间较宽；靶向前列腺癌 PSMA 病灶，与鼻咽癌 FDG 病灶在分布与对比度上不同；作者团队含西门子 Healthineers（商业参与）。迁移价值在于「用高分辨率模态的分割结果作为低分辨率模态的先验」这一可复用设计，但迁移到本项目需在头颈数据上重训，并统一配准、分割口径与示踪剂方案。</li>
+                <li><strong>研究痛点</strong>关节 PET 定量依赖手工勾画，而关节边界缺少统一解剖定义，导致跨读片者、跨中心的定量结果不可比，且单例耗时约 30 分钟难以规模化。</li>
+                <li><strong>方法与数据</strong>TotalSegmentator 生成 CT 骨分割 + 几何规则导出 30 个负重关节 ROI；健康志愿者 FDG 75 例 / NaF 80 例；速度 30 分钟降至约 1.5 分钟；同一参与者两次扫描的关节 ROI 一致性中位 r=0.98、中位 ICC 0.94；相关分析经 Benjamini-Hochberg FDR 校正。</li>
+                <li><strong>局限与迁移</strong>队列为健康志愿者，不含患者或治疗随访数据，所得到的摄取-年龄/BMI 关联不能直接外推到疾病状态；作者明确指出，颈椎 NaF-年龄正相关出现在 SUVmean 与 ROI 体积明显相关的少数关节，属暂定结论；ROI 由 CT 骨分割加几何规则导出，在术后改变、骨性结构异常或严重骨质疏松时规则可能失效。迁移价值在于“先用通用解剖分割模型在 CT 上定位，再推导功能 ROI”这条低成本路径，可作为 PET/CT 器官级定量的可复现基线；本项目若做头颈 ROI 定量，需重新定义规则，并在患者数据上重复验证重测一致性与疾病状态下的稳定性。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码；方法基于开源的 nnU-Net 框架构建，不等于本文官方复现包。</p>
-              <div class="card-meta"><span class="topic-chip">核医学深度学习分割</span><span class="source-chip">EJNMMI Res · 亨利·贝克勒尔癌症中心 / 鲁昂大学</span><span class="evidence">同行评审期刊 · 双中心回顾性研究</span><time class="time">2026年7月1日</time></div>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到论文官方仓库；流程依赖开源 TotalSegmentator（github.com/wasserth/TotalSegmentator，Apache-2.0，最近更新 2026 年 8 月 13 日），该仓库是通用解剖分割工具，不等于本文复现包。</p>
+              <div class="card-meta"><span class="topic-chip">核医学深度学习分割</span><span class="source-chip">Eur J Nucl Med Mol Imaging · 宾夕法尼亚大学医院放射科</span><span class="evidence">同行评审 Online · 健康志愿者影像分析（含 NCT01724749）</span><time class="time">2026年8月21日</time></div>
             </div>
           </a>
-
-          <a class="card" href="https://arxiv.org/abs/2606.10115" target="_blank" rel="noopener noreferrer">
+          <a class="card" href="https://doi.org/10.1186/s40644-026-01086-w" target="_blank" rel="noopener noreferrer">
             <span class="card-num">02</span>
             <div class="card-body">
-              <h4 class="card-title">不确定度增强的全身 PET/CT 病灶分割</h4>
-              <p class="card-summary">全身 PET/CT 病灶勾画在临床上本就困难：病灶特征细微、存在混淆性摄取，读片者之间也有差异；现有深度学习分割还叠加了训练随机性、预测不一致、高肿瘤负荷病例漏检，且普遍不提供不确定度量化，临床难以判断哪些结果可信。研究以 nnU-Net 为基线，提出三层不确定度感知框架：用贝叶斯集成抑制训练随机性；做体素级认知不确定度与偶然不确定度分解；再用认知不确定度增强训练来提升病灶检出。训练与评估使用 AutoPET-III（1,611 例）与 Deep-PSMA（200 例）两套公开数据集，涵盖 FDG 与 PSMA 多种示踪剂与多癌种。作者称这是首个系统研究多示踪剂、泛癌种 PET/CT 分割不确定度量化，并把贝叶斯集成与不确定度感知建模结合起来的工作。</p>
+              <h4 class="card-title">多模态 PET-MR 分割：胶质母细胞瘤计划靶区与复发定义</h4>
+              <p class="card-summary">胶质母细胞瘤主要依靠 MR 做诊断与治疗计划，O-(2)-18F-氟乙基酪氨酸（FET）PET 被推荐用于鉴别局部复发与放射性改变，但临床落地受三个因素制约：肿瘤与危及器官勾画耗时、PET 增值证据不足、设备可及性有限。研究用 nnU-Net 在 33 家机构 1,610 例患者的手工勾画上训练自动分割模型，以 Dice-Sørensen 系数评价；并在 185 例上用 Wilcoxon 符号秩检验、DSC 与放射组学特征评估 PET 与 MR 在复发定义上的互补性。测试集结果为 DSC(MR-增强) 0.76±0.24、DSC(MR-水肿) 0.69±0.23、DSC(PET-摄取) 0.71±0.20、DSC(计划靶区) 0.93±0.05、DSC(危及器官) 0.70±0.13。基于 MR 与基于 FET-PET 的复发勾画在体积（p=0.0497）与位置（DSC 0.45±0.20）上均存在显著差异。在 37 个于 MR∩PET 与 MR-Only 之间有显著差异的 MR 放射组学特征中，没有一个放射组学图能空间定位 PET 所见（阳性预测值与敏感度均 <0.6）。</p>
               <ul class="card-points">
-                <li><strong>研究痛点</strong>分割模型缺少不确定度输出，假阳性与漏检无法预判；训练随机性导致同配置复现结果不稳定，临床可靠性受限。</li>
-                <li><strong>方法与数据</strong>nnU-Net 基线 + 贝叶斯集成 + 体素级认知/偶然不确定度分解 + 认知不确定度增强训练 + 病例自适应路由；AutoPET-III 1,611 例与 Deep-PSMA 200 例。在未见 AutoPET-III 测试集上贝叶斯集成优于确定性 nnU-Net；不确定度图与误分类（尤其假阳性）区域相关；不确定度增强训练提升病灶召回但 FPVol 上升，呈精确率-召回权衡；病例自适应路由在基础与增强模型间选择可进一步提高 Dice。</li>
-                <li><strong>局限与迁移</strong>预印本，摘要未披露完整统计检验与置信区间；AutoPET-III 为挑战赛数据集，其成绩不等同外部临床验证；路由策略本身需要阈值选择，存在过拟合风险。迁移价值：把「不确定度图作为假阳性筛查线索」纳入 PET/CT 分割的人工复核流程是一条低成本路径，但阈值与路由规则需在头颈数据上重新校准。</li>
+                <li><strong>研究痛点</strong>PET/MR 联合在胶质瘤中的增值缺少大样本量化证据；肿瘤与危及器官仍需手工勾画，勾画成本限制了多模态流程进入常规临床。</li>
+                <li><strong>方法与数据</strong>nnU-Net 自动分割，训练自 33 家机构 1,610 例手工勾画；以 DSC 评价五类目标；185 例做 PET/MR 复发互补性分析（Wilcoxon 符号秩检验、DSC、放射组学特征，按 MR∩PET 与 MR-Only 分组比较）。</li>
+                <li><strong>局限与迁移</strong>PET 摄取区 DSC 0.71 且标准差达 0.20，提示小病灶与低摄取区稳定性有限；仅使用 FET 一种氨基酸示踪剂；互补性分析是回顾性影像比较，未与病理或生存终点对照；33 家机构的数据存在采集协议异质性，摘要未做分层报告。迁移价值：PET 与 MR 复发勾画 DSC 仅 0.45 这一量化结果，直接支持“不能把 PET 勾画当作 MR 勾画的替代”这一判断；本项目若联合 PET/CT 与 MRI，应把两种勾画的一致性单独报告，并在论文中明确互不替代。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码。</p>
-              <div class="card-meta"><span class="topic-chip">核医学深度学习分割</span><span class="source-chip">ArXiv · 达特茅斯盖泽尔医学院</span><span class="evidence">预印本 · 方法研究</span><time class="time">2026年6月8日</time></div>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码。</p>
+              <div class="card-meta"><span class="topic-chip">核医学深度学习分割</span><span class="source-chip">Cancer Imaging · 瓦伦西亚 La Fe 健康研究所（GIBI230）</span><span class="evidence">同行评审期刊 · 33 机构多中心回顾性研究</span><time class="time">2026年7月20日</time></div>
             </div>
           </a>
-        </div>
-      </section>
-
-      <section id="direction-nuclear-medicine-classification" class="research-group" aria-labelledby="nm-cls-title">
-        <header class="group-heading"><span class="group-index">R.02 / PRIORITY</span><h3 id="nm-cls-title" class="group-title">核医学深度学习分类</h3><span class="group-count">1 篇</span></header>
-        <div class="card-grid">
-          <a class="card" href="https://doi.org/10.1186/s40644-026-01090-0" target="_blank" rel="noopener noreferrer">
+          <a class="card" href="https://doi.org/10.3390/jcm15135314" target="_blank" rel="noopener noreferrer">
             <span class="card-num">03</span>
             <div class="card-body">
-              <h4 class="card-title">PSMA-1007 PET 深度学习评分的多队列外部验证</h4>
-              <p class="card-summary">根治性前列腺切除术前需要能稳定预测生化复发风险的影像标志物，而单靠 D'Amico 临床风险分层区分度有限。这项回顾性研究纳入 697 例术前接受 [18F]PSMA-1007 PET/CT 的前列腺癌患者，来自同一医疗网络的三个院区：庆春 445 例作训练、余杭 190 例作验证队列 1、之江 62 例作验证队列 2。研究训练五个卷积神经网络预测 3 年生化复发，把最优网络输出定义为深度学习评分（DLS），再比较四种术前模型：DLS 单独、D'Amico 单独、D'Amico 加 SUVmax、D'Amico 加 SUVmax 加 DLS。评价采用 Harrell C-index、逆概率删失加权的时间依赖 AUC、校准、决策曲线分析与嵌套模型比较。</p>
+              <h4 class="card-title">原型记忆引导的 3D 网络做心肌灌注 SPECT 分割</h4>
+              <p class="card-summary">心肌灌注显像是冠心病无创评估的常用手段，但适合可复现深度学习分割研究的公开数据很少。研究提出 CardioProto-SegNet：类 3D U-Net 的残差编码器-解码器，加入 squeeze-and-excitation 通道重标定，并在瓶颈处用 K=4 个可学习原型构成的轻量原型记忆做解剖细化。数据使用 PhysioNet 公开的心肌灌注显像数据库 v1.0.0（83 例，GE Discovery NM 530c CZT 探头，静息 99mTc-MIBI 方案），统一重采样到 48×64×64，损失为 BCE 0.35 与 soft Dice 0.65 加权，AdamW、batch 16、固定随机种子，五折交叉验证后在独立患者级留出测试集上只评估一次。五折平均 Dice 0.8239±0.0350、IoU 0.6870、PR-AUC 0.8561、HD95 2.5181；留出测试集 Dice 0.7402，相较 3D U-Net 与 Attention 3D U-Net 的 Dice 提升 +0.038 至 +0.055（Holm-Bonferroni 校正后显著）。消融显示移除残差连接下降最大（Dice 0.7448）。因公开数据无确诊缺血或梗死标签，作者另做了基于心肌 ROI 摄取异质性的探索性亚组分析。</p>
               <ul class="card-points">
-                <li><strong>研究痛点</strong>术前缺少可稳定外推的影像定量标志物；单一临床分层对生化复发风险的区分度不足，且缺少校准与决策曲线层面的验证。</li>
-                <li><strong>方法与数据</strong>697 例三院区（训练 445 / 验证 1：190 / 验证 2：62），术前 [18F]PSMA-1007 PET/CT；五选一 CNN 产出 DLS，VGG19 固定时间分类最优，3 年 ROC AUC 分别为 0.834 / 0.755 / 0.723；整合模型 C-index 0.846 / 0.806 / 0.774，36 个月 AUC 0.853 / 0.801 / 0.779，优于 D'Amico 单独与 D'Amico 加 SUVmax；中高危 D'Amico、SUVmax 与 DLS 在多因素分析中均独立相关。</li>
-                <li><strong>局限与迁移</strong>回顾性设计，三个院区同属一个医疗网络，不等同独立机构的外部验证；仅覆盖前列腺癌与 PSMA-1007；终点为生化复发而非总生存；DLS 的可解释性未展开。迁移价值在于「影像深度学习评分 + 临床分层 + SUVmax 三段整合」与逆概率删失加权时间依赖 AUC 的评价流程，可直接用于 PET/CT 预后建模，但头颈任务需重新训练并按机构分层复核。</li>
+                <li><strong>研究痛点</strong>心肌灌注 SPECT 的深度学习分割缺少可复现的公开数据基准，多数研究使用私有数据，结果难以复现与比较。</li>
+                <li><strong>方法与数据</strong>CardioProto-SegNet（残差 3D U-Net + SE 通道重标定 + 瓶颈处 4 原型记忆细化）；PhysioNet 心肌灌注显像数据库 v1.0.0，83 例，GE Discovery NM 530c CZT，静息 99mTc-MIBI；五折交叉验证 + 独立患者级留出测试；心肌前景体素仅约 1.54%。</li>
+                <li><strong>局限与迁移</strong>仅 83 例、单一公开数据集，无外部多中心验证；只有静息采集，缺少负荷-静息配对，无法支持完整灌注分析；无确诊缺血/梗死标签，报告的是纯图像分割性能而非冠心病诊断性能；前景体素占 1.54%，Accuracy 0.9943 属虚高指标；作者承认 Residual 3D U-Net 的 HD95 与 ASD 更低。迁移价值：可作为 SPECT 心肌分割的公开数据基线，其“原型记忆 + 患者级划分 + 折间标准差”的实验规范值得借鉴；但 PET 与 SPECT 的对比度形成机制不同，原型记忆的收益需在 PET/CT 上重新验证。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码。</p>
-              <div class="card-meta"><span class="topic-chip">核医学深度学习分类</span><span class="source-chip">Cancer Imaging · 浙江大学医学院附属第一医院</span><span class="evidence">同行评审期刊 · 多队列回顾性预后研究</span><time class="time">2026年7月11日</time></div>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 论文数据可用性声明的仓库 github.com/KOkab2020/3DCardioProto（SourceCode 单文件，含 CardioProto-SegNet 五折与消融脚本，最近更新 2026 年 6 月 9 日）；仓库未声明许可证，复现前需自行确认使用条款。</p>
+              <div class="card-meta"><span class="topic-chip">核医学深度学习分割</span><span class="source-chip">J Clin Med · 沙特 Jouf 大学</span><span class="evidence">同行评审期刊 · 公开数据集基准研究</span><time class="time">2026年7月7日</time></div>
             </div>
           </a>
         </div>
       </section>
-
+      <section id="direction-nuclear-medicine-classification" class="research-group" aria-labelledby="nm-cls-title">
+        <header class="group-heading"><span class="group-index">R.02 / PRIORITY</span><h3 id="nm-cls-title" class="group-title">核医学深度学习分类</h3><span class="group-count">2 篇</span></header>
+        <div class="card-grid">
+          <a class="card" href="https://arxiv.org/abs/2608.09721" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">04</span>
+            <div class="card-body">
+              <h4 class="card-title">PET/CT 影像基因组学：多标签学习要看基因组合</h4>
+              <p class="card-summary">靶向治疗依赖组织活检做突变分型，而活检有创且存在取样限制。研究用深度学习从 PET/CT 预测非小细胞肺癌的 EGFR、TP53 与 KRAS 突变，并系统比较“成对多标签联合学习”与常规单基因分类的效果差异。数据来自一个新建立的英国放射基因组学队列。结果显示：KRAS 与 TP53 联合预测把 KRAS 的 AUC 从 0.58 提升到 0.64、TP53 从 0.69 提升到 0.71；EGFR/KRAS 组合中只有 EGFR 从联合学习中获益，而 EGFR/TP53 组合未见改善。作者的结论是多标签学习的效果取决于所建模的具体基因突变组合，PET/CT 影像基因组学更宜按突变分别建模。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>PET/CT 能否部分替代组织活检做无创突变分型缺少系统评估；同时“多标签联合训练一定更好”在影像基因组学中是一个未经量化的默认假设。</li>
+                <li><strong>方法与数据</strong>基于 PET/CT 的深度学习突变预测；比较成对多标签学习与常规单基因分类；英国放射基因组学队列（摘要未披露总例数与划分方式）；AUC：KRAS 0.58→0.64、TP53 0.69→0.71，EGFR/KRAS 仅 EGFR 获益，EGFR/TP53 无改善。</li>
+                <li><strong>局限与迁移</strong>预印本，尚未同行评审；摘要未披露样本量、数据划分与置信区间；AUC 0.58–0.71 属中等偏弱，远不足以支持替代活检临床决策；单一国家队列，无外部验证。迁移价值：对本项目最直接的可检验结论是方法论层面的——把多终点联合训练当作默认增益是有风险的，做多终点 PET/CT 预测时应先按终点拆分做消融，再决定是否联合建模。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码。</p>
+              <div class="card-meta"><span class="topic-chip">核医学深度学习分类</span><span class="source-chip">ArXiv · 牛津大学 / 牛津大学医院 NHS 基金会信托</span><span class="evidence">预印本 · 英国放射基因组学队列研究</span><time class="time">2026年8月10日</time></div>
+            </div>
+          </a>
+          <a class="card" href="https://doi.org/10.31557/APJCP.2026.27.8.2847" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">05</span>
+            <div class="card-body">
+              <h4 class="card-title">CNN 基于 FDG PET/CT 术前鉴别卵巢肿瘤良恶性</h4>
+              <p class="card-summary">盆腔肿块的良恶性最终依赖术后病理，术前影像判读存在主观性。研究纳入 2020 年 1 月至 2023 年 12 月术前接受 18F-FDG PET/CT 的 101 例盆腔肿块患者，按组织病理结果分为良性与恶性组，用 ResNet-18 与一个结构更简单的 CNN 两个模型做分类，并用 Grad-CAM 显示模型做出判断时主要依据的图像区域。ResNet-18 的准确率为 0.882、AUC 0.938、敏感度 0.829、特异度 0.913；简易 CNN 的准确率为 0.876、AUC 0.957、敏感度 0.761、特异度 0.942。作者认为结果显示了基于 PET 的深度学习肿瘤分类在术前鉴别诊断中的潜力。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>术前良恶性判断依赖主观读片，确诊要等术后病理，缺少可在术前复用、且能给出可视化依据的客观影像模型。</li>
+                <li><strong>方法与数据</strong>101 例单中心回顾性队列，术前 18F-FDG PET/CT，病理为金标准；ResNet-18 与简易 CNN 两个模型对比；以准确率、AUC、敏感度、特异度评价，并用 Grad-CAM 做归因可视化。</li>
+                <li><strong>局限与迁移</strong>单中心 101 例，样本量小且无外部验证；摘要未说明训练/测试划分方式、良恶性比例与置信区间；输入形式（二维切片还是三维体积、是否裁剪至病灶）在摘要中未明确，复现存在实质障碍；区间估计的缺失使 AUC 0.938 与 0.957 的差异无法解释。迁移价值有限但方向明确：可作为“PET/CT 二分类 + 归因可视化”的最小可复现模板，用于搭建实验流水线；迁移到头颈任务必须重新训练并补充外部队列与置信区间。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码。</p>
+              <div class="card-meta"><span class="topic-chip">核医学深度学习分类</span><span class="source-chip">Asian Pac J Cancer Prev · 仁济大学医学院釜山白医院</span><span class="evidence">同行评审期刊 · 单中心回顾性诊断研究</span><time class="time">2026年8月1日</time></div>
+            </div>
+          </a>
+        </div>
+      </section>
       <section id="direction-medical-imaging-foundation-model" class="research-group" aria-labelledby="fm-title">
         <header class="group-heading"><span class="group-index">R.03 / METHOD</span><h3 id="fm-title" class="group-title">医学影像基础模型</h3><span class="group-count">3 篇</span></header>
         <div class="card-grid">
-          <a class="card" href="https://doi.org/10.1038/s41551-026-01741-4" target="_blank" rel="noopener noreferrer">
-            <span class="card-num">04</span>
-            <div class="card-body">
-              <h4 class="card-title">CLEAR：以临床概念为基石的可审计放射学基础模型</h4>
-              <p class="card-summary">医学影像解释模型长期受限于黑箱性质：既难以获得临床信任，也难以在性能退化时定位原因。研究提出 CLEAR（Concept-Level Embeddings for Auditable Radiology），在 239,391 名患者的逾 87 万对影像-报告对上训练，学习视觉表征并把胸片投影到一个由大语言模型嵌入定义的语义丰富空间，使得每一次预测都能分解为各条放射学观察的加权贡献。在美国、欧洲与亚洲四个医师标注的大型数据集上做外部验证，CLEAR 不仅取得当前最优的分类性能，还支持三类应用：可审计的零样本病理检出、系统识别放射学混杂因素、以及从数据驱动概念构建专家级概念瓶颈模型。</p>
-              <ul class="card-points">
-                <li><strong>研究痛点</strong>黑箱模型无法解释「为什么对、为什么错」，性能退化与混杂因素难以定位，限制了审计与安全部署。</li>
-                <li><strong>方法与数据</strong>影像-报告对对比式预训练 + 大语言模型嵌入定义的临床概念空间；873,342 对影像-报告、239,391 名患者；四个来自美国、欧洲、亚洲的医师标注数据集外部验证；覆盖零样本检出、混杂因素识别与概念瓶颈模型三类应用。</li>
-                <li><strong>局限与迁移</strong>模态为二维胸片，与三维 PET/CT 在分辨率、通道结构与任务形态上差异明显；概念空间源自报告文本，会继承报告书写与标注偏差；未在分割或肿瘤负荷量化任务上验证。迁移价值：把预测分解为可检视的概念贡献，可用于本项目多中心 PET/CT 建模前的混杂因素排查——这是研究假设，必须在 PET/CT 数据上重新验证。</li>
-              </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方仓库 github.com/peterhan91/CLEAR（Apache-2.0，最近更新 2026-07-22），随仓库提供 HuggingFace 模型与概念库。</p>
-              <div class="card-meta"><span class="topic-chip">医学影像基础模型</span><span class="source-chip">Nat Biomed Eng · 宾夕法尼亚大学佩雷尔曼医学院 AI2D</span><span class="evidence">同行评审期刊 · 多外部验证方法研究</span><time class="time">2026年7月22日</time></div>
-            </div>
-          </a>
-
-          <a class="card" href="https://arxiv.org/abs/2607.26196" target="_blank" rel="noopener noreferrer">
-            <span class="card-num">05</span>
-            <div class="card-body">
-              <h4 class="card-title">Rad-JEPA 3D：面向三维 CT 的联合嵌入预测预训练</h4>
-              <p class="card-summary">三维医学影像自监督预训练是无标注数据利用的核心手段，但现有体数据编码器常常丢失下游推理所依赖的粗粒度空间与几何结构，限制了器官解耦、异常检出，以及与语言模型配合时的空间理解能力。研究提出 Rad-JEPA 3D：从掩码视图预测完整扫描的潜特征。其核心是混合 H-Mamba 编码器——Mamba 状态空间分支通过序列扫描建模层间连续性，分组查询注意力分支捕捉跨平面空间上下文，两者经轻量 per-token 路由融合；另提出隐状态正交正则化（HSOR），对齐师生隐状态以降低整条编码器的特征冗余。模型在约 12 万例 CT 扫描上预训练，总参数 4.0B。</p>
-              <ul class="card-points">
-                <li><strong>研究痛点</strong>三维自监督编码器保不住体数据的空间与几何结构，导致下游空间推理与器官解耦能力不足，只能靠扩大语言模型规模弥补。</li>
-                <li><strong>方法与数据</strong>联合嵌入预测 + H-Mamba 混合编码器（Mamba 分支 + 分组查询注意力分支 + per-token 路由）+ 隐状态正交正则化；约 120,000 例 CT 预训练，总参数 4.0B；在封闭式 VQA 上达到与最优方法可比的水平，在 Spatial-Med 基准上取得最佳平均空间推理分数；消融确认混合块与 HSOR 增益互补。</li>
-                <li><strong>局限与迁移</strong>预印本；仅覆盖 CT，不含 PET 或 PET/CT；评测以视觉问答与空间推理为主，未在病灶分割或肿瘤负荷量化上验证；4.0B 参数与 12 万例预训练规模对复现算力要求较高。迁移价值：三维自监督预训练与显式空间结构保持，是 PET/CT 三维表征学习可借鉴的路线——属研究假设，需在 PET/CT 数据上重新预训练与验证。</li>
-              </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码；检索到的同名 RadJEPA 仓库来自其他团队、非本文官方实现，不予链接。</p>
-              <div class="card-meta"><span class="topic-chip">医学影像基础模型</span><span class="source-chip">ArXiv · 西北大学 / 丹麦技术大学</span><span class="evidence">预印本 · 方法研究</span><time class="time">2026年7月28日</time></div>
-            </div>
-          </a>
-
-          <a class="card" href="https://arxiv.org/abs/2608.25810" target="_blank" rel="noopener noreferrer">
+          <a class="card" href="https://arxiv.org/abs/2607.26276" target="_blank" rel="noopener noreferrer">
             <span class="card-num">06</span>
             <div class="card-body">
-              <h4 class="card-title">无标签的基础模型选择：分布漂移下用伪标签分歧排序</h4>
-              <p class="card-summary">基础模型部署到新机构时性能差异很大，而目标域标签通常拿不到，无法直接比较候选模型，只能退而按源域留出精度排序。研究在 SUDO（无需真值标注评估临床 AI 系统的框架）基础上提出无标签选择准则：按预测概率把无标签目标域数据分区，逐区度量反映类别污染的伪标签分歧，聚合后得到 AURCC 分数，全程不需要目标域标注，也不需要微调。作者在胸片分类的三种院间漂移场景下，对 BioMedCLIP、CXR-CLIP、CheXzero、MedCLIP、MedImageInsight、CLIP 六个视觉-语言模型排序，覆盖零样本与 MLP 探针两种设置。</p>
+              <h4 class="card-title">基础模型嵌入替代放射组学预测头颈癌远处转移</h4>
+              <p class="card-summary">早期预测头颈癌远处转移风险有助于及时干预，但多数机器学习方法依赖肿瘤分割等先验 ROI，既需要专家标注、耗时，又引入操作者间差异。研究使用 RADCURE 数据集中 2,327 例患者的术前 CT，构建三套特征——放射组学特征、深度学习特征、CT 基础模型派生特征，分别输入多层感知机预测远处转移风险；用五折交叉验证选模，在留出测试集上评估。CT 基础模型嵌入的 AUC 为 0.791，优于放射组学的 0.772 与深度学习的 0.753，与“放射组学 + 深度学习”联合特征模型的 0.794 基本持平。作者认为，基础模型特征能在几乎不需要预处理与专家标注的前提下，提供可替代传统放射组学的选项。</p>
               <ul class="card-points">
-                <li><strong>研究痛点</strong>目标域无标签时无法判断哪个候选基础模型更合适，而按源域精度排序在标注稀缺场景下并不可靠。</li>
-                <li><strong>方法与数据</strong>基于 SUDO 的伪标签分歧分区度量 AURCC；胸片分类的三组院间漂移场景；六个视觉-语言模型，零样本与 MLP 探针两种设置。AURCC 排序与真值排序的 Spearman rho 最高 0.943（p&lt;0.05）；与「按源域留出精度排序」这一自然基线相比，源域标注量大时相当，源域标注量小时更准确。</li>
-                <li><strong>局限与迁移</strong>预印本；仅在二维胸片分类与视觉-语言模型上验证，未覆盖分割任务或 PET/CT 模态；方法假定类别污染程度与排序误差相关，该假设在病灶级任务上是否成立未经验证。迁移价值：为「多中心 PET/CT 该选哪个公开基础模型」提供了无需目标域标注的排序思路——这是研究假设，必须先在 PET/CT 数据上验证。</li>
+                <li><strong>研究痛点</strong>影像预后建模普遍依赖人工分割 ROI，标注成本与操作者间差异限制了可复现性与跨中心规模化。</li>
+                <li><strong>方法与数据</strong>RADCURE 2,327 例术前 CT；三套特征（放射组学 / 深度学习 / CT 基础模型嵌入）分别接入 MLP；五折交叉验证选模、留出测试集评估；AUC：CT 基础模型 0.791、放射组学 0.772、深度学习 0.753、放射组学+深度学习 0.794。</li>
+                <li><strong>局限与迁移</strong>预印本，尚未同行评审；模态为 CT 而非 PET/CT，疾病为头颈癌而非鼻咽癌，摘要未报告鼻咽癌亚组结果；0.753 至 0.794 的 AUC 差异缺少置信区间与统计检验，不宜解读为显著优势；仅单一公开数据集，无外部验证。迁移价值：对本项目最直接的可检验假设是——在鼻咽癌 PET/CT 上，用通用基础模型嵌入替代人工 ROI 放射组学，能否在保持 AUC 的同时省去分割标注；这是需要在 PET/CT 数据上从头验证的研究假设，不能把 CT 上的结果直接外推。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码；所用 SUDO 为作者此前的独立工作，需从各自来源获取，不等于本文官方复现包。</p>
-              <div class="card-meta"><span class="topic-chip">医学影像基础模型</span><span class="source-chip">ArXiv · 布宜诺斯艾利斯大学-CONICET</span><span class="evidence">预印本 · 方法研究</span><time class="time">2026年8月26日</time></div>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到论文官方代码；文中使用的 CT Foundation 模型来自 Google Health 的开源仓库 github.com/Google-Health/imaging-research，该仓库是上游模型而非本文复现包。</p>
+              <div class="card-meta"><span class="topic-chip">医学影像基础模型</span><span class="source-chip">ArXiv · 德州大学西南医学中心（AIRT / MAIA 实验室）</span><span class="evidence">预印本 · 公开数据集回顾性预后研究</span><time class="time">2026年7月28日</time></div>
             </div>
           </a>
-        </div>
-      </section>
-
-      <section id="direction-medical-imaging-agent" class="research-group" aria-labelledby="mi-agent-title">
-        <header class="group-heading"><span class="group-index">R.04 / PRIORITY</span><h3 id="mi-agent-title" class="group-title">医学影像 Agent</h3><span class="group-count">2 篇</span></header>
-        <div class="card-grid">
-          <a class="card" href="https://doi.org/10.34133/research.1343" target="_blank" rel="noopener noreferrer">
+          <a class="card" href="https://arxiv.org/abs/2608.07857" target="_blank" rel="noopener noreferrer">
             <span class="card-num">07</span>
             <div class="card-body">
-              <h4 class="card-title">RIDE：TNM 可问责的全身 PET/CT 报告起草</h4>
-              <p class="card-summary">全身 18F-FDG PET/CT 是肺癌分期的核心手段，但报告起草既耗时又容易出错——一处定位错误就可能改变 TNM 分期与治疗决策。研究把 PET/CT 报告起草重新定义为「TNM 可问责的决策支持」，提出两阶段双模态三维框架 RIDE：第一阶段从配对的 PET 与 CT 体数据生成面向 TNM 的结构化印象；第二阶段做分层器官级范例检索，并提示大语言模型在这些可检视的中间产物条件下合成完整的 Findings 与 Impression。数据在 3 家医院 1,583 例因疑似或确诊肺癌转诊的全身 FDG PET/CT 上构建，留出测试集 520 例，其中 276 例来自 2 家独立机构的外部病例。</p>
+              <h4 class="card-title">把 CT 基础模型蒸馏为可编辑的概念瓶颈模型</h4>
+              <p class="card-summary">基础模型提供可迁移的 CT 表征，但直接基于嵌入做出的预测难以解释。研究把两个冻结的 CT 基础模型表征映射到 8 个由放射科医师定义的肺结节属性（概念），再由估计出的概念加结节大小预测恶性。两个编码器分别是 CT-FM（以结节为中心的 96³ 体素 patch 做全 CT 自监督）与 FMCIB（50 mm 裁剪的结节级对比学习编码器）。8 个岭回归概念头在 2,610 个 LIDC-IDRI 结节上训练，恶性模型在 LUNA25 上训练，在留出内部测试集与外部 DLCS 队列上评估；概念保真度用五折交叉验证 R² 衡量，判别力用 AUROC 与患者分组 bootstrap 95% 置信区间衡量。概念保真度总体不高但 FMCIB 优于 CT-FM（细微度 R² 0.24 对 0.11、毛刺 0.17 对 0.08、纹理 0.17 对 0.07、分叶 0.15 对 0.05）。内部 AUROC 两模型均为 0.86（CT-FM 0.80–0.92、FMCIB 0.79–0.92）；外部分别为 0.72（0.68–0.75）与 0.73（0.70–0.76），而仅用结节大小为 0.73，仅用嵌入的探针为 0.60 与 0.67。加性预测可分解到特征级贡献，并可通过受控概念干预修改。</p>
               <ul class="card-points">
-                <li><strong>研究痛点</strong>通用大模型直接生成报告缺乏可检视的中间依据，一处定位错误即可改变分期与治疗决策，且跨站点泛化未经验证。</li>
-                <li><strong>方法与数据</strong>两阶段双模态三维框架（TNM 结构化印象生成 → 器官级范例检索 → 条件化报告合成）；3 家医院 1,583 例全身 FDG PET/CT，留出测试 520 例（含 2 家独立机构 276 例外部病例）。外部集上临床依据的能力指标提升 +20.4；医师 Likert 评分内部 4.00、外部 4.17；在受评基线中 TNM 分期性能最佳。</li>
-                <li><strong>局限与迁移</strong>回顾性研究，作者明确需前瞻性研究进一步刻画真实工作流效用；参照标准为临床报告而非前瞻判读金标准；外部病例来自 2 家机构且限于肺癌队列。迁移价值：「先结构化、后生成」加「器官级范例检索 + 可检视中间产物」的分解式 Agent 设计，是本项目影像科研 Agent 可直接借鉴的架构；迁移到鼻咽癌需重建器官与靶区范例库，并复核 T/N 分期口径。</li>
+                <li><strong>研究痛点</strong>基础模型嵌入预测不可解释，临床上既无法核查模型依据了什么，也无法在发现错误时定向干预。</li>
+                <li><strong>方法与数据</strong>两个冻结 CT 基础模型表征（CT-FM：96³ 体素结节中心 patch；FMCIB：50 mm 裁剪结节级对比编码器）+ 8 个岭回归概念头（2,610 个 LIDC-IDRI 结节）+ 概念与结节大小驱动的恶性模型（LUNA25 训练，内部测试集与外部 DLCS 队列评估）。</li>
+                <li><strong>局限与迁移</strong>预印本；外部 AUROC 0.72–0.73 与“仅用结节大小”的 0.73 持平，说明概念瓶颈在本任务上并未超过极简临床基线；概念保真度普遍偏低（R² 0.05–0.24），概念估计本身并不可靠；概念集由医师定义，会继承主观性与标注差异。迁移价值：对 PET/CT 而言可检验的问题是——把冻结表征映射到 SUV、代谢肿瘤体积等可解释概念，能否在保持判别力的同时获得可干预性；依本文结果，务必先与极简临床基线对比再判断增益。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码。</p>
-              <div class="card-meta"><span class="topic-chip">医学影像 Agent</span><span class="source-chip">Research · 中科院深圳先进院医学 AI 研究中心</span><span class="evidence">同行评审期刊 · 多中心回顾性研究</span><time class="time">2026年7月21日</time></div>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码。</p>
+              <div class="card-meta"><span class="topic-chip">医学影像基础模型</span><span class="source-chip">ArXiv · 亚利桑那大学影像科学与放射科</span><span class="evidence">预印本 · 多队列回顾性方法研究</span><time class="time">2026年8月8日</time></div>
             </div>
           </a>
-
-          <a class="card" href="https://arxiv.org/abs/2608.16211" target="_blank" rel="noopener noreferrer">
+          <a class="card" href="https://arxiv.org/abs/2608.21300" target="_blank" rel="noopener noreferrer">
             <span class="card-num">08</span>
             <div class="card-body">
-              <h4 class="card-title">BaT：用阶段评分规则自演进的医学科研 Agent</h4>
-              <p class="card-summary">长程 Agent 已开始自动化产出代码、报告与研究产物，但医学影像工作流是多阶段且数据敏感的，专家轨迹稀缺、难以共享。结构化基准能用阶段级评分规则定位失败，标准后训练流程却会在下一轮训练前丢弃这些诊断信息。研究提出 Benchmark-as-Teacher（BaT）这一递归自我改进系统，包含两个联动组件：在策略更新循环之外合成内容隔离训练状态的异步 Stage Bank 数据流水线；以及自改进后训练方法 BiCuRL（双层课程强化学习）——用固定留出评测选择下一阶段课程，用任务评分规则校验 rollout，以 GRPO 更新策略，再把候选检查点送回评测。</p>
+              <h4 class="card-title">MedSAM 微调何时适得其反：表征漂移与 OOD 失败</h4>
+              <p class="card-summary">以 MedSAM 为代表的提示式分割基础模型在零样本与少样本下跨域表现良好，但其性能依赖提示质量与针对特定数据集的适配。研究系统比较六种适配策略：全模型与仅编码器的 LoRA、浅层与深层视觉提示微调（VPT）、仅解码器与全量微调。模型在 ISIC 2018 上训练，在干净提示与逐级加噪提示下评估域内与分布外数据：近 OOD 的 PH2（皮肤镜）、远 OOD 的 BUSI（乳腺超声）与 CBIS-DDSM（筛查钼靶）。结果显示，适配提升域内与近 OOD 表现，却常常降低远 OOD 表现；全量微调给出最好的折中，仅编码器 LoRA 是参数高效方案中最强的一种，在远 OOD 漂移下优于标准 LoRA 与 VPT。用中心核对齐（CKA）分析发现，远 OOD 退化与解码器表征漂移强相关，仅靠编码器相似度无法解释鲁棒性——仅编码器 LoRA 更稳的原因在于它既让编码器适应视觉特征分布变化，又保留了解码通路。作者还发现，在提示框上加入 0–100 像素随机抖动，能训练出更鲁棒且表现更好的模型。</p>
               <ul class="card-points">
-                <li><strong>研究痛点</strong>医学影像科研工作流的专家轨迹稀缺，而基准给出的阶段级失败诊断没有被回流到训练环节。</li>
-                <li><strong>方法与数据</strong>异步 Stage Bank 数据流水线 + BiCuRL 双层课程强化学习（留出评测选课程、评分规则校验 rollout、GRPO 更新、检查点回流）；在 AutoMedBench-Lite 上评测，BaT-4B 与 BaT-9B 的 Overall 分数较各自 Qwen Instruct 基线翻倍以上，BaT-9B Agent 达 79.6 Overall，高于 Claude Code 配合下 Claude Opus 4.6 的 77.5。</li>
-                <li><strong>局限与迁移</strong>预印本；分数来自单一基准 AutoMedBench-Lite，基准分数不等于真实科研产出质量，也未披露具体影像任务的细分错误分析；作者含 NVIDIA（商业参与），模型与算力依赖需标注。迁移价值：「用阶段级评分规则做课程选择与 rollout 校验」可用于本项目影像科研 Agent 的训练与审计流程设计——这是研究设想，需在本项目任务上自建评分规则并验证。</li>
+                <li><strong>研究痛点</strong>把分割基础模型微调到自有数据时，域内指标上升可能掩盖远 OOD 退化；而提示框抖动在实际使用中不可避免，却很少被纳入训练。</li>
+                <li><strong>方法与数据</strong>六种适配策略（全模型 / 仅编码器 LoRA、浅层 / 深层 VPT、仅解码器 / 全量微调）；ISIC 2018 训练；近 OOD 的 PH2、远 OOD 的 BUSI 与 CBIS-DDSM 评估；干净与加噪提示；CKA 表征漂移分析。</li>
+                <li><strong>局限与迁移</strong>预印本；仅在单一皮肤镜数据集上训练，结论能否推广到其他模态未经验证；三个评估数据集均为二维，与三维 PET/CT 体积分割差异明显。迁移价值：对本项目最具操作性的两条是——在 PET/CT 上微调任何分割基础模型时，必须单独报告跨中心、跨扫描仪或跨示踪剂的“远 OOD”结果，不能只报域内 Dice；提示框随机抖动是零成本的鲁棒性增强手段，值得在 PET/CT 交互式分割中做消融验证。两者均为待验证假设。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码。</p>
-              <div class="card-meta"><span class="topic-chip">医学影像 Agent</span><span class="source-chip">ArXiv · 加州大学圣克鲁兹分校 / NVIDIA</span><span class="evidence">预印本 · 方法研究（基准评测）</span><time class="time">2026年8月17日</time></div>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 论文声明代码开源于 github.com/ImSounic/medsam-vpt，但截至核验时该仓库返回 404，未核验到可访问的官方代码。</p>
+              <div class="card-meta"><span class="topic-chip">医学影像基础模型</span><span class="source-chip">ArXiv · 萨格勒布大学 / 特文特大学</span><span class="evidence">预印本 · 多基准适配方法研究</span><time class="time">2026年8月21日</time></div>
             </div>
           </a>
         </div>
       </section>
-
+      <section id="direction-medical-imaging-agent" class="research-group" aria-labelledby="mi-agent-title">
+        <header class="group-heading"><span class="group-index">R.04 / TOOLING</span><h3 id="mi-agent-title" class="group-title">医学影像 Agent</h3><span class="group-count">1 篇</span></header>
+        <div class="card-grid">
+          <a class="card" href="https://arxiv.org/abs/2608.21140" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">09</span>
+            <div class="card-body">
+              <h4 class="card-title">模块化可审计智能体：把空间关系交给几何规则验证</h4>
+              <p class="card-summary">放射学推理依赖对解剖结构与病灶相对位置的理解，而现有视觉语言模型在受控空间推理上仍然薄弱，难以把空间关系可靠地落到影像证据上，这给报告生成类智能体带来事实性错误风险。研究提出一个模块化医学影像智能体，用于在轴位 CT 切片上做二分类空间关系验证：不端到端直接预测答案，而是拆成语言解析、解剖定位与确定性几何验证三个阶段——自然语言查询先转成结构化关系元组，再用 YOLO 系列检测器定位被查询器官，最后由目标中心按确定性几何规则计算空间判断。在留出的 MIRP 空间问答基准上评估，最优混合配置达到 94.1% 准确率与 94.2% F1，比直接提示 Qwen2-VL 的准确率高 42.5 个百分点，同时保留可解释的中间表示与可审计的推理阶段。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>端到端视觉语言模型在受控空间推理上既不可靠也不可审计，直接用于报告生成会带来难以发现的事实性错误。</li>
+                <li><strong>方法与数据</strong>三阶段模块化流水线（语言解析 → YOLO 解剖定位 → 确定性几何验证），与端到端 VLM 直接提示对照；MIRP 空间问答留出基准；准确率 94.1%、F1 94.2%，较端到端基线提升 42.5 个百分点。</li>
+                <li><strong>局限与迁移</strong>预印本；任务限定为轴位 CT 上的二分类空间关系验证，不是完整报告生成；MIRP 基准的构造方式决定了结果主要反映该基准分布；几何规则基于检测框中心，对细长器官、部分容积效应与相邻结构重叠可能失效。迁移价值：对 PET/CT 报告或结构化判读智能体而言，“把可确定性计算的部分从大模型中剥离”是降低幻觉的通用设计原则；本项目若要构建头颈 PET/CT 判读智能体，可先做左右侧判别、与邻近解剖结构关系这类可几何验证的子任务，再逐步接入生成模块。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 论文关联仓库 github.com/DeveloperNomis/MICCAI-Medical-Agent（最近更新 2026 年 8 月 21 日，仓库描述与论文标题一致）；仓库未声明许可证，使用前需确认条款。</p>
+              <div class="card-meta"><span class="topic-chip">医学影像 Agent</span><span class="source-chip">ArXiv · 慕尼黑工业大学 / 乌尔姆大学</span><span class="evidence">预印本 · 基准评测方法研究</span><time class="time">2026年8月21日</time></div>
+            </div>
+          </a>
+        </div>
+      </section>
       <section id="direction-medical-world-model" class="research-group" aria-labelledby="wm-title">
         <header class="group-heading"><span class="group-index">R.05 / FRONTIER</span><h3 id="wm-title" class="group-title">医学世界模型</h3><span class="group-count">1 篇</span></header>
         <div class="card-grid">
-          <a class="card" href="https://arxiv.org/abs/2607.26752" target="_blank" rel="noopener noreferrer">
-            <span class="card-num">09</span>
+          <a class="card" href="https://arxiv.org/abs/2608.14969" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">10</span>
             <div class="card-body">
-              <h4 class="card-title">CalTwin：用 Fisher 信息正则化校准医学世界模型</h4>
-              <p class="card-summary">医学世界模型的目标是学习患者或器官生理的潜状态，以及描述该状态在干预下如何演化的转移函数。研究指出两类威胁可靠性的失效模式：一是协变量漂移——训练数据按医院、扫描仪与时间被切碎，潜动态预测器在各片段看到的分布既彼此不同、也与部署时不同；二是置信度错位——多步预测往往恰在临床风险最高处过度自信。作者主张两者可以用同一个轻量正则化目标统一处理，即 CalTwin：把基于 Fisher 信息的漂移惩罚与置信度错位惩罚结合，施加于 GRU 医学世界模型的潜状态转移预测器，并推导了合并目标，说明哪些证明步骤可从分类设置直接迁移、哪些需要改写。</p>
+              <h4 class="card-title">HEPATWIN：机制约束的肝脏数字孪生与阶段转移校准</h4>
+              <p class="card-summary">纯数据驱动模型难以刻画器官功能随时间的演化，也难以跨疾病阶段外推。研究提出 HEPATWIN，一个把糖代谢、脂代谢、蛋白质代谢、胆红素结合、胆汁生成与解毒等关键肝脏过程统一到系统层框架的机制性数字孪生，并接入饮食、活动量与基线生物标志物等患者特异输入，生成临床可观测的生物标志物轨迹。为保证与真实临床进展模式一致，作者引入按疾病阶段（NAFLD、纤维化、肝硬化）对齐人群生物标志物分布的阶段转移驱动校准机制。在 NIDDK NAFLD 数据集上验证，HEPATWIN 生成的纵向生物标志物估计落在临床可接受范围内，可做多年期预测；模拟出的生物标志物保留足够临床信号，能支持下游 NASH 检出，其性能与使用真实实验室数据的模型相当。</p>
               <ul class="card-points">
-                <li><strong>研究痛点</strong>多中心碎片化数据造成协变量漂移，多步预测的置信度又在高风险处失准，两者都会削弱世界模型在临床部署中的可信度。</li>
-                <li><strong>方法与数据</strong>Fisher 信息漂移惩罚 + 置信度错位惩罚的统一正则化，施加于 GRU 潜状态转移预测器；在 PhysioNet 2019 脓毒症挑战赛上评估，两个医院系统作为顺序训练片段，未见系统作为分布外测试。相对无惩罚基线，分布外下一步潜状态 MSE 降低 9.1%（FIM 惩罚单独贡献 7.0%）；ECE 下降存在但幅度很小（CalTwin 0.7%、单独使用置信度惩罚 1.3%）。</li>
-                <li><strong>局限与迁移</strong>预印本；实验用 ICU 时间序列而非医学影像，不含影像模态；潜状态 MSE 与 ECE 均为代理指标，未验证下游临床决策收益；校准收益很小，作者未宣称已解决该问题。迁移价值：把多中心碎片化视为「顺序训练片段」并对抗协变量漂移的建模方式与本项目多中心 PET/CT 的问题结构同构——这是研究假设，必须在 PET/CT 数据上重新验证，且目标函数需替换为影像状态预测任务。</li>
+                <li><strong>研究痛点</strong>缺少机制约束的数据驱动模型难以做长期纵向模拟与跨阶段外推；肝病的早期识别又受限于活检等有创、昂贵且难以反复实施的检查。</li>
+                <li><strong>方法与数据</strong>多过程机制性肝脏生理模型 + 患者特异输入（饮食、活动量、基线生物标志物）+ 阶段转移驱动校准；NIDDK NAFLD 数据集验证；多年期生物标志物轨迹预测；下游 NASH 检出与使用真实检验值的模型性能相当。</li>
+                <li><strong>局限与迁移</strong>预印本；输入是实验室生物标志物与临床变量，不含影像观测，与“医学影像世界模型”仍有距离；验证基于单一公开 NAFLD 队列，机制假设与参数校准的可迁移性未独立验证；“临床可接受范围”的判定标准在摘要中未量化。迁移价值：把“机制约束 + 阶段转移校准”引入影像纵向建模（例如 PET/CT 治疗反应的时序预测）是一条值得检验的思路，但需先解决影像观测到潜状态的映射问题，并在本项目数据上重新校准。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码。</p>
-              <div class="card-meta"><span class="topic-chip">医学世界模型</span><span class="source-chip">ArXiv · 卡拉奇工商管理学院 / 嘉泉大学</span><span class="evidence">预印本 · 方法研究</span><time class="time">2026年7月29日</time></div>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码；检索到的同名 HepaTwin 仓库为无关项目，不予链接。</p>
+              <div class="card-meta"><span class="topic-chip">医学世界模型</span><span class="source-chip">ArXiv · 佛罗里达大学</span><span class="evidence">预印本 · 公开数据集模拟验证研究</span><time class="time">2026年8月15日</time></div>
             </div>
           </a>
         </div>
       </section>
-
       <section id="direction-transferable-baseline" class="research-group" aria-labelledby="transfer-title">
         <header class="group-heading"><span class="group-index">R.06 / SUPPORTING</span><h3 id="transfer-title" class="group-title">可迁移基线与研究方法</h3><span class="group-count">2 篇</span></header>
         <div class="card-grid">
-          <a class="card" href="https://doi.org/10.1002/mp.70545" target="_blank" rel="noopener noreferrer">
-            <span class="card-num">10</span>
-            <div class="card-body">
-              <h4 class="card-title">PETHarmony：跨扫描仪与示踪剂的 PET 体素级一致性化</h4>
-              <p class="card-summary">PET 定量在肿瘤、神经科学与临床中广泛应用，但扫描仪、采集协议与示踪剂差异带来的系统性变异会削弱多中心研究的可靠性。研究提出 PETHarmony：用线性神经网络建模协变量，再用奇异值分解在体素空间隔离并移除变异。验证分四个场景：25 例配对的 18F-FBB PET/CT 与 PET/MR（华山医院）检验扫描仪变异移除；20 次 NEMA NU-2 IQ 体模重复采集验证绝对定量准确性；GAAIN 46 例与 OASIS 84 例配对 18F-FBP 与 11C-PiB 扫描评估皮层 SUVR 的跨示踪剂一致性；ADNI 471 例非配对多中心数据（18F-FBP、18F-FTP、18F-FDG）评估对阿尔茨海默病分类的影响。一致性化过程统一采用留一交叉验证，或在非配对数据上训练后应用于配对数据。</p>
-              <ul class="card-points">
-                <li><strong>研究痛点</strong>扫描仪、协议与示踪剂差异引入的系统性体素级变异，使多中心 PET 定量结果不可直接比较。</li>
-                <li><strong>方法与数据</strong>线性神经网络建模协变量 + 奇异值分解在体素空间去变异；四场景验证（配对 PET/CT-PET/MR 25 例、体模 20 次、GAAIN 46 例与 OASIS 84 例跨示踪剂、ADNI 471 例非配对多中心）。体素级 PET/CT 与 PET/MR 差异由 P&lt;0.05 降至不显著；体模恢复系数曲线恢复并贴近参考线；跨示踪剂回归 GAAIN 由 y=0.52x+0.52（R²=0.89）改善至 y=0.93x+0.13（R²=0.97），OASIS 由 y=0.51x+0.55（R²=0.87）改善至 y=0.95x+0.06（R²=0.95）；多中心 AD 分类准确率提升 15.3% / 18.3% / 21.7%（分别对应 18F-FBP、18F-FTP、18F-FDG）。</li>
-                <li><strong>局限与迁移</strong>全部验证队列为脑 PET 与神经退行性疾病，未在肿瘤 PET/CT、病灶分割或肿瘤负荷量化上验证；方法假定变异可由线性协变量模型刻画，强非线性站点效应可能残留；跨示踪剂一致性化需要配对数据或共同参考分布。迁移价值：提供了一套「体模 + 配对 + 非配对多中心」三档验证范式，可作为本项目多中心 PET/CT 一致性化的现成参照，但需重建协变量集并重新验证。</li>
-              </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到作者官方代码；检索到的同名 petharmony 仓库为 2020–2025 年的无关早期项目，不予链接。</p>
-              <div class="card-meta"><span class="topic-chip">可迁移基线与研究方法</span><span class="source-chip">Med Phys · 中科院高能物理研究所 / 华山医院</span><span class="evidence">同行评审期刊 · 方法研究（含体模验证）</span><time class="time">2026年6月30日</time></div>
-            </div>
-          </a>
-
-          <a class="card" href="https://doi.org/10.1016/j.media.2026.104220" target="_blank" rel="noopener noreferrer">
+          <a class="card" href="https://arxiv.org/abs/2608.10429" target="_blank" rel="noopener noreferrer">
             <span class="card-num">11</span>
             <div class="card-body">
-              <h4 class="card-title">RIMD：SPECT 心肌灌注无 CT 衰减校正</h4>
-              <p class="card-summary">深度学习有望让 SPECT 心肌灌注成像在不依赖解剖信息或 CT 衰减图的情况下完成衰减校正，但泛化能力是关键。研究提出重建知情多域（RIMD）框架：把三种 OSEM 重建设置下的多输入非衰减校正（NAC）图像一起送入模型，并采用衰减图域损失与衰减校正域损失的联合监督。SwinUNETR 在归一化 NAC 图像上以一致的五折交叉验证训练。数据为两个中心 1,058 例 99mTc-Sestamibi SPECT/CT 心肌灌注扫描，934 例训练、124 例作外部测试；评价涵盖衰减图域与衰减校正域的体素级与区域级指标、17 节段极坐标图分析、器官特异性分析，并在外部数据集的一部分上做了临床验证。</p>
+              <h4 class="card-title">病灶感知神经算子：CT 合成 PSMA PET 的定量保真</h4>
+              <p class="card-summary">从 CT 或 MRI 合成 PET 有望降低给药剂量与设备占用，但现有方法多用 L1 或 MSE 等全局损失，对所有体素一视同仁。在全身 PSMA-PET 中，肿瘤体素占比极小却承载着临床相关的活度信号，因此模型可以在 SSIM 与 PSNR 很高的同时低估病灶活度或丢失肿瘤特异结构。放射组学能提供有生物学意义的强度与纹理描述，但直接从勾画好的病灶区提取特征、再做条件化，成本高且难以规模化。研究提出 LAFNO（病灶感知自适应傅里叶神经算子），用两个从 CT 高效计算得到的代理通道替代高维放射组学条件——对比度代理刻画局部密度变化、紊乱度代理刻画局部纹理异质性，注入模型瓶颈；并把全容积重建与病灶级总病灶活度（TLA）、肿瘤核心对比度、瘤周监督结合起来。在 TCIA PSMA-PET-CT-Lesions 数据集上与四种基线架构比较，LAFNO 在全图质量上保持竞争力（18F-PSMA 的 SSIM 0.960、68Ga-PSMA 的 0.938），同时把每例 TLA 误差降到 48.3% 与 64.0%，并在两种示踪剂、全部特征类别上取得最高的肿瘤核心放射组学可重复性；瘤周可重复性仍依示踪剂而异。</p>
               <ul class="card-points">
-                <li><strong>研究痛点</strong>无 CT 场景下 SPECT 衰减校正必须纯数据驱动，但既往方法跨中心泛化未得到充分验证。</li>
-                <li><strong>方法与数据</strong>多重建设置多输入 + 衰减图域与衰减校正域双损失联合监督的间接策略，SwinUNETR 五折交叉验证；两中心 1,058 例（训练 934 / 外部测试 124）。衰减图 MRAE% 内部 25.02±23、外部 26.31±14；衰减校正图像 MRAE% 内部 11.72±6.3、外部 19.31±4.9；17 节段极坐标图 MRAE% 内部 5.04±4.6、外部 10.88±7.3；消融中显著优于直接与间接对照方法，外部子集临床验证显示高度一致。</li>
-                <li><strong>局限与迁移</strong>任务为心脏 SPECT 衰减图预测这一回归任务，不是病灶分割或分类；外部测试集仅 124 例；外部集误差明显放大，提示仍需按站点校准；未评估对下游灌注定量诊断结论的影响。迁移价值：「多重建设置多输入 + 双域联合监督」可用于 PET 衰减图或定量校正类任务，但需更换重建协议、评价指标并重新验证。</li>
+                <li><strong>研究痛点</strong>合成 PET 研究中常用的全图指标与临床关心的病灶定量脱节；而基于放射组学的条件化需要先有病灶勾画，难以规模化。</li>
+                <li><strong>方法与数据</strong>LAFNO = 傅里叶神经算子 + CT 派生的对比度/紊乱度双代理通道 + 全容积重建与病灶级 TLA、肿瘤核心对比度、瘤周监督联合训练；TCIA PSMA-PET-CT-Lesions 数据集；与四种基线架构比较；SSIM 0.960 / 0.938，TLA 误差 48.3% / 64.0%。</li>
+                <li><strong>局限与迁移</strong>预印本；每例 TLA 误差仍在 48%–64% 量级，不足以支撑临床定量替代真实 PET；瘤周可重复性依赖示踪剂，作者明确指出合成 PSMA-PET 的生物学保真仍是难题；未做读者研究或诊断终点评估，无法判断对临床决策的影响。迁移价值：对本项目最有借鉴意义的是评价口径——合成或增强 PET 的研究不能只报 SSIM 与 PSNR，必须同时报病灶级定量误差与放射组学可重复性，这份评测清单可直接复用。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方仓库 github.com/GhasemHajianfar/RIMD-DLAC-SPECT-MPI（Apache-2.0，最近更新 2026-07-19），含训练、多输入推理与集成 ATM→MAC 重建流程。</p>
-              <div class="card-meta"><span class="topic-chip">可迁移基线与研究方法</span><span class="source-chip">Med Image Anal · 日内瓦大学医院</span><span class="evidence">同行评审 Online · 双中心研究（含临床验证）</span><time class="time">2026年7月18日</time></div>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码。</p>
+              <div class="card-meta"><span class="topic-chip">可迁移基线与研究方法</span><span class="source-chip">ArXiv · 普渡大学 / 印第安纳大学医学院</span><span class="evidence">预印本 · 公开数据集方法研究</span><time class="time">2026年8月11日</time></div>
+            </div>
+          </a>
+          <a class="card" href="https://doi.org/10.1016/j.media.2026.104265" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">12</span>
+            <div class="card-body">
+              <h4 class="card-title">计数感知扩散桥增强低计数 PET 重建</h4>
+              <p class="card-summary">低计数 PET 通过降低注射活度或缩短采集时间实现，但符合事件减少会同时损害图像质量与定量可靠性。现有基于扩散模型的增强方法多用与计数无关的固定高斯噪声表，无法表达配对的标准计数与低计数重建之间随采集条件变化的退化程度；直接引入多步历史又会破坏马尔可夫反向推断。研究在重建图像域提出计数感知、端点条件化的扩散桥，配合门控自回归推断（GAI）：扩散桥锚定在配对的重建端点上，条件均值沿“标准计数到低计数”的残差方向，归一化期望计数轨迹控制沿该残差的推进与总潜方差；该轨迹由采集时长或注射活度比所激发的泊松计数统计给出动机，但不对重建后的 PET 体素施加泊松似然。反向推断时，GAI 在增广状态中汇总历史反演状态，保持一阶马尔可夫形式并支持计数条件化的闭式更新。在四中心全身 [18F]FDG 短时采集 PET 数据集与模拟的 BrainWeb 低剂量数据集上评估：在上海瑞金队列上，3 秒采集相对未增强的短时 PET 输入 PSNR 提升 5.33 dB、SSIM 提升 0.043、RMSE 降低 53.4%；1 秒采集 PSNR 提升 5.91 dB、RMSE 降低超过 60%。</p>
+              <ul class="card-points">
+                <li><strong>研究痛点</strong>低剂量或短时 PET 的图像质量与定量可靠性同时下降，而现有扩散增强方案与采集计数条件脱钩，无法按退化程度自适应。</li>
+                <li><strong>方法与数据</strong>计数感知的端点条件扩散桥 + 门控自回归推断（GAI）；四中心全身 [18F]FDG 短时采集 PET 数据集 + 模拟的 BrainWeb 低剂量数据集；瑞金队列 3 秒采集：PSNR +5.33 dB、SSIM +0.043、RMSE −53.4%；1 秒采集：PSNR +5.91 dB、RMSE 降低 60% 以上。</li>
+                <li><strong>局限与迁移</strong>Online 版本，尚未见正式卷期；PSNR、SSIM 与 RMSE 均为图像级代理指标，未评估对病灶检出率或 SUV 定量偏差的影响；计数轨迹由采集时长或活度比驱动，跨扫描仪与重建算法的校准一致性未充分说明；四中心数据的机构分布与样本量在摘要中未完整披露。迁移价值：把采集条件显式编码进生成模型是可迁移的建模思路，可用于本项目在低剂量头颈 PET/CT 上的增强实验；但评价必须补上病灶级检出率与 SUV 偏差，不能只用 PSNR 下结论。</li>
+              </ul>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码。</p>
+              <div class="card-meta"><span class="topic-chip">可迁移基线与研究方法</span><span class="source-chip">Med Image Anal · 中国科学院深圳先进技术研究院</span><span class="evidence">同行评审 Online · 四中心全身 PET 研究</span><time class="time">2026年8月22日</time></div>
             </div>
           </a>
         </div>
@@ -418,21 +424,21 @@
     <header class="section-heading">
       <span class="section-index">02 / PRACTICE</span>
       <h2 class="section-title">今日 Tips</h2>
-      <p class="section-note">本条依据 NEMA 的 DICOM 标准现行版撰写，字段定义与枚举值均来自标准正文。</p>
+      <p class="section-note">本条依据 Nature Methods 的同行评审方法学论文撰写，属于跨任务通用的验证规范，不来自单篇研究；具体任务仍需按自身的问题结构与代价函数选择指标。</p>
     </header>
-    <div class="evidence-note"><strong>Learning note</strong><span>本条属于国际标准层面的字段与口径规范，不来自单篇研究；SPECT 的定量体系与校正流程不同，需参考对应定量程序指南，不能直接套用 PET 字段口径。</span></div>
+    <div class="evidence-note"><strong>Learning note</strong><span>本条属于方法学共识层面的验证规范，不来自单篇研究；不同任务与不同代价结构下的适用指标仍需逐项论证，不要把它当作可以机械套用的检查表。</span></div>
     <div class="card-grid tips-grid">
-      <a class="card" href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.9.html" target="_blank" rel="noopener noreferrer">
-        <span class="card-num">12</span>
+      <a class="card" href="https://doi.org/10.1038/s41592-023-02150-0" target="_blank" rel="noopener noreferrer">
+        <span class="card-num">13</span>
         <div class="card-body">
-          <h3 class="card-title">PET/CT 定量研究前，先核对 Units、SUV Type 与 Decay Correction 三个字段</h3>
-          <p class="card-summary">PET 图像的像素值不等于 SUV。DICOM PS3.3「PET Information Module Definitions」把 Units (0054,1001) 定为 1 类（必须存在）字段，用于说明像素值单位；SUV Type (0054,1006) 为 3 类字段，枚举的归一化方式包括 BSA（体表面积）、BW（体重）、LBM（James 法瘦体重）、LBMJAMES128、LBMJANMA 与 IBW（理想体重）；Decay Correction (0054,1102) 同样是 1 类字段，说明本序列图像衰变校正所参照的真实事件，定义词为 NONE、START（采集开始时间，即 Acquisition Time (0008,0032)）与 ADMIN（放射性药物给药时间，即 Radiopharmaceutical Start Time (0018,1072)）。标准还说明，衰变校正所参照的时间可由 Decay Factor (0054,1321)、Frame Reference Time (0054,1300)、Radionuclide Half Life (0018,1075) 与 Series Date/Time 推导。</p>
+          <h3 class="card-title">先按问题结构选指标：小目标分割不要把 Accuracy 当主指标</h3>
+          <p class="card-summary">验证指标不是通用的工具箱。同一份模型输出用不同指标评价会给出完全不同的排名，Nature Methods 这篇方法学论文系统梳理了影像分析验证中的指标陷阱，核心主张是“指标必须与待解决的问题结构相匹配”：先确定评价单元是逐像素、逐实例还是逐对象，再决定用重叠类指标（Dice、IoU）、距离类指标（HD95、平均表面距离）还是检出/计数类指标，并同时报告类别不平衡情况与不确定度。本期收录的心肌 SPECT 分割研究正好提供了直观对照——心肌前景体素仅约 1.54%，模型的 Accuracy 高达 0.9943，而同一批数据的 Dice 只有 0.8239；只看 Accuracy 几乎无法区分模型好坏。</p>
           <ul class="card-points">
-            <li><strong>操作要点</strong>逐例读取并落库 Units、SUV Type、Decay Correction、Radionuclide Half Life、Radiopharmaceutical Start Time 与 Acquisition Time，作为数据表固定字段；按 Units 与 Decay Correction 做分层统计，并在论文中附站点与协议分布表；数据划分按站点或扫描仪分层，优先做站点外验证，避免同一患者多次检查跨集泄漏；不要直接把像素值当 SUV，需要时按字段显式换算并注明归一化方式；把字段缺失或相互冲突的病例单列审查，不要静默丢弃。</li>
-            <li><strong>适用条件</strong>适用于 FDG、PSMA 等全身 PET/CT 的分割、检测与肿瘤负荷量化研究，包括本期 PET 引导 SPECT 分割、PSMA-1007 深度学习评分与 PETHarmony 一致性化等场景；SPECT 的定量体系与校正流程不同，需参考对应定量程序指南；若数据已由厂商导出为 SUV 且字段完整一致，仍应在抽样病例上核对单位与归一化方式。</li>
-            <li><strong>常见误区</strong>一是把 DICOM 像素值直接当作 SUV 使用；二是忽略 Decay Correction 的 START 与 ADMIN 差异，把衰变校正参照点不同的数据混在同一训练集里；三是只在训练前做一次性检查，没有把字段纳入数据划分与分层报告；四是以为做了强度归一化就等价于解决了协议差异——归一化只改变分布尺度，无法修正单位口径或衰变校正参照点的错误。这类偏差不会体现在 Dice 上，却会直接污染 MTV、TLG 与 SUVR 等量化指标。</li>
+            <li><strong>操作要点</strong>① 先画问题结构图：评价单元是什么、前景体素占比多少、漏检与假阳性的代价是否对称；② 主指标选与临床或科研决策直接相关的那一类，病灶分割建议以 Dice 加 HD95 或平均表面距离为主，检出类任务另报每例假阳数与敏感度；③ 必须在论文中报告前景占比与类别基线，Accuracy 与 ROC-AUC 只作辅助指标；④ 用 bootstrap 或折间标准差给出置信区间，不要只报点估计；⑤ 把指标选择写进实验记录或预注册，避免事后按结果挑选指标。</li>
+            <li><strong>适用条件</strong>适用于医学影像分割、检测与定量验证，包括 PET/CT 病灶分割、SPECT 心肌分割、以及合成图像的病灶级定量评价（如总病灶活度误差与放射组学可重复性）。不适用于前景占比高、类别大致均衡的大器官或解剖结构分割——这类场景下 Accuracy 的信息量反而更高。</li>
+            <li><strong>常见误区</strong>一是把 Accuracy 或 AUC 当作小目标分割的主指标，在前景占 1% 量级时它们几乎恒等于 1，对模型差异完全不敏感；二是不报告前景占比与类别基线，让读者无法判断指标数值的含义；三是把 Dice 的提升直接解释为临床获益——Dice 改善可能全部来自大病灶，小淋巴结或低摄取灶的漏检没有任何变化，应按病灶体积或摄取强度分层报告；四是拿同一个测试集反复比较后再挑最优指标上报，这等同于隐形的过拟合。</li>
           </ul>
-          <div class="card-meta"><span class="topic-chip">预处理与量化 · DICOM 元数据核查</span><span class="source-chip">DICOM PS3.3 2026c · NEMA 标准正文</span><span class="evidence official">国际标准 · 权威一手来源</span><time class="time">2026年版（现行版）</time></div>
+          <div class="card-meta"><span class="topic-chip">指标选择与验证 · 类别不平衡</span><span class="source-chip">Nature Methods · Reinke 等（德国癌症研究中心 DKFZ / 海德堡大学）</span><span class="evidence official">同行评审方法学论文 · 权威一手来源</span><time class="time">2024年2月</time></div>
         </div>
       </a>
     </div>
@@ -440,14 +446,14 @@
 
   <aside class="disclaimer">
     <strong>Medical disclaimer</strong>
-    <p>本页面仅用于医学人工智能研究与科研学习的信息整理，不构成诊断、治疗或用药建议。预印本、会议与挑战赛结果、代码基线和科研 Tips 不等同于临床有效性或专业操作规范；不确定度、一致性化与模型选择类方法改善的是代理指标，不等于患者获益。涉及具体健康问题，请咨询具备资质的医疗专业人员。</p>
+    <p>本页面仅用于医学人工智能研究与科研学习的信息整理，不构成诊断、治疗或用药建议。预印本、公开数据集基准结果、代码基线和科研 Tips 不等同于临床有效性或专业操作规范；图像质量与分割指标的改善不等于患者获益。涉及具体健康问题，请咨询具备资质的医疗专业人员。</p>
   </aside>
 </main>
 
 <footer>
   <div class="shell footer-inner">
-    <span>共 <strong>12</strong> 条 · 实际数据源：<a href="https://doi.org/10.1186/s13550-026-01468-y" target="_blank" rel="noopener noreferrer">EJNMMI Research</a> · <a href="https://doi.org/10.1186/s40644-026-01090-0" target="_blank" rel="noopener noreferrer">Cancer Imaging</a> · <a href="https://doi.org/10.1038/s41551-026-01741-4" target="_blank" rel="noopener noreferrer">Nat Biomed Eng</a> · <a href="https://doi.org/10.34133/research.1343" target="_blank" rel="noopener noreferrer">Research</a> · <a href="https://doi.org/10.1002/mp.70545" target="_blank" rel="noopener noreferrer">Med Phys</a> · <a href="https://doi.org/10.1016/j.media.2026.104220" target="_blank" rel="noopener noreferrer">Med Image Anal</a> · <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">ArXiv</a> · <a href="https://dicom.nema.org/medical/dicom/current/output/chtml/part03/sect_C.8.9.html" target="_blank" rel="noopener noreferrer">DICOM PS3.3</a></span>
-    <span>本期日期：2026年8月30日 · 更新时间：2026年8月30日 15:45 · 北京时间</span>
+    <span>共 <strong>13</strong> 条 · 实际数据源：<a href="https://doi.org/10.1007/s00259-026-08139-z" target="_blank" rel="noopener noreferrer">Eur J Nucl Med Mol Imaging</a> · <a href="https://doi.org/10.1186/s40644-026-01086-w" target="_blank" rel="noopener noreferrer">Cancer Imaging</a> · <a href="https://doi.org/10.3390/jcm15135314" target="_blank" rel="noopener noreferrer">J Clin Med</a> · <a href="https://doi.org/10.31557/APJCP.2026.27.8.2847" target="_blank" rel="noopener noreferrer">Asian Pac J Cancer Prev</a> · <a href="https://doi.org/10.1016/j.media.2026.104265" target="_blank" rel="noopener noreferrer">Med Image Anal</a> · <a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">ArXiv</a> · <a href="https://doi.org/10.1038/s41592-023-02150-0" target="_blank" rel="noopener noreferrer">Nature Methods</a></span>
+    <span>本期日期：2026年8月31日 · 更新时间：2026年8月31日 12:25 · 北京时间</span>
   </div>
 </footer>
 
@@ -457,14 +463,14 @@
   const targets = navLinks.map(link => document.querySelector(link.hash)).filter(Boolean);
   const updateProgress = () => {
     const max = document.documentElement.scrollHeight - innerHeight;
-    progress.style.width = (max > 0 ? (scrollY / max) * 100 : 0) + '%';
+    progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
   };
   addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      navLinks.forEach(link => link.classList.toggle('active', link.hash === '#' + entry.target.id));
+      navLinks.forEach(link => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
     });
   }, { rootMargin: '-28% 0px -64% 0px' });
   targets.forEach(target => observer.observe(target));
