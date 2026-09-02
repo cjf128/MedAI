@@ -310,7 +310,7 @@
                 <li><strong>方法与数据</strong>构建 MedConcept-23M（2300 万图像—文本—概念三元组）；通过联合图像—文本对齐与区域—概念对齐进行预训练；在覆盖 10 种影像模态、78 个数据集的大规模基准上评测；并开展临床医师用户研究验证解释的可用性。</li>
                 <li><strong>局限与迁移</strong>概念词典的覆盖范围决定了可解释性的边界，罕见概念与少见模态可能不在其中；公开基准以 2D 与常规模态为主，三维体积影像与功能代谢影像占比有限。迁移价值：若要将区域—概念对齐用于 PET/CT，需要先把代谢影像的"概念"定义清楚（如 SUV 水平、病灶部位、生理性摄取），并在三维 PET/CT 数据上验证该对齐是否仍然成立，这目前仍是待检验的假设而非既有结论。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方仓库：<a href="https://github.com/JerrryNie/ConceptCLIP" target="_blank" rel="noopener noreferrer">github.com/JerrryNie/ConceptCLIP</a>（与论文同期更新，仓库描述标注 Nature Biomedical Engineering 2026，与首作者 Nie Y 对应）。</p>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方仓库 github.com/JerrryNie/ConceptCLIP（与论文同期更新，仓库描述标注 Nature Biomedical Engineering 2026，与首作者 Nie Y 对应）。</p>
               <div class="card-meta"><span class="topic-chip">医学影像基础模型</span><span class="source-chip">Nat Biomed Eng · 香港科技大学</span><span class="evidence">同行评审 · 大规模基准评测 + 医师用户研究</span><time class="time">2026年8月17日</time></div>
             </div>
           </a>
@@ -399,7 +399,7 @@
                 <li><strong>方法与数据</strong>PatientSpace：结构化变分自编码器 + 多模态图结构潜表示；输入 T1 加权 MRI 与 FDG-PET；潜空间由年龄、诊断与影像表型一致性正则项共同约束；构建可解释患者图，邻域关系反映生物学相似性；在认知正常、AD、FTD 等队列上验证。原文摘要未披露样本量、划分与下游预测指标数值。</li>
                 <li><strong>局限与迁移</strong>潜空间组织依赖年龄与诊断等先验约束，若先验设定不当可能把分组结构强加给数据；跨队列可比性与纵向预测能力需独立验证。迁移价值：其"用临床变量约束潜空间 + 用图邻域表达表型相似性"的设计，可作为肿瘤 PET/CT 患者状态建模的参考假设（例如用分期、SUV 与病灶负荷约束潜空间），但必须在肿瘤队列与纵向数据上重新验证，不能因为方法在神经影像上成立就推断其在 PET/CT 肿瘤场景同样成立。</li>
               </ul>
-              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方仓库：<a href="https://github.com/dmanou/PatientSpace" target="_blank" rel="noopener noreferrer">github.com/dmanou/PatientSpace</a>（仓库自述为官方实现，所有者与论文首作者 D. Manouvriez 对应；未提供许可证与复现环境说明，使用前需自行评估）。</p>
+              <p class="resource-note"><strong>代码 / 基线资源</strong> 官方仓库 github.com/dmanou/PatientSpace（仓库自述为官方实现，所有者与论文首作者 D. Manouvriez 对应；未提供许可证与复现环境说明，使用前需自行评估）。</p>
               <div class="card-meta"><span class="topic-chip">医学世界模型</span><span class="source-chip">Neuroimage · 法国里尔大学 / CNRS / Inserm / CHU Lille</span><span class="evidence">同行评审 · 多队列影像建模研究</span><time class="time">2026年7月18日</time></div>
             </div>
           </a>
