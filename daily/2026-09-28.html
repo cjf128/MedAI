@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="医学人工智能论文研究与科研实践提示简报">
+<title>MedAI Brief · 2026年9月28日</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #07100e;
+    --surface: #0d1916;
+    --surface-raised: #13231f;
+    --surface-soft: #0a1412;
+    --line: #294039;
+    --line-strong: #416158;
+    --ink: #eef4ec;
+    --paper: #e4eadf;
+    --muted: #9eafa8;
+    --dim: #6e827a;
+    --mint: #78e6bd;
+    --mint-soft: #b9f3dd;
+    --amber: #ffc36b;
+    --coral: #ff8076;
+    --research: #78e6bd;
+    --tips: #70b9ff;
+    --shadow: 0 28px 80px rgba(0,0,0,.4);
+    --page: 1200px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    min-height: 100vh; color: var(--ink);
+    background:
+      linear-gradient(rgba(120,230,189,.022) 1px, transparent 1px),
+      radial-gradient(circle at 80% -8%, rgba(120,230,189,.12), transparent 32rem),
+      var(--bg);
+    background-size: 100% 38px, auto, auto;
+    font-family: "Microsoft YaHei UI", "PingFang SC", sans-serif;
+    line-height: 1.75; overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--mint); outline-offset: 5px; }
+  .skip-link { position: fixed; left: 18px; top: 14px; z-index: 999; padding: 9px 13px; color: #07100e; background: var(--mint); font-size: .78rem; font-weight: 800; transform: translateY(-160%); }
+  .skip-link:focus { transform: translateY(0); }
+  .reading-progress { position: fixed; inset: 0 auto auto 0; z-index: 300; width: 0; height: 3px; background: linear-gradient(90deg, var(--mint), var(--tips)); }
+  .shell { width: min(var(--page), calc(100% - 48px)); margin-inline: auto; }
+
+  /* Clinical editorial masthead */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line-strong); }
+  .hero::after { content: "+"; position: absolute; right: max(24px, calc((100vw - var(--page)) / 2)); top: 8rem; color: rgba(120,230,189,.045); font: 300 clamp(15rem, 31vw, 29rem)/.65 "Times New Roman", serif; pointer-events: none; }
+  .masthead { position: relative; z-index: 1; display: flex; align-items: center; gap: 18px; min-height: 68px; border-bottom: 1px solid var(--line); color: var(--muted); font: 800 .68rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+  .masthead-brand { color: var(--mint); }
+  .masthead-rule { width: 42px; height: 1px; background: var(--line-strong); }
+  .masthead-status { margin-left: auto; display: inline-flex; align-items: center; gap: 10px; }
+  .masthead-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 6px rgba(120,230,189,.1); animation: pulse 2.6s ease-in-out infinite; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 11px rgba(120,230,189,0); } }
+  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 76px; align-items: end; padding: 76px 0 48px; }
+  .hero-grid > * { min-width: 0; }
+  .eyebrow { color: var(--mint); font: 800 .7rem/1 "Bahnschrift", sans-serif; letter-spacing: .18em; text-transform: uppercase; }
+  .hero-title { max-width: 820px; margin-top: 22px; color: var(--paper); font: 600 clamp(3.4rem, 7.4vw, 7.2rem)/.9 "STZhongsong", "SimSun", serif; letter-spacing: -.055em; }
+  .hero-title em { color: var(--mint); font-style: normal; }
+  .hero-deck { max-width: 760px; margin-top: 28px; color: var(--muted); font-size: .9rem; line-height: 1.95; }
+  .issue-panel { padding: 22px 0 8px 25px; border-left: 1px solid var(--line-strong); }
+  .issue-label { color: var(--dim); font: 800 .65rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+  .issue-date { margin-top: 14px; color: var(--paper); font: 600 1.25rem/1.45 "STZhongsong", "SimSun", serif; }
+  .issue-total { display: flex; align-items: baseline; gap: 11px; margin-top: 32px; }
+  .issue-total strong { color: var(--mint); font: 800 4.7rem/.82 "Bahnschrift", sans-serif; letter-spacing: -.07em; }
+  .issue-total span { color: var(--muted); font-size: .76rem; line-height: 1.65; }
+  .source-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .source-cell { padding: 18px 20px; background: rgba(10,20,18,.93); }
+  .source-cell small { display: block; color: var(--dim); font: 800 .61rem/1 "Bahnschrift", sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+  .source-cell strong { display: block; margin-top: 8px; color: var(--paper); font-size: .79rem; }
+
+  /* Two-level contents */
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,16,14,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+  .nav-inner { display: flex; align-items: stretch; min-height: 58px; overflow-x: auto; scrollbar-width: none; }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-brand { display: flex; align-items: center; margin-right: auto; color: var(--dim); font: 800 .65rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; }
+  .nav-link { --nav-accent: var(--mint); position: relative; display: inline-flex; align-items: center; gap: 9px; padding: 0 19px; border-left: 1px solid var(--line); color: var(--muted); font-size: .76rem; font-weight: 800; white-space: nowrap; }
+  .nav-link:last-child { border-right: 1px solid var(--line); }
+  .nav-link--tips { --nav-accent: var(--tips); }
+  .nav-link::after { content: ""; position: absolute; inset: auto 17px 0; height: 2px; background: var(--nav-accent); transform: scaleX(0); transition: transform .2s ease; }
+  .nav-link:hover, .nav-link.active { color: var(--ink); }
+  .nav-link.active::after { transform: scaleX(1); }
+  .nav-count { min-width: 24px; padding: 1px 7px; border-radius: 99px; background: rgba(120,230,189,.1); color: var(--nav-accent); text-align: center; font: 800 .64rem/1.55 "Bahnschrift", sans-serif; }
+
+  main { padding: 84px 0 108px; }
+  .section { margin-bottom: 108px; scroll-margin-top: 86px; }
+  .section-heading { display: grid; grid-template-columns: 130px 1fr auto; gap: 28px; align-items: end; padding-bottom: 21px; border-bottom: 1px solid var(--line-strong); }
+  .section-index { color: var(--mint); font: 800 .7rem/1 "Bahnschrift", sans-serif; letter-spacing: .16em; }
+  .section--tips .section-index { color: var(--tips); }
+  .section-title { color: var(--paper); font: 600 clamp(2.2rem, 4vw, 3.8rem)/.95 "STZhongsong", "SimSun", serif; letter-spacing: -.045em; }
+  .section-note { max-width: 300px; color: var(--dim); font-size: .72rem; line-height: 1.65; text-align: right; }
+  .evidence-note { display: grid; grid-template-columns: auto 1fr; gap: 18px; margin: 24px 0 38px; padding: 16px 19px; border: 1px solid #2c4d43; background: rgba(120,230,189,.035); color: var(--muted); font-size: .76rem; }
+  .evidence-note strong { color: var(--mint); font: 800 .66rem/1.7 "Bahnschrift", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+  .research-groups { display: grid; gap: 66px; }
+  .research-group { scroll-margin-top: 86px; }
+  .group-heading { display: grid; grid-template-columns: auto 1fr auto; gap: 17px; align-items: center; margin-bottom: 20px; }
+  .group-index { color: var(--dim); font: 800 .64rem/1 "Bahnschrift", sans-serif; letter-spacing: .13em; }
+  .group-title { color: var(--mint-soft); font-size: 1rem; font-weight: 800; }
+  .group-title::after { content: ""; display: inline-block; width: 42px; height: 1px; margin: 0 0 4px 14px; background: var(--line-strong); }
+  .group-count { color: var(--dim); font: 800 .65rem/1 "Bahnschrift", sans-serif; letter-spacing: .1em; }
+  .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .card { position: relative; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 18px; min-height: 265px; padding: 25px; background: linear-gradient(145deg, var(--surface), var(--surface-soft)); border: 1px solid var(--line); overflow: hidden; transition: transform .22s ease, border-color .22s ease, background .22s ease, box-shadow .22s ease; }
+  .card::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 2px; background: var(--mint); opacity: .55; }
+  .card::after { content: "↗"; position: absolute; right: 18px; top: 16px; color: var(--dim); font: 700 .9rem/1 "Bahnschrift", sans-serif; transition: transform .2s ease, color .2s ease; }
+  .card:hover { transform: translateY(-4px); border-color: #4d7167; background: var(--surface-raised); box-shadow: var(--shadow); }
+  .card:hover::after { color: var(--mint); transform: translate(3px,-3px); }
+  .card-num { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid #3c6257; border-radius: 50%; color: var(--mint); font: 800 .7rem/1 "Bahnschrift", sans-serif; }
+  .card-body { min-width: 0; display: flex; flex-direction: column; }
+  .card-title { padding-right: 25px; color: var(--ink); font-size: 1.02rem; line-height: 1.58; }
+  .card-summary { margin: 16px 0 22px; color: var(--muted); font-size: .83rem; line-height: 1.86; }
+  .card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 11px; margin-top: auto; }
+  .topic-chip, .source-chip, .evidence, .time { font-size: .67rem; line-height: 1.55; }
+  .topic-chip { padding: 2px 7px; border: 1px solid rgba(112,185,255,.32); color: var(--tips); background: rgba(112,185,255,.06); }
+  .source-chip { color: var(--mint-soft); font-weight: 800; }
+  .evidence { padding: 2px 7px; border: 1px solid rgba(255,195,107,.36); color: var(--amber); background: rgba(255,195,107,.06); }
+  .evidence.official { border-color: rgba(120,230,189,.35); color: var(--mint); background: rgba(120,230,189,.06); }
+  .time { margin-left: auto; color: var(--dim); }
+  .card-points { display: grid; gap: 9px; margin: -5px 0 22px; padding-top: 15px; border-top: 1px solid var(--line); list-style: none; }
+  .card-points li { color: var(--muted); font-size: .76rem; line-height: 1.78; }
+  .card-points strong { margin-right: 8px; color: var(--mint-soft); font-size: .7rem; letter-spacing: .04em; }
+  .resource-note { margin-bottom: 22px; color: var(--dim); font-size: .7rem; line-height: 1.75; }
+  .resource-note strong { color: var(--mint); }
+  .tips-grid { grid-template-columns: 1fr; }
+  .tips-grid .card { min-height: 0; }
+  .tips-grid .card::before { background: var(--tips); }
+  .tips-grid .card-num { border-color: rgba(112,185,255,.45); color: var(--tips); }
+  .tips-grid .card-summary, .tips-grid .card-points { max-width: 920px; }
+  .empty-state { padding: 32px; border: 1px dashed var(--line); color: var(--dim); font-size: .8rem; text-align: center; }
+  .disclaimer { display: grid; grid-template-columns: 130px 1fr; gap: 28px; padding: 30px; border: 1px solid rgba(255,128,118,.3); background: rgba(255,128,118,.035); }
+  .disclaimer strong { color: var(--coral); font: 800 .68rem/1.5 "Bahnschrift", sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+  .disclaimer p { color: var(--muted); font-size: .77rem; line-height: 1.95; }
+  footer { border-top: 1px solid var(--line); background: #050b09; }
+  .footer-inner { display: flex; justify-content: space-between; gap: 28px; padding: 44px 0; color: var(--dim); font-size: .72rem; line-height: 1.9; }
+  footer a, footer strong { color: var(--mint); }
+
+  @media (max-width: 940px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+    .issue-panel { border-left: 0; border-top: 1px solid var(--line-strong); padding: 22px 0 0; }
+    .source-strip { grid-template-columns: 1fr; }
+    .nav-brand { display: none; }
+    .card-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 620px) {
+    .shell { width: min(100% - 28px, var(--page)); }
+    .masthead { min-height: 58px; font-size: .6rem; }
+    .masthead-rule, .masthead-status span { display: none; }
+    .hero-grid { padding: 54px 0 36px; }
+    .hero-title { font-size: clamp(2.85rem, 13.8vw, 3.65rem); }
+    .nav-link { padding: 0 14px; }
+    main { padding: 60px 0 82px; }
+    .section { margin-bottom: 80px; }
+    .section-heading { grid-template-columns: 1fr auto; gap: 11px; }
+    .section-index { grid-column: 1 / -1; }
+    .section-note { grid-column: 1 / -1; text-align: left; }
+    .evidence-note { grid-template-columns: 1fr; }
+    .group-heading { grid-template-columns: auto 1fr; }
+    .group-count { grid-column: 2; }
+    .card { grid-template-columns: 1fr; min-height: 0; padding: 21px; }
+    .time { width: 100%; margin-left: 0; }
+    .disclaimer { grid-template-columns: 1fr; gap: 12px; padding: 22px; }
+    .footer-inner { flex-direction: column; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body data-template="clinical-dossier-v2">
+<a class="skip-link" href="#main-content">跳到正文</a>
+<div class="reading-progress" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="shell">
+    <div class="masthead"><span class="masthead-brand">MedAI Evidence Brief</span><span class="masthead-rule" aria-hidden="true"></span><span>Clinical intelligence / Beijing</span><span class="masthead-status"><span>Evidence-aware edition</span></span></div>
+    <div class="hero-grid">
+      <div><p class="eyebrow">Medical AI Daily · 2026年9月28日</p><h1 class="hero-title">医学 AI<br><em>研究证据简报</em></h1><p class="hero-deck">围绕项目研究画像追踪可核验的论文、数据集、基线与官方代码；每期补充一条有权威来源、适用条件与常见误区的科研实践提示。</p></div>
+      <aside class="issue-panel" aria-label="本期统计"><p class="issue-label">Latest issue</p><p class="issue-date">2026年9月28日<br>星期一 · 北京时间</p><div class="issue-total"><strong>10</strong><span>条精选内容<br>9 篇研究 · 1 条 Tips</span></div></aside>
+    </div>
+    <div class="source-strip" aria-label="来源与质量标准">
+      <div class="source-cell"><small>Research discovery</small><strong>PubMed · 重点期刊 · 会议 · ArXiv</strong></div>
+      <div class="source-cell"><small>Reproducibility</small><strong>数据集 · 基线 · 作者官方代码</strong></div>
+      <div class="source-cell"><small>Editorial rule</small><strong>90 天窗口 · 权威 Tips · 宁缺毋滥</strong></div>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="医学 AI 日报导航">
+  <div class="shell nav-inner">
+    <span class="nav-brand">Contents / Evidence map</span>
+    <a class="nav-link" href="#research">论文研究 <span class="nav-count">9</span></a>
+    <a class="nav-link" href="#direction-npc-petct-research">鼻咽癌 PET/CT 研究 <span class="nav-count">1</span></a>
+    <a class="nav-link" href="#direction-nuclear-medicine-classification">核医学深度学习分类 <span class="nav-count">1</span></a>
+    <a class="nav-link" href="#direction-medical-imaging-foundation-model">医学影像基础模型 <span class="nav-count">4</span></a>
+    <a class="nav-link" href="#direction-medical-imaging-agent">医学影像 Agent <span class="nav-count">3</span></a>
+    <a class="nav-link nav-link--tips" href="#tips">今日 Tips <span class="nav-count">1</span></a>
+  </div>
+</nav>
+
+<main id="main-content" class="shell">
+  <section id="research" class="section">
+    <header class="section-heading"><span class="section-index">01 / RESEARCH</span><h2 class="section-title">论文研究</h2><p class="section-note">仅展示本期有合格论文的分段；卡片完整展示中文摘要，不截断。</p></header>
+    <div class="evidence-note"><strong>Evidence note</strong><span>以下为研究信息摘要，不代表方法已经完成临床验证。预印本、动物实验、回顾性研究、前瞻性试验和概念验证应分别理解。本期在 90 天窗口（2026 年 6 月 30 日起）内检索了 PubMed 六个方向概念组、7 本重点期刊定向查询与 ArXiv 多轮查询。核医学深度学习分割与医学世界模型两个分段没有未被往期收录的合格新论文，故省略，未以低匹配内容补位：核医学分割方向上，窗口内合格论文（含自监督 swin UNETR 淋巴瘤 PET/CT 分割、脑 FDG PET 解剖分割、PSMA PET/CT 多任务 UNETR）均已收录于往期，ArXiv 同期 PET/CT 病灶分割命中（autoPET V 交互式分割系列、MUST-PET、多示踪剂融合研究等）亦均已收录；世界模型方向上，本期只见无实证结果的概念分析，以及面向直接面向消费者健康行为、不以医学影像为对象的患者状态模型，两者均按证据门槛排除。鼻咽癌 PET/CT 分段本期收录 1 篇，原文模态为 MRI，已按规则标注为可迁移基线/方法。其余按硬门槛排除的主要条目：IEEE TMI 的 SAMReg（10.1109/TMI.2026.3734150）同一工作存在 2024 年 arXiv 预印本与 MICCAI 2024 会议版，首次公开日期落在 90 天窗口之外；Journal for Immunotherapy of Cancer 的 CIPHER 肺损伤 CT 基础模型（10.1136/jitc-2026-015014）其早期预印本首发于 2026 年 4 月，同样超出窗口；MICCAI 2026 的 MuDuo 半监督 PET/CT 分割（arXiv:2606.15611，2026-06-14）亦因首发日期在窗口外排除；Annals of Surgical Oncology 的 68Ga-Pentixafor PET/CT delta 放射组学（10.1245/s10434-026-20522-6）、Frontiers in Oncology 的 DLBCL PET/CT 代谢网络分期（10.3389/fonc.2026.1856758）、Oral Radiology 的舌鳞癌 PET/CT 放射组学（10.1007/s11282-026-00966-y）与 Frontiers in Cellular and Infection Microbiology 的 SPECT/CT 定量参数鉴别脊柱结核（10.3389/fcimb.2026.1897479）均以人工放射组学特征加逻辑回归、XGBoost 等浅层模型为核心预测方法，不满足核医学方向“深度学习必须是核心预测方法”的收录边界；Frontiers in Medicine 的鼻咽癌 GTV 体积与解剖准确性研究（10.3389/fmed.2026.1941973）无 AI 方法，Frontiers in Medical Technology 的 SAM-Med3D 融合分型研究（10.3389/fmedt.2026.1863203）仅为冻结基础模型特征加 LASSO 与浅层分类器，两者均未收录。核医学分段之外的卡片均按规则标注为可迁移基线或方法。</span></div>
+    <div class="research-groups">
+      <section id="direction-npc-petct-research" class="research-group" aria-labelledby="direction-npc-petct-research-title">
+        <header class="group-heading"><span class="group-index">R.01 / RESEARCH PROFILE</span><h3 id="direction-npc-petct-research-title" class="group-title">鼻咽癌 PET/CT 研究</h3><span class="group-count">1 papers</span></header>
+        <div class="card-grid">
+          <a class="card" href="https://doi.org/10.1109/TMI.2026.3733436" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">01</span><div class="card-body"><h4 class="card-title">共轭贝叶斯证据学习提升鼻咽癌 GTV 不确定性</h4><p class="card-summary">鼻咽癌放疗靶区勾画中，原发灶（GTV）在磁共振上边界模糊，确定性分割模型无法刻画这种歧义带来的不确定性；现有证据深度学习（EDL）依赖固定先验，理论上容易发生证据饱和，报告出的不确定性并不可靠。东北大学、中国医科大学附属第一医院与广西医科大学第二附属医院团队提出共轭贝叶斯证据分割框架 CoBESeg：用层次方差证据网络把解剖先验知识与图像驱动证据通过共轭贝叶斯更新显式结合，缓解传统 EDL 的证据饱和；用模糊原型对比学习增强模糊边界区域证据表征的可分性；再用特征距离感知的证据校准在测试时动态调整证据强度。在三套多中心鼻咽癌 MRI 数据集上，CoBESeg 的分割精度与不确定性估计均优于现有先进方法，并支持临床分布漂移下的风险过滤。代码已在作者 GitHub 仓库公布。</p><ul class="card-points"><li><strong>研究痛点</strong>鼻咽癌 GTV 在 MRI 上边界模糊，确定性模型无法给出与边界歧义程度对应的不确定性；常规 EDL 使用固定先验、易出现证据饱和，导致不确定性估计不可靠，难以用于风险过滤或触发人工复核。</li><li><strong>方法与数据</strong>回溯性多中心方法研究。核心设计三部分：层次方差证据网络显式融合解剖先验与图像证据并做共轭贝叶斯更新；模糊原型对比学习提升边界区证据表征判别力；测试时特征距离感知的证据校准调整证据强度。在三套多中心鼻咽癌 MRI 数据集上与当前先进方法对比，评价分割精度与不确定性可靠性，并检验临床漂移下的风险过滤能力。摘要未给出数据集样本量与逐项指标数值，需查全文。</li><li><strong>局限与迁移</strong>原文模态为 MRI，不含 PET；共轭更新、证据校准是否适用于对比度更弱、噪声特性不同的 PET/CT 上 GTVp/GTVn 与转移淋巴结勾画，需要重新验证；跨中心验证基于回顾性数据，缺少前瞻性读数。对本项目，这是鼻咽癌靶区研究可直接追踪的分割基线：可作为 PET/CT 原发灶与淋巴结分割的对照方法，并检验其不确定性是否真能筛出应转人工复核的病例。</li></ul><p class="resource-note"><strong>代码 / 基线资源</strong> 论文摘要明确声明代码发布于 https://github.com/zhangchi73/hvenfpcl（本文官方仓库）。</p><div class="card-meta"><span class="topic-chip">鼻咽癌 PET/CT 研究 · 可迁移基线/方法</span><span class="source-chip">IEEE TMI · 东北大学 / 中国医科大学附属第一医院</span><span class="evidence">同行评审 · Early Access · 多中心回顾性方法研究</span><time class="time">2026年9月15日</time></div></div>
+          </a>
+        </div>
+      </section>
+
+
+      <section id="direction-nuclear-medicine-classification" class="research-group" aria-labelledby="direction-nuclear-medicine-classification-title">
+        <header class="group-heading"><span class="group-index">R.02 / RESEARCH PROFILE</span><h3 id="direction-nuclear-medicine-classification-title" class="group-title">核医学深度学习分类</h3><span class="group-count">1 papers</span></header>
+        <div class="card-grid">
+          <a class="card" href="https://doi.org/10.3390/cancers18132154" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">02</span><div class="card-body"><h4 class="card-title">术中荧光与术前 PET/CT 融合预测头颈癌淋巴结转移</h4><p class="card-summary">转移淋巴结（MLN）判定直接决定头颈癌的治疗计划，但既往方法多依赖人工勾画的淋巴结区域或肿瘤轮廓，小病灶与低对比病灶容易被漏掉，良性淋巴结也常因影像特征重叠被误判；这类方法还要求在推理阶段投入大量专家标注。加州大学戴维斯分校团队提出一个患者层面的多模态学习框架，把头颈 PET/CT 的解剖与代谢特征，与术中荧光寿命成像（FLIm）测得的生化特征融合，推理时不需要人工裁剪淋巴结或勾画肿瘤轮廓。影像分支采用融合-分离结构的区域感知 PET/CT 网络，先在 HECKTOR 2022 数据上预训练、再在本机构队列微调；FLIm 的逐点测量与临床变量经多层感知机编码并聚合为受试者级表示；解码阶段比较立方体融合与通道级挤压激励（SE）融合两种策略。在 53 例患者队列上，SE 融合表现最佳，平衡准确率 0.839、AUC 0.872，优于 PET/CT 单独模型（0.815 / 0.828）与 FLIm 单独模型（0.665 / 0.614）。</p><ul class="card-points"><li><strong>研究痛点</strong>转移淋巴结判定是头颈癌治疗计划的关键，但依赖人工勾画的淋巴结或肿瘤轮廓，小灶、低对比灶易漏诊，良性淋巴结易误判；术前影像与术中生化信息此前没有被整合进同一个患者级预测建模中。</li><li><strong>方法与数据</strong>患者级 MLN 预测框架。影像侧为基于融合-分离架构的区域感知 PET/CT 网络，先在 HECKTOR 2022 公开数据预训练、再在本机构队列微调，推理时无需人工淋巴结裁剪或肿瘤勾画；FLIm 逐点测量与临床变量经 MLP 编码并聚合为受试者级表示；对比立方体融合与通道级 SE 融合。队列 53 例。结果：PET/CT 单独平衡准确率 0.815、AUC 0.828；FLIm 单独 0.665、0.614；立方体融合 0.827、0.850；SE 融合最优 0.839、0.872。</li><li><strong>局限与迁移</strong>作者明确说明样本量有限（53 例），结论属假设生成性质，需要更大规模的独立队列验证；FLIm 为术中获得，依赖额外设备与流程，推广受限于具备该条件的中心；未报告外部验证。对本项目，可迁移的是“PET/CT 先在 HECKTOR 预训练再微调、且推理免勾画”的区域感知骨干与 SE 融合设计，但需从 PET/CT 单模态出发在鼻咽癌队列重建，并补齐外部验证与病灶级评价。</li></ul><p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码（论文未在公开页面给出仓库链接）。</p><div class="card-meta"><span class="topic-chip">核医学深度学习分类</span><span class="source-chip">Cancers · University of California, Davis</span><span class="evidence">同行评审 · 回顾性小样本概念验证研究</span><time class="time">2026年7月4日</time></div></div>
+          </a>
+        </div>
+      </section>
+
+
+      <section id="direction-medical-imaging-foundation-model" class="research-group" aria-labelledby="direction-medical-imaging-foundation-model-title">
+        <header class="group-heading"><span class="group-index">R.03 / RESEARCH PROFILE</span><h3 id="direction-medical-imaging-foundation-model-title" class="group-title">医学影像基础模型</h3><span class="group-count">4 papers</span></header>
+        <div class="card-grid">
+          <a class="card" href="https://arxiv.org/abs/2608.11534" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">03</span><div class="card-body"><h4 class="card-title">纵向 CT 差异报告基准与直接配对推理基线</h4><p class="card-summary">医学影像基础模型大多只做单次检查的理解，回答不了“和上一次相比发生了什么变化”，而纵向对比正是疗效评估、复发检出与持续患者管理的基础。美国田纳西大学查塔努加分校团队把这一缺口定义为“纵向影像差异报告”任务：给定同一患者两次时间相隔的 CT，直接生成描述间隔变化的临床有意义报告，并发布配套基准 CT-ΔBench。该基准采用患者级数据划分以避免信息泄漏；另设计变化感知指标，以超越表层文本相似度；并通过独立医师验证评估合成参考报告与事件抽取流程的可靠性。研究同时比较了直接配对 CT 推理与“先生成单时点报告、再做文本差分”的两阶段间接路线，并训练了直接配对差异报告的基线模型 DeltaMed。相关数据集已在 HuggingFace 开放。</p><ul class="card-points"><li><strong>研究痛点</strong>现有医学基础模型基本局限于单次检查理解，无法刻画同一患者两次检查之间的变化；而纵向对比是疗效评估、复发检出与持续管理的核心环节，此前缺少专用任务定义、公开基准与能反映临床变化的评价指标。</li><li><strong>方法与数据</strong>提出任务与基准 CT-ΔBench：患者级划分防泄漏，变化感知评价指标，并由独立医师抽样验证合成参考报告与事件抽取流程的可信度；对比直接配对 CT 推理与“单时点报告 + 文本差分”两阶段管线；训练直接配对差异报告基线 DeltaMed 并在基准训练集上训练。数据集以 HuggingFace tangkg/CT-DeltaBench 形式开放。摘要与论文页面未给出完整的逐项指标表，具体变化检出数值需查全文。</li><li><strong>局限与迁移</strong>预印本，尚未同行评审（v1 于 2026-08-12 提交，v2 更新于 2026-09-04）；参考报告由大模型合成、再以医师抽样验证，并非逐例人工标注金标准；任务与数据以 CT 为主，PET 代谢变化语义尚未覆盖；DeltaMed 只是基线而非最优方案。对本项目，这套“患者级划分 + 变化感知指标 + 医师抽样验证”的协议可直接用于构建 PET/CT 纵向疗效评估任务的评价框架。</li></ul><p class="resource-note"><strong>代码 / 基线资源</strong> 基准数据集在 HuggingFace 开放（datasets/tangkg/CT-DeltaBench）；未核验到 DeltaMed 的独立官方代码仓库。</p><div class="card-meta"><span class="topic-chip">医学影像基础模型 · 可迁移基线/方法</span><span class="source-chip">ArXiv · University of Tennessee at Chattanooga</span><span class="evidence">预印本 · 基准与数据集研究（含独立医师抽样验证）</span><time class="time">2026年8月12日</time></div></div>
+          </a>
+          <a class="card" href="https://arxiv.org/abs/2609.30708" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">04</span><div class="card-body"><h4 class="card-title">通用与领域特定自监督预训练结合提升脑 MR 分割</h4><p class="card-summary">特定人群与疾病的标注数据稀缺是医学影像分析的核心瓶颈，自监督学习提供了从大规模无标注数据中获取可迁移表征的路径，但“领域特定的预训练任务是否优于通用任务”一直缺少受控比较。加拿大卡尔加里大学团队把体素级脑龄预测作为领域特定自监督任务，与常用的图像修复（inpainting）这一非领域特定任务直接对比，并提出多任务自监督预训练框架联合优化两个目标，以学习互补的神经影像表征。预训练模型在多发性硬化病灶分割、缺血性卒中病灶分割与皮层脑结构分割三项下游磁共振分割任务上评估，结果显示多任务预训练在多数实验设置下稳定优于单任务预训练与从头训练，说明把领域特定与通用自监督任务结合有助于构建更可泛化的神经影像基础模型。代码已在 GitHub 公开。</p><ul class="card-points"><li><strong>研究痛点</strong>特定人群与疾病的标注数据稀缺，迁移学习与自监督预训练是主要对策；但“领域特定 pretext task 与非领域特定任务谁更有效”缺少直接比较，也缺少把两者结合的系统验证。</li><li><strong>方法与数据</strong>以体素级脑龄预测作为领域特定自监督任务，以图像修复（inpainting）作为非领域特定对照，提出联合优化两者的多任务自监督预训练框架；下游评估为多发性硬化病灶分割、缺血性卒中病灶分割与皮层脑结构分割三项磁共振分割任务，评测涉及 NKI-RS、NKI-TRT、MMRR、Cam-CAN 等公开队列。结论为多任务预训练在多数设置下优于单任务预训练与从头训练，摘要未给出逐任务的 Dice 数值。</li><li><strong>局限与迁移</strong>预印本，尚未同行评审；结论基于脑 MR 分割任务与有限的下游任务集合，未在 PET 或 PET/CT 上验证；所用多个公开队列之间扫描仪与协议的差异可能影响结论外推。对本项目，可迁移的是“把临床可解释的领域特定预测（如摄取值或代谢分级预测）与通用重建类任务联合预训练”这一设计，用于 PET/CT 分割骨干的预训练，但需重建 pretext task 并做外部验证。</li></ul><p class="resource-note"><strong>代码 / 基线资源</strong> 作者在“Code Availability”中声明源码公开于 GitHub：github.com/TasneemN/Combining-General-and-Domain-Specific-Pretext-Tasks-for-Brain-MR-Image-Segmentation。</p><div class="card-meta"><span class="topic-chip">医学影像基础模型 · 可迁移基线/方法</span><span class="source-chip">ArXiv · University of Calgary</span><span class="evidence">预印本 · 自监督预训练与下游分割评测研究</span><time class="time">3 天前</time></div></div>
+          </a>
+          <a class="card" href="https://arxiv.org/abs/2608.19078" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">05</span><div class="card-body"><h4 class="card-title">冻结基础模型适配策略与亚组公平性的关系</h4><p class="card-summary">基础模型被越来越多地适配到下游医学影像任务，但适配策略的选择如何影响不同人群亚组之间的性能差距，此前缺少系统研究。伦敦帝国理工学院团队固定 Rad-DINO 胸部 X 线编码器，比较三种参数高效适配方式——原始 CLS 令牌上的线性头、MLP，以及多层 patch 特征上的注意力池化——对病理分类性能与亚组差异的联合影响。研究在 MIMIC-CXR 上评估八种病理在种族、性别与成像体位亚组上的表现，使用保持患病率的人群均衡测试集，并额外探测每种适配器对受保护属性的编码强度。结果显示注意力池化的整体判别性能最好、对属性（尤其是种族）的编码也最强，但整体性能提升并未一致地缩小亚组差距；值得注意的是，属性编码最弱的早期网络层反而产生了最大的亚组性能差，且池化层组合、属性编码强度与亚组公平性之间没有一致关系。作者据此强调：表达能力更强可以提高准确率，但公平性影响依赖任务且不可预先推断，必须逐任务实测。代码已公开。</p><ul class="card-points"><li><strong>研究痛点</strong>基础模型的参数高效适配已成为常规操作，但不同适配策略对人群亚组公平性的影响缺乏证据，实践者容易默认“整体性能更好的方案公平性也更好”。</li><li><strong>方法与数据</strong>固定 Rad-DINO 胸部 X 线编码器，比较三种适配器（CLS 线性头、MLP、多层 patch 注意力池化）在 MIMIC-CXR 上对八种病理的分类表现；在保持患病率且人口学均衡的测试集上按种族、性别与成像体位分层评估，并探测各适配器对受保护属性的编码强度，进一步扫描不同注意力池化层组合。结论：注意力池化判别性能最强、属性编码最强，但整体性能提升未一致缩小亚组差距；早期层属性编码最弱却产生最大亚组差距，三者之间无一致关系。</li><li><strong>局限与迁移</strong>预印本，尚未同行评审；单一模态（胸部 X 线）与单一数据集（MIMIC-CXR），未覆盖 CT/PET 或三维影像；公平性分析依赖回顾性数据中的属性标签，存在标注与代理变量误差。对本项目，可迁移的是“适配策略 × 亚组公平性”这一评测设计：在 PET/CT 基础模型微调时应把人群亚组指标与整体指标并列报告，不能由整体性能推断公平性。</li></ul><p class="resource-note"><strong>代码 / 基线资源</strong> 论文正文给出代码仓库：github.com/dhruvg97/adapter-subgroup-analysis。</p><div class="card-meta"><span class="topic-chip">医学影像基础模型 · 可迁移基线/方法</span><span class="source-chip">ArXiv · Imperial College London</span><span class="evidence">预印本 · 回顾性公平性评测研究</span><time class="time">2026年8月19日</time></div></div>
+          </a>
+          <a class="card" href="https://doi.org/10.1109/JBHI.2026.3737129" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">06</span><div class="card-body"><h4 class="card-title">概念增强的医学视觉-语言跨模态对齐预训练</h4><p class="card-summary">基于配对医学图像与报告做视觉-语言预训练，是学习医学影像表征的重要路线，但报告在分词过程中容易丢失准确而完整的影像学概念，使全局实例级对齐难以捕捉细粒度病理细节。北京工业大学与首都医科大学附属北京友谊医院团队提出概念增强的医学视觉-语言对齐框架 CoMA：依据放射科医师的认知框架设计“概念子句分解”，从报告中抽取语义完整的病理发现描述作为医学概念子句；在此基础上构建多粒度跨模态对齐，除全局实例级对齐（GIA）外，引入基于双向交叉注意力的概念级令牌对齐（CTA），把图像 patch 与概念子句在病理区域层面建立语义对应；进一步建立由实例级原型对齐（IPA）与概念级原型对齐（CPA）构成的双层原型对齐机制，通过跨模态原型聚类把未配对的高层全局特征与低层概念特征分别拉近。在七个监督式下游数据集-任务设置上，CoMA 表现一致且具竞争力，在标注受限场景下尤其明显。</p><ul class="card-points"><li><strong>研究痛点</strong>医学报告分词若丢失或割裂影像学概念，视觉-语言预训练只能学到粗粒度对齐，细粒度病理细节无法被有效表征，且在标注受限时性能下降明显。</li><li><strong>方法与数据</strong>CoMA 框架包含三个组件：基于放射科医师认知框架的概念子句分解（抽取语义完整的病理发现描述）；多粒度跨模态对齐（全局实例级对齐 GIA + 基于双向交叉注意力的概念级令牌对齐 CTA）；双层原型对齐（实例级原型对齐 IPA 与概念级原型对齐 CPA）。在七个监督式下游数据集-任务设置上评测，并报告标注受限设置下的结果；摘要未给出逐任务数值。</li><li><strong>局限与迁移</strong>同行评审的早期在线版本，具体数值与消融需查全文；方法依赖报告文本与影像的配对数据，概念子句抽取质量取决于报告书写规范；未涉及三维 PET/CT 或多模态断层影像。对本项目，可迁移的是“概念级对齐”思路：PET/CT 报告中的代谢与解剖描述可作为概念子句用于视觉-语言预训练，但需要先建立核医学报告的概念分解规范。</li></ul><p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码（论文公开摘要与页面未给出仓库链接）。</p><div class="card-meta"><span class="topic-chip">医学影像基础模型 · 可迁移基线/方法</span><span class="source-chip">IEEE JBHI · 北京工业大学 / 北京友谊医院</span><span class="evidence">同行评审 · Early Access · 多数据集预训练与下游评测研究</span><time class="time">5 天前</time></div></div>
+          </a>
+        </div>
+      </section>
+
+
+      <section id="direction-medical-imaging-agent" class="research-group" aria-labelledby="direction-medical-imaging-agent-title">
+        <header class="group-heading"><span class="group-index">R.04 / RESEARCH PROFILE</span><h3 id="direction-medical-imaging-agent-title" class="group-title">医学影像 Agent</h3><span class="group-count">3 papers</span></header>
+        <div class="card-grid">
+          <a class="card" href="https://arxiv.org/abs/2609.30714" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">07</span><div class="card-body"><h4 class="card-title">风险约束路由决定医学 Agent 何时需人工接管</h4><p class="card-summary">医学影像中的智能体系统可以提升吞吐量、降低医师负荷，但自主发生的错误会沿链路传播到下游临床决策，因此关键不只是预测性能，而是判断“何时可以自主放行、何时必须升级复核”。美国圣母大学团队提出 CRC-Router：一个风险约束、不确定性感知的路由模块，既适用于传统的医学预测模型，也可作为智能体式医学 AI 的组件。它把多种互补的不确定性信号与预测分数组合成逐发现（per-finding）的路由特征向量，用轻量级逐发现风险模型把该向量映射为估计的“错误接受风险”，再用共形风险控制（Conformal Risk Control, CRC）在用户指定的风险目标下校准接受阈值。在基于 NIH ChestX-ray14 的胸部 X 线多发现分诊任务上，CRC-Router 在经验风险-覆盖率权衡上优于所比较的基线，且以独立路由层与即插即用模块接入当前先进的 MedRAX 智能体两种形态均成立。代码已公开。</p><ul class="card-points"><li><strong>研究痛点</strong>智能体式医学 AI 的自主错误会传播到下游决策，仅优化预测性能并不足够；缺少在给定风险目标下决定“自主放行还是升级人工复核”的可校准机制，也缺少对既有预测模型与智能体都通用的模块化方案。</li><li><strong>方法与数据</strong>CRC-Router 把多种互补不确定性信号与预测分数构造成逐发现路由特征向量，用轻量逐发现风险模型估计错误接受风险，再用共形风险控制按用户指定的风险目标校准接受阈值。在 NIH ChestX-ray14 胸部 X 线多发现分诊任务上与多种基线比较风险-覆盖率权衡，并分别以独立路由层和接入 MedRAX 智能体的插件两种形式验证。</li><li><strong>局限与迁移</strong>预印本，尚未同行评审；实验基于单一公开数据集（NIH ChestX-ray14）与二分类式多发现任务，风险-覆盖率结论能否迁移到三维 PET/CT 的病灶级任务尚未验证；共形风险控制要求校准集与部署分布可交换，跨中心部署需重新校准。对本项目，可迁移的是“不确定性 + 预测分数共同构成路由特征、以共形方法校准阈值”的设计，可用于 PET/CT 分割或分型的复核触发策略。</li></ul><p class="resource-note"><strong>代码 / 基线资源</strong> 摘要明确说明“Code is publicly available”，官方仓库为 github.com/XLIAaron/CRC-Router。</p><div class="card-meta"><span class="topic-chip">医学影像 Agent · 可迁移基线/方法</span><span class="source-chip">ArXiv · University of Notre Dame</span><span class="evidence">预印本 · 公开数据集方法研究</span><time class="time">3 天前</time></div></div>
+          </a>
+          <a class="card" href="https://doi.org/10.1109/TMI.2026.3728817" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">08</span><div class="card-body"><h4 class="card-title">原型引导的多模态检索增强介入放射决策</h4><p class="card-summary">介入放射需要同时对术中影像与专门的临床知识做联合推理，而现有医学检索增强生成（RAG）方法以文本为主、或面向通用医学视觉-语言任务，难以检索到介入场景所需的细粒度视觉-文本证据。南京理工大学、西湖大学与徐州市中心医院团队提出 PRIMA（Prototype-guided Retrieval for Interventional Medical Assistance）：通过解剖感知的视觉-文本对齐与模态保持的表示学习构建多模态介入知识索引；引入领域知识驱动的原型学习来组织介入概念，实现按查询相似度与原型亲和度共同重排证据的原型引导检索。在文献整理数据集与临床采集的介入数据集上，PRIMA 在生成质量、问答准确率与专家评定的临床可解释性上均优于现有 RAG 基线。相关工作已在 GitHub 发布。</p><ul class="card-points"><li><strong>研究痛点</strong>介入放射的决策依赖术中影像与专门临床知识的联合推理；既有 RAG 方法以文本为中心或面向通用任务，无法检索介入所需的细粒度视觉-文本证据，知识支撑不足。</li><li><strong>方法与数据</strong>PRIMA 包含三部分：解剖感知的视觉-文本对齐与模态保持表示学习，用于构建多模态介入知识索引；领域知识驱动的原型学习，用于组织介入概念；原型引导检索，按查询相似性与原型亲和度对证据重排。评测使用文献整理数据集与临床采集的介入数据集，指标涵盖生成质量、问答准确率与专家评定的临床可解释性，并与现有 RAG 基线比较。</li><li><strong>局限与迁移</strong>同行评审的早期在线版本，评测数据集规模与专家评定的具体流程需查全文；知识索引以介入放射文献与本院采集数据为主，迁移到其他亚专业必须重建索引；不涉及 PET/CT 或核医学知识源。对本项目，可迁移的是“原型引导重排 + 专家评定可解释性”这套评测思路，可用于核医学影像问答或报告辅助，但不能直接沿用介入领域的知识索引。</li></ul><p class="resource-note"><strong>代码 / 基线资源</strong> 论文声明相关资源发布于 github.com/StonHamA/PRIMA。</p><div class="card-meta"><span class="topic-chip">医学影像 Agent · 可迁移基线/方法</span><span class="source-chip">IEEE TMI · 南京理工大学 / 西湖大学</span><span class="evidence">同行评审 · Early Access · 多数据集方法研究与专家评定</span><time class="time">2026年9月1日</time></div></div>
+          </a>
+          <a class="card" href="https://arxiv.org/abs/2607.03853" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">09</span><div class="card-body"><h4 class="card-title">四阶段多智能体框架改进放射报告生成</h4><p class="card-summary">自动化放射报告生成（RRG）可以减轻医师负荷，但多数系统在单次前向中直接产出报告，既没有把陈述与图像核对的机制，也无法在写下某个发现后回看修正。德国凯泽斯劳滕-兰道大学、德国人工智能研究中心（DFKI）与日本大阪公立大学团队提出 CogRad：一个按放射科医师阅片流程组织的四阶段多智能体框架。Scout 智能体通过 slot attention 直接从图像 patch 发现解剖区域，并给出区域级与疾病级分诊分数；Investigator 智能体把表征容量集中到 Scout 标记的可疑区域；Writer 智能体把这些信号编译成疾病门控的视觉前缀，交给大语言模型生成报告；Verifier 智能体在训练时以视觉蕴含损失监督，在推理时逐句复查自身草稿，对判定依据不足的报告重新生成。在 CheXpert Plus 上取得 BLEU-4 0.316、CIDEr 0.322，为所比较方法中最佳；在 IU X-Ray 上 BLEU-4 0.201、CIDEr 0.724，在所有标准 NLG 指标上优于全部基线。研究还用 RadGraph F1、CheXbert F1 与幻觉分析评估文本重叠之外的临床准确性，并给出消融实验与基于 Grad-CAM 的可视化分析。</p><ul class="card-points"><li><strong>研究痛点</strong>单次前向生成缺少“对照图像核查陈述”与“回看修正”的机制，一旦某个发现写错就无法纠正；只以文本重叠指标评价会掩盖临床事实错误。</li><li><strong>方法与数据</strong>CogRad 四阶段结构：Scout（slot attention 从图像 patch 发现解剖区域并给出区域/疾病级分诊分数）→ Investigator（把表征容量集中到可疑区域）→ Writer（生成疾病门控视觉前缀驱动大语言模型）→ Verifier（训练期以视觉蕴含损失监督，推理期逐句复查并重写依据不足的报告）。在 CheXpert Plus 与 IU X-Ray 上评测，指标包括 BLEU-4、CIDEr、RadGraph F1、CheXbert F1 与幻觉分析，并做消融与 Grad-CAM 可视化。</li><li><strong>局限与迁移</strong>预印本，尚未同行评审；评测限于胸部 X 线报告与两个公开数据集（CheXpert Plus、IU X-Ray），未涉及三维断层影像或核医学报告；未报告放射科医师的前瞻性人工评价与工作流影响。对本项目，可迁移的是“生成—验证”闭环（Verifier 逐句复查）这一结构，用于抑制 PET/CT 结构化报告中的幻觉，但需要重建视觉前缀与核医学概念集合。</li></ul><p class="resource-note"><strong>代码 / 基线资源</strong> 未核验到官方代码（检索到的 GitHub 链接为 arXiv 转换工具，并非本文仓库）。</p><div class="card-meta"><span class="topic-chip">医学影像 Agent · 可迁移基线/方法</span><span class="source-chip">ArXiv · University of Kaiserslautern-Landau / DFKI / Osaka Metropolitan University</span><span class="evidence">预印本 · 多数据集报告生成研究（含幻觉分析）</span><time class="time">2026年7月4日</time></div></div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </section>
+
+  <section id="tips" class="section section--tips">
+    <header class="section-heading"><span class="section-index">02 / PRACTICE</span><h2 class="section-title">今日 Tips</h2><p class="section-note">面向硕博科研入门；每条都给出来源、适用条件和常见误区。</p></header>
+    <div class="evidence-note"><strong>Learning note</strong><span>Tips 用于科研学习与实验设计。来自单篇论文的启发必须标明研究边界，不写成已经形成共识的指南。</span></div>
+    <div class="card-grid tips-grid">
+          <a class="card" href="https://doi.org/10.1016/j.media.2021.102035" target="_blank" rel="noopener noreferrer">
+            <span class="card-num">10</span><div class="card-body"><h3 class="card-title">分割损失函数怎么选：先看类别不平衡程度</h3><p class="card-summary">医学图像分割中前景往往只占体素的很小一部分，Dice 类损失因此被广泛使用；但不同损失函数对边界、类别不平衡与噪声的敏感性差别很大，选错时的典型表现是“体素级 Dice 看起来不低，小病灶却被整片漏掉”。Ma 等人在 Medical Image Analysis 上发表的系统比较研究，在多个分割任务与多种不平衡设定下，对二十余种常见损失（交叉熵、Dice、Tversky、Focal、边界距离类损失等）及其组合做了统一实现与受控评测，支持一个可操作的判断顺序：先量化类别不平衡程度与任务目标，再决定是优化区域重叠还是边界距离，最后才是在此基础上做损失组合与权重搜索。它之所以重要，是因为损失函数直接决定模型在“漏检小病灶”与“过度分割”之间的取舍，而这个取舍会改变后续的病灶级指标与临床解释，而且不会体现在训练日志的损失曲线里。</p><ul class="card-points"><li><strong>操作要点</strong>先量化不平衡程度再选损失：统计前景体素占比与病灶大小分布。区域重叠优先用 Dice/Tversky（Tversky 的 α、β 可分别调节漏检与过分割的惩罚权重）；边界精度要求明确时叠加边界距离项；把 Dice 与交叉熵加权组合通常比任何单一损失稳健，权重应在验证集上网格搜索而不是按经验固定。改损失后必须同时报告体素级指标（Dice、IoU）与病灶级指标（病灶检测率、每例假阳性数），因为损失优化的是体素平均，并不等于病灶不漏。</li><li><strong>适用条件</strong>主要结论建立在像素级标注的分割任务与受控的不平衡设定之上；多类别任务需按类别或类频率重加权；存在器官先验、多模态输入（如 PET/CT）或交互式提示（scribble/prompt）时，合适的损失权重会变化，需重新搜索。原文包含自然图像与部分医学数据集的比较，不能直接当作临床任务的推荐配方。</li><li><strong>常见误区</strong>常见误区有三：把 Dice 损失当作“解决不平衡的万能方案”——病灶极小时纯 Dice 的早期梯度可能很不稳定，反而更依赖交叉熵或 Tversky 提供稳定信号；只看体素级 Dice 就判断模型可用，忽略病灶级漏检；在不同损失之间比较时同时改动了数据划分、归一化或阈值策略，导致结论无法归因到损失本身。</li></ul><div class="card-meta"><span class="topic-chip">Tips · 损失函数与类别不平衡</span><span class="source-chip">Medical Image Analysis · Ma et al. 2021</span><span class="evidence official">同行评审方法学比较研究（原始研究）</span><time class="time">2021年7月</time></div></div>
+          </a>
+    </div>
+  </section>
+
+  <aside class="disclaimer"><strong>Medical disclaimer</strong><p>本页面仅用于医学人工智能研究与科研学习的信息整理，不构成诊断、治疗或用药建议。预印本、会议结果、代码基线和科研 Tips 不等同于临床有效性或专业操作规范；涉及具体健康问题，请咨询具备资质的医疗专业人员。</p></aside>
+</main>
+
+<footer>
+  <div class="shell footer-inner"><span>共 <strong>10</strong> 条 · 实际数据源：<span class="research-sources"><a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener noreferrer">PubMed</a> · <a href="https://arxiv.org/list/cs.CV/recent" target="_blank" rel="noopener noreferrer">ArXiv</a> · <a href="https://doi.org/10.1109/TMI.2026.3733436" target="_blank" rel="noopener noreferrer">IEEE TMI</a> · <a href="https://doi.org/10.1109/TMI.2026.3728817" target="_blank" rel="noopener noreferrer">IEEE TMI（介入放射）</a> · <a href="https://doi.org/10.1109/JBHI.2026.3737129" target="_blank" rel="noopener noreferrer">IEEE JBHI</a> · <a href="https://doi.org/10.3390/cancers18132154" target="_blank" rel="noopener noreferrer">Cancers</a> · <a href="https://doi.org/10.1016/j.media.2021.102035" target="_blank" rel="noopener noreferrer">Medical Image Analysis（Tips 来源）</a></span></span><span>最后更新：2026年9月28日 10:05 · 北京时间</span></div>
+</footer>
+
+<script>
+  const progress = document.querySelector('.reading-progress');
+  const navLinks = [...document.querySelectorAll('.nav-link')];
+  const targets = navLinks.map(link => document.querySelector(link.hash)).filter(Boolean);
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.width = `${max > 0 ? (scrollY / max) * 100 : 0}%`;
+  };
+  addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      navLinks.forEach(link => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
+    });
+  }, { rootMargin: '-28% 0px -64% 0px' });
+  targets.forEach(target => observer.observe(target));
+</script>
+</body>
+</html>
