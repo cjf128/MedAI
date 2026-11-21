@@ -109,8 +109,9 @@
   .card:hover::after { color: var(--mint); transform: translate(3px,-3px); }
   .card-num { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid #3c6257; border-radius: 50%; color: var(--mint); font: 800 .7rem/1 "Bahnschrift", sans-serif; }
   .card-body { min-width: 0; display: flex; flex-direction: column; }
-  .card-title { padding-right: 25px; color: var(--ink); font-size: 1.02rem; line-height: 1.58; }
+  .card-title { padding-right: 25px; min-height: 3.16em; color: var(--ink); font-size: 1.02rem; line-height: 1.58; }
   .card-summary { margin: 16px 0 22px; color: var(--muted); font-size: .83rem; line-height: 1.86; }
+  .research-groups .card-summary { margin: 16px 0 0; }
   .card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 11px; margin-top: auto; }
   .topic-chip, .source-chip, .evidence, .time { font-size: .67rem; line-height: 1.55; }
   .topic-chip { padding: 2px 7px; border: 1px solid rgba(112,185,255,.32); color: var(--tips); background: rgba(112,185,255,.06); }
@@ -250,6 +251,31 @@
   };
   addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
+  const equalizeSummaries = () => {
+    document.querySelectorAll('.research-groups .card-grid').forEach(grid => {
+      const cards = [...grid.children].filter(card => card.classList.contains('card'));
+      cards.forEach(card => { const s = card.querySelector('.card-summary'); if (s) s.style.height = 'auto'; });
+      const rows = new Map();
+      cards.forEach(card => {
+        const key = Math.round(card.getBoundingClientRect().top + scrollY);
+        if (!rows.has(key)) rows.set(key, []);
+        rows.get(key).push(card);
+      });
+      rows.forEach(row => {
+        const max = Math.max(...row.map(card => {
+          const s = card.querySelector('.card-summary');
+          return s ? s.getBoundingClientRect().height : 0;
+        }));
+        row.forEach(card => {
+          const s = card.querySelector('.card-summary');
+          if (s) s.style.height = `${max}px`;
+        });
+      });
+    });
+  };
+  equalizeSummaries();
+  addEventListener('resize', equalizeSummaries);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(equalizeSummaries);
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
